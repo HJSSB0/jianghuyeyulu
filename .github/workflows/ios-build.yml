@@ -23,6 +23,8 @@ jobs:
   # iOS 导出：macOS runner 产出未签名 Xcode 工程 + 未签名 ipa（Windows 免 Mac：Sideloadly 侧载，见 docs/03 路线 C）
   export-ios:
     runs-on: macos-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: 安装 Godot 4.7.2 与导出模板
@@ -58,6 +60,15 @@ jobs:
             cat build/export.log
             echo '</pre>'
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: 失败时回传导出日志到 ci-logs 分支
+        if: failure()
+        run: |
+          git config user.email "ci@jianghuyeyulu.invalid"
+          git config user.name "ci-bot"
+          git checkout -B ci-logs
+          git add -f build/export.log
+          git commit -m "ci: export log ${GITHUB_SHA::7}"
+          git push -f origin ci-logs
       - name: 打包未签名 ipa
         run: |
           cd build
