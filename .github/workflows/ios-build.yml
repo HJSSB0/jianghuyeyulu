@@ -96,3 +96,13 @@ jobs:
           name: JiangHuYeYuLu-iOS-unsigned-ipa
           path: build/JiangHuYeYuLu-unsigned.ipa
           if-no-files-found: error
+      - name: 发布未签名 ipa 到 Release（匿名可下载）
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete unsigned-ipa --yes --cleanup-tag 2>/dev/null || true
+          gh release create unsigned-ipa build/JiangHuYeYuLu-unsigned.ipa \
+            --title "iOS 未签名 ipa（自动构建）" \
+            --notes "commit ${GITHUB_SHA::7}；供 Sideloadly 侧载用（docs/03 路线 C），每次构建覆盖发布" \
+            --latest
