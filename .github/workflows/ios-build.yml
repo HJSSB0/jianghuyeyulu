@@ -39,8 +39,16 @@ jobs:
       - name: 导出 iOS（未签名 Xcode 工程）
         run: |
           mkdir -p build
-          ./Godot.app/Contents/MacOS/Godot --headless --path . --export-release "iOS" build/JiangHuYeYuLu.xcodeproj
+          set -o pipefail
+          ./Godot.app/Contents/MacOS/Godot --headless --path . --export-release "iOS" build/JiangHuYeYuLu.xcodeproj 2>&1 | tee build/export.log
           ls -la build/
+      - name: 上传导出日志（诊断）
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: export-log
+          path: build/export.log
+          if-no-files-found: ignore
       - name: 打包未签名 ipa
         run: |
           cd build
