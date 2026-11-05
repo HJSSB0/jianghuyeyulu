@@ -1,0 +1,47 @@
+; Engine configuration file.
+; 《江湖夜雨录》Godot 4.7 配置
+
+config_version=5
+
+[application]
+
+config/name="江湖夜雨录"
+config/description="大侠立志传 × 烟雨江湖 融合复刻 · 垂直切片"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.7")
+
+[autoload]
+
+EventBus="*res://autoload/EventBus.gd"
+GameDB="*res://autoload/GameDB.gd"
+GameState="*res://autoload/GameState.gd"
+Battle="*res://autoload/Battle.gd"
+SaveSystem="*res://autoload/SaveSystem.gd"
+CloudSync="*res://autoload/CloudSync.gd"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/handheld/orientation=4
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+
+[debug]
+
+gdscript/warnings/inference_on_variant=0
+gdscript/warnings/untyped_declaration=0
+gdscript/warnings/unsafe_property_access=0
+gdscript/warnings/unsafe_method_access=0
+gdscript/warnings/unsafe_cast_from_variant=0
+gdscript/warnings/return_value_discarded=0

@@ -1,0 +1,90 @@
+{
+  "tiejianmen": {
+    "id": "tiejianmen",
+    "name": "铁剑门",
+    "weapon": "剑",
+    "desc": "满山剑冢，铁剑门立派之本。门规：剑，只向不义之人出鞘。",
+    "join_via": "lin_jianxin",
+    "join_quest": "s_tie1",
+    "join_bonus": {
+      "trait": "t_jianshin"
+    },
+    "wuxue": [
+      "jian_tiejian",
+      "jian_liuyun",
+      "jian_tianhe",
+      "qing_liuyun"
+    ],
+    "shop_grades": {
+      "jian_tiejian": 0,
+      "jian_liuyun": 200,
+      "jian_tianhe": 600
+    },
+    "leave": {
+      "affinity_cost": 20,
+      "morality": {},
+      "text": "叶孤鸿收剑入鞘：'剑心既动，去意已决。门中武学你且留着，莫辱没了它。'"
+    },
+    "elder": "ye_guhong",
+    "map": "tiejian"
+  },
+  "fuhusi": {
+    "id": "fuhusi",
+    "name": "伏虎禅寺",
+    "weapon": "拳棍",
+    "desc": "晨钟暮鼓，禅武合一。拳脚棍棒皆是禅，打坐挑水亦皆是禅。",
+    "join_via": "liao_chen",
+    "join_quest": "s_fu1",
+    "join_bonus": {
+      "trait": "t_chanxin"
+    },
+    "wuxue": [
+      "quan_liehu",
+      "quan_dacheng",
+      "quan_luohan",
+      "gun_fuhu",
+      "qing_hubu"
+    ],
+    "shop_grades": {
+      "quan_liehu": 0,
+      "quan_dacheng": 200,
+      "quan_luohan": 600
+    },
+    "leave": {
+      "affinity_cost": 20,
+      "morality": {},
+      "text": "弘觉方丈双手合十：'尘缘未了，去亦随缘。施主珍重。'"
+    },
+    "elder": "hong_jue",
+    "map": "fuhu"
+  },
+  "yanbolou": {
+    "id": "yanbolou",
+    "name": "烟波楼",
+    "weapon": "剑/轻功",
+    "desc": "烟波浩渺处的水上楼阁。功夫讲究一个'借'字——借风、借水、借敌之势。",
+    "join_via": "su_yanbo",
+    "join_quest": "s_yan1",
+    "join_bonus": {
+      "trait": "t_yanbobu"
+    },
+    "wuxue": [
+      "jian_yanbo",
+      "jian_liuyun",
+      "qing_yanbo",
+      "nei_yanbo"
+    ],
+    "shop_grades": {
+      "jian_yanbo": 0,
+      "qing_yanbo": 100,
+      "nei_yanbo": 500
+    },
+    "leave": {
+      "affinity_cost": 20,
+      "morality": {},
+      "text": "白凌波琴音一停：'去吧。烟波万里，何处不可容身。'"
+    },
+    "elder": "bai_lingbo",
+    "map": "yanbo"
+  }
+}

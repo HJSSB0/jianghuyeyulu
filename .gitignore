@@ -1,0 +1,19 @@
+# Godot 缓存与导入产物（可由 --import 重新生成）
+.godot/
+
+# 构建产物
+build/
+
+# 本地工具（Godot 编辑器可执行文件，约 180MB，不入库）
+.tools/
+
+# 云存档服务器运行时数据（用户档/历史备份/日志）
+server/data/
+server/history/
+server/*.log
+
+# 本地代理工作区（会话交接/计划/巡检截图；.zcode/tests 为 CI 依赖，必须保留）
+.zcode/HANDOFF.md
+.zcode/handoffs/
+.zcode/plans/
+.zcode/shots/

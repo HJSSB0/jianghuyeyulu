@@ -1,0 +1,740 @@
+{
+  "m1": {
+    "id": "m1",
+    "name": "主线·雨夜之后",
+    "type": "主线",
+    "desc": "村子遭袭的第二天，去看看幸存的村民。",
+    "steps": [
+      {
+        "text": "与顾老丈交谈",
+        "hint": "村长就在老槐树下。",
+        "do": {
+          "type": "talk",
+          "npc": "gu_laozhang"
+        }
+      },
+      {
+        "text": "拜访玄尘老者",
+        "hint": "村东头的蓑衣老者。",
+        "do": {
+          "type": "talk",
+          "npc": "xuanchen"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 30,
+      "money": 0,
+      "items": {
+        "c_jinchuang": 2
+      },
+      "traits": [],
+      "morality": {},
+      "fame": 5
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "m2": {
+    "id": "m2",
+    "name": "主线·拜月之影",
+    "type": "主线",
+    "desc": "玄尘先生让你收集线索，查明黑衣人的来历。",
+    "steps": [
+      {
+        "text": "询问顾小满",
+        "hint": "孩子看见了什么？",
+        "do": {
+          "type": "talk",
+          "npc": "gu_xiaoman"
+        }
+      },
+      {
+        "text": "询问猎户刘二",
+        "hint": "刘二常在村口，见过来人。",
+        "do": {
+          "type": "talk",
+          "npc": "liu_er"
+        }
+      },
+      {
+        "text": "回报玄尘",
+        "hint": "把所见所闻告诉玄尘先生。",
+        "do": {
+          "type": "talk",
+          "npc": "xuanchen"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 50,
+      "money": 100,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 5
+    },
+    "prereq": {
+      "quests": [
+        "m1"
+      ]
+    },
+    "auto": true
+  },
+  "m3": {
+    "id": "m3",
+    "name": "主线·江州风云",
+    "type": "主线",
+    "desc": "前往江州城，拜入三大门派之一。",
+    "steps": [
+      {
+        "text": "抵达江州城",
+        "hint": "大地图向东南行。",
+        "do": {
+          "type": "visit",
+          "map": "jiangzhou"
+        }
+      },
+      {
+        "text": "会见门派执事",
+        "hint": "林剑心、了尘或苏烟波。",
+        "do": {
+          "type": "talk_any",
+          "npcs": [
+            "lin_jianxin",
+            "liao_chen",
+            "su_yanbo"
+          ]
+        }
+      },
+      {
+        "text": "拜入门派",
+        "hint": "完成执事的入门任务。",
+        "do": {
+          "type": "join_faction"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 60,
+      "money": 0,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 10
+    },
+    "prereq": {
+      "quests": [
+        "m2"
+      ]
+    },
+    "auto": true
+  },
+  "m4": {
+    "id": "m4",
+    "name": "主线·随行之人",
+    "type": "主线",
+    "desc": "行走江湖需有同伴。至少招募一名随从。",
+    "steps": [
+      {
+        "text": "招募任意一名随从",
+        "hint": "柳绵绵（村中）、秦无衣（江州）、白芷（临安）。",
+        "do": {
+          "type": "recruit"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 60,
+      "money": 200,
+      "items": {
+        "c_jinchuang": 2
+      },
+      "traits": [],
+      "morality": {},
+      "fame": 5
+    },
+    "prereq": {
+      "quests": [
+        "m3"
+      ]
+    },
+    "auto": true
+  },
+  "m5": {
+    "id": "m5",
+    "name": "主线·北郊剿狼",
+    "type": "主线",
+    "desc": "铁捕头悬赏北郊狼群。剿灭头狼，还商路太平。",
+    "steps": [
+      {
+        "text": "前往北郊野林",
+        "hint": "大地图西北。",
+        "do": {
+          "type": "visit",
+          "map": "wild_north"
+        }
+      },
+      {
+        "text": "击杀头狼",
+        "hint": "狼群的首领。",
+        "do": {
+          "type": "kill",
+          "enemy": "wolf_alpha",
+          "count": 1
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 120,
+      "money": 500,
+      "items": {
+        "c_dajinchuang": 1
+      },
+      "traits": [],
+      "morality": {
+        "勇": 10
+      },
+      "fame": 15
+    },
+    "prereq": {
+      "quests": [
+        "m4"
+      ]
+    },
+    "auto": true
+  },
+  "m6": {
+    "id": "m6",
+    "name": "主线·弯月再现",
+    "type": "主线",
+    "desc": "铁捕头截获密信：拜月教将在江州城有所动作。子时去黑市打探。",
+    "steps": [
+      {
+        "text": "子时造访黑市",
+        "hint": "鬼手只在子时与丑时出没。",
+        "do": {
+          "type": "talk",
+          "npc": "guishou"
+        }
+      },
+      {
+        "text": "从教众处取得拜月令",
+        "hint": "击败出没的拜月教众。",
+        "do": {
+          "type": "kill",
+          "enemy": "baiyue_adept",
+          "count": 1
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 100,
+      "money": 0,
+      "items": {
+        "q_baiyueling": 1
+      },
+      "traits": [],
+      "morality": {},
+      "fame": 10
+    },
+    "prereq": {
+      "quests": [
+        "m5"
+      ]
+    },
+    "auto": true
+  },
+  "m7": {
+    "id": "m7",
+    "name": "主线·护法现身",
+    "type": "主线",
+    "desc": "持拜月令赴西山河畔，引出拜月护法·玄。",
+    "steps": [
+      {
+        "text": "酉时后前往西山河畔",
+        "hint": "日落之后的河畔，才有月影。",
+        "do": {
+          "type": "visit",
+          "map": "wild_west",
+          "after": 9
+        }
+      },
+      {
+        "text": "在河畔祭出拜月令，击败护法·玄",
+        "hint": "硬仗，备足丹药，摆好阵法。",
+        "do": {
+          "type": "kill",
+          "enemy": "baiyue_guard",
+          "count": 1
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 300,
+      "money": 800,
+      "items": {
+        "c_dajinchuang": 2
+      },
+      "traits": [],
+      "morality": {
+        "勇": 20
+      },
+      "fame": 40
+    },
+    "prereq": {
+      "quests": [
+        "m6"
+      ]
+    },
+    "auto": true
+  },
+  "m8": {
+    "id": "m8",
+    "name": "主线·夜雨初歇",
+    "type": "主线",
+    "desc": "护法败退，临走留下一句'月圆之夜，武神殿见'。第一章落幕。",
+    "steps": [
+      {
+        "text": "做出你的选择",
+        "hint": "江湖路远，去向何方？",
+        "do": {
+          "type": "ending_choice"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 0,
+      "money": 0,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 0
+    },
+    "prereq": {
+      "quests": [
+        "m7"
+      ]
+    },
+    "auto": true
+  },
+  "f_liu1": {
+    "id": "f_liu1",
+    "name": "随从·柳绵绵的遗物",
+    "type": "随从",
+    "desc": "帮柳绵绵找回娘亲的遗物。",
+    "steps": [
+      {
+        "text": "在北郊野林寻找遗物",
+        "hint": "荆棘丛（7,11）附近。",
+        "do": {
+          "type": "hidden",
+          "id": "nh_relic"
+        }
+      },
+      {
+        "text": "交还柳绵绵",
+        "hint": "回村找她。",
+        "do": {
+          "type": "talk",
+          "npc": "liumianmian"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 80,
+      "money": 0,
+      "items": {},
+      "traits": [
+        "t_zhongqing"
+      ],
+      "morality": {
+        "仁": 15
+      },
+      "fame": 5
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "f_qin1": {
+    "id": "f_qin1",
+    "name": "随从·秦无衣的旧债",
+    "type": "随从",
+    "desc": "秦无衣要向江洋大盗讨回一笔血债。",
+    "steps": [
+      {
+        "text": "与秦无衣切磋一场",
+        "hint": "他要先确认你的斤两。",
+        "do": {
+          "type": "spar_win",
+          "npc": "qin_wuyi"
+        }
+      },
+      {
+        "text": "在西山河畔击杀江洋大盗",
+        "hint": "那大盗就在河畔出没。",
+        "do": {
+          "type": "kill",
+          "enemy": "dadao",
+          "count": 1
+        }
+      },
+      {
+        "text": "回报秦无衣",
+        "hint": "江州酒馆。",
+        "do": {
+          "type": "talk",
+          "npc": "qin_wuyi"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 150,
+      "money": 300,
+      "items": {},
+      "traits": [
+        "t_kuaiyi"
+      ],
+      "morality": {
+        "义": 15
+      },
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "f_bai1": {
+    "id": "f_bai1",
+    "name": "随从·白芷的药材",
+    "type": "随从",
+    "desc": "白芷需要一批草药炼制防疫丹。",
+    "steps": [
+      {
+        "text": "采集草药×5",
+        "hint": "任意采药点，北郊的药草最好。",
+        "do": {
+          "type": "collect",
+          "item": "m_caoy",
+          "count": 5
+        }
+      },
+      {
+        "text": "交给白芷",
+        "hint": "临安镇药庐。",
+        "do": {
+          "type": "talk",
+          "npc": "bai_zhi"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 100,
+      "money": 200,
+      "items": {
+        "c_dajinchuang": 2
+      },
+      "traits": [
+        "t_renxin"
+      ],
+      "morality": {
+        "仁": 15
+      },
+      "fame": 5
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "s_tie1": {
+    "id": "s_tie1",
+    "name": "铁剑门·问剑",
+    "type": "门派",
+    "desc": "入门试炼：与大师姐沈霜切磋获胜。",
+    "steps": [
+      {
+        "text": "在剑冢峰与沈霜切磋",
+        "hint": "点到为止，但要点到她前面。",
+        "do": {
+          "type": "spar_win",
+          "npc": "shen_shuang"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 100,
+      "money": 0,
+      "items": {
+        "x_liuyunjian": 1
+      },
+      "traits": [],
+      "morality": {},
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "s_fu1": {
+    "id": "s_fu1",
+    "name": "伏虎禅寺·挑水",
+    "type": "门派",
+    "desc": "入门试炼：修行从劳作开始。",
+    "steps": [
+      {
+        "text": "完成3次采集劳作",
+        "hint": "任意采集点。",
+        "do": {
+          "type": "gather",
+          "count": 3
+        }
+      },
+      {
+        "text": "回报了空首座",
+        "hint": "伏虎禅寺演武场。",
+        "do": {
+          "type": "talk",
+          "npc": "liao_kong"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 100,
+      "money": 0,
+      "items": {
+        "x_fuhugun": 1
+      },
+      "traits": [],
+      "morality": {},
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "s_yan1": {
+    "id": "s_yan1",
+    "name": "烟波楼·踏浪",
+    "type": "门派",
+    "desc": "入门试炼：证明你的'静功'。",
+    "steps": [
+      {
+        "text": "钓鱼3次",
+        "hint": "西山河畔或临安水边。",
+        "do": {
+          "type": "fish",
+          "count": 3
+        }
+      },
+      {
+        "text": "回报青雀",
+        "hint": "烟波岛。",
+        "do": {
+          "type": "talk",
+          "npc": "qing_que"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 100,
+      "money": 0,
+      "items": {
+        "t_yupei": 1
+      },
+      "traits": [],
+      "morality": {},
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "bounty_a1": {
+    "id": "bounty_a1",
+    "name": "悬赏·甲·血债血偿",
+    "type": "悬赏",
+    "desc": "江洋大盗劫掠商队，取其首级。",
+    "steps": [
+      {
+        "text": "击杀江洋大盗",
+        "hint": "西山河畔。",
+        "do": {
+          "type": "kill",
+          "enemy": "dadao",
+          "count": 1
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 150,
+      "money": 1500,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 10
+      },
+      "fame": 15
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "bounty_b1": {
+    "id": "bounty_b1",
+    "name": "悬赏·乙·狼皮三张",
+    "type": "悬赏",
+    "desc": "皮货商急收狼皮。",
+    "steps": [
+      {
+        "text": "收集狼皮×3",
+        "hint": "北郊野林猎狼。",
+        "do": {
+          "type": "collect",
+          "item": "m_langpi",
+          "count": 3
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 90,
+      "money": 700,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 8
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "bounty_b2": {
+    "id": "bounty_b2",
+    "name": "悬赏·乙·剪除山贼",
+    "type": "悬赏",
+    "desc": "山贼头目啸聚北郊，商户凑钱悬赏。",
+    "steps": [
+      {
+        "text": "击杀山贼头目",
+        "hint": "北郊野林。",
+        "do": {
+          "type": "kill",
+          "enemy": "bandit_chief",
+          "count": 1
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 110,
+      "money": 800,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 8
+      },
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "bounty_c1": {
+    "id": "bounty_c1",
+    "name": "悬赏·丙·铁矿三斤",
+    "type": "悬赏",
+    "desc": "欧冶青赶兵器订单，缺铁矿。",
+    "steps": [
+      {
+        "text": "收集铁矿×3",
+        "hint": "挖矿可得。",
+        "do": {
+          "type": "collect",
+          "item": "m_tiekuang",
+          "count": 3
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 50,
+      "money": 250,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 3
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "bounty_c2": {
+    "id": "bounty_c2",
+    "name": "悬赏·丙·驱赶野狼",
+    "type": "悬赏",
+    "desc": "猎户刘二悬赏，驱赶袭扰村落的灰狼。",
+    "steps": [
+      {
+        "text": "击杀灰狼×2",
+        "hint": "北郊野林。",
+        "do": {
+          "type": "kill",
+          "enemy": "wolf",
+          "count": 2
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 60,
+      "money": 300,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 4
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "bounty_c3": {
+    "id": "bounty_c3",
+    "name": "悬赏·丙·送信临安",
+    "type": "悬赏",
+    "desc": "铁捕头有公文书信需送至临安镇。",
+    "steps": [
+      {
+        "text": "将书信送至白芷处",
+        "hint": "临安镇药庐。",
+        "do": {
+          "type": "talk",
+          "npc": "bai_zhi"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 40,
+      "money": 200,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 3
+    },
+    "prereq": {},
+    "auto": true
+  },
+  "bounty_c4": {
+    "id": "bounty_c4",
+    "name": "悬赏·丙·寻找走失的羊",
+    "type": "悬赏",
+    "desc": "王大娘家的羊跑丢了，最后见到它在北郊。",
+    "steps": [
+      {
+        "text": "前往北郊野林搜寻",
+        "hint": "在野林里找一找。",
+        "do": {
+          "type": "visit",
+          "map": "wild_north"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 40,
+      "money": 220,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "仁": 5
+      },
+      "fame": 3
+    },
+    "prereq": {},
+    "auto": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meihua": {
+    "id": "meihua", "name": "梅花阵", "grade": "丁",
+    "desc": "散人常用的基础阵位，无特殊加成。",
+    "bonus": {"text": "无加成", "mods": {}}
+  },
+  "tiangang": {
+    "id": "tiangang", "name": "天罡阵", "grade": "丙",
+    "desc": "前排如罡气护体：前排受击减免，后排攻击提升。",
+    "bonus": {"text": "前排减伤12%，后排增伤12%", "mods": {"front_dr": 0.12, "back_atk": 0.12}}
+  },
+  "liuyun": {
+    "id": "liuyun", "name": "流云阵", "grade": "丙",
+    "desc": "身法如流云：全体集气提升。",
+    "bonus": {"text": "全体集气+15%", "mods": {"gauge": 0.15}}
+  },
+  "sixiang": {
+    "id": "sixiang", "name": "四象阵", "grade": "乙",
+    "desc": "青龙聚气、玄武镇守：每回合全队回复气血，中位防御提升。",
+    "bonus": {"text": "每回合全队回血3%，中位减伤10%", "mods": {"regen": 0.03, "mid_dr": 0.10}}
+  }
+}

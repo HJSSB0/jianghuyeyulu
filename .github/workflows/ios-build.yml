@@ -1,0 +1,70 @@
+name: 测试与 iOS 构建
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    tags: ["v*"]
+
+jobs:
+  # 逻辑回归：107 项断言（headless，无需渲染）
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 安装 Godot 4.7.2
+        run: |
+          curl -L --fail -o godot.zip https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          unzip godot.zip
+          chmod +x Godot_v4.7.2-stable_linux.x86_64
+      - name: 逻辑回归测试
+        run: ./Godot_v4.7.2-stable_linux.x86_64 --headless --path . --script .zcode/tests/run_tests.gd
+
+  # iOS 导出：macOS runner 产出未签名 Xcode 工程 + 未签名 ipa（Windows 免 Mac：Sideloadly 侧载，见 docs/03 路线 C）
+  export-ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 安装 Godot 4.7.2 与导出模板
+        run: |
+          curl -L --fail -o godot.zip https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_macos.universal.zip
+          unzip godot.zip
+          chmod +x Godot.app/Contents/MacOS/Godot
+          curl -L --fail -o templates.tpz https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz
+          mkdir -p "$HOME/Library/Application Support/Godot/export_templates"
+          unzip templates.tpz -d /tmp/tpl
+          mv /tmp/tpl/templates "$HOME/Library/Application Support/Godot/export_templates/4.7.2.stable"
+      - name: 导入资源（生成 .godot/imported）
+        run: ./Godot.app/Contents/MacOS/Godot --headless --path . --import
+      - name: 导出 iOS（未签名 Xcode 工程）
+        run: |
+          mkdir -p build
+          ./Godot.app/Contents/MacOS/Godot --headless --path . --export-release "iOS" build/JiangHuYeYuLu.xcodeproj
+          ls -la build/
+      - name: 打包未签名 ipa
+        run: |
+          cd build
+          TARGET=$(xcodebuild -list -project JiangHuYeYuLu.xcodeproj | awk '/Targets:/{f=1;next}/Build Configurations:/{f=0}f{gsub(/^[ \t]+|[ \t]+$/,"");if($0!=""){print;exit}}')
+          echo "xcodebuild target: $TARGET"
+          test -n "$TARGET"
+          xcodebuild -project JiangHuYeYuLu.xcodeproj -target "$TARGET" -configuration Release \
+            -sdk iphoneos SYMROOT=stage CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+          APP=$(find stage/Release-iphoneos -maxdepth 1 -name '*.app' | head -n 1)
+          echo "app bundle: $APP"
+          test -n "$APP"
+          mkdir Payload
+          cp -R "$APP" Payload/
+          zip -qry JiangHuYeYuLu-unsigned.ipa Payload
+          ls -la JiangHuYeYuLu-unsigned.ipa
+      - name: 上传 Xcode 工程
+        uses: actions/upload-artifact@v4
+        with:
+          name: JiangHuYeYuLu-iOS-Xcode
+          path: build/JiangHuYeYuLu.xcodeproj
+          if-no-files-found: error
+      - name: 上传未签名 ipa
+        uses: actions/upload-artifact@v4
+        with:
+          name: JiangHuYeYuLu-iOS-unsigned-ipa
+          path: build/JiangHuYeYuLu-unsigned.ipa
+          if-no-files-found: error

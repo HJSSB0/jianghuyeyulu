@@ -1,0 +1,50 @@
+{
+  "shou_taiyin": {
+    "id": "shou_taiyin", "name": "手太阴肺经", "pos": 1, "cost": {"zhenqi": 30, "dan": 0},
+    "desc": "肺主皮毛，行气之始。",
+    "shun": {"text": "顺通：命中+5%", "mods": {"hit": 5}},
+    "ni": {"text": "逆通：闪避+5%", "mods": {"dodge": 5}}
+  },
+  "shou_jueyin": {
+    "id": "shou_jueyin", "name": "手厥阴心包经", "pos": 2, "cost": {"zhenqi": 50, "dan": 0},
+    "desc": "心包护心，气冲锋芒。",
+    "shun": {"text": "顺通：暴击+5%", "mods": {"crit": 5}},
+    "ni": {"text": "逆通：闪避+4%，速度+1", "mods": {"dodge": 4, "spd": 1}}
+  },
+  "shou_shaoyin": {
+    "id": "shou_shaoyin", "name": "手少阴心经", "pos": 3, "cost": {"zhenqi": 70, "dan": 0},
+    "desc": "心主神明，凝神一击。",
+    "shun": {"text": "顺通：攻击+3", "mods": {"atk": 3}},
+    "ni": {"text": "逆通：内力上限+20", "mods": {"mp_max": 20}}
+  },
+  "zu_yangming": {
+    "id": "zu_yangming", "name": "足阳明胃经", "pos": 4, "cost": {"zhenqi": 90, "dan": 1},
+    "desc": "胃气为本，气血之源。",
+    "shun": {"text": "顺通：气血上限+40", "mods": {"hp_max": 40}},
+    "ni": {"text": "逆通：真气恢复加速15%", "mods": {"zhenqi_rate": 0.15}}
+  },
+  "zu_shaoyang": {
+    "id": "zu_shaoyang", "name": "足少阳胆经", "pos": 5, "cost": {"zhenqi": 120, "dan": 1},
+    "desc": "胆主决断，气走胆经者狠。",
+    "shun": {"text": "顺通：破甲（无视防御8%）", "mods": {"armor_pen": 0.08}},
+    "ni": {"text": "逆通：韧性+10（抗DOT）", "mods": {"tenacity": 10}}
+  },
+  "zu_taiyin": {
+    "id": "zu_taiyin", "name": "足太阴脾经", "pos": 6, "cost": {"zhenqi": 150, "dan": 2},
+    "desc": "脾统血，运化周身。",
+    "shun": {"text": "顺通：防御+3", "mods": {"def": 3}},
+    "ni": {"text": "逆通：每回合回血+1%", "mods": {"regen": 0.01}}
+  },
+  "du_mai": {
+    "id": "du_mai", "name": "督脉", "pos": 7, "cost": {"zhenqi": 200, "dan": 2},
+    "desc": "阳脉之海，总督诸阳。",
+    "shun": {"text": "顺通：绝招伤害+15%", "mods": {"ult_amp": 0.15}},
+    "ni": {"text": "逆通：战意获取+25%", "mods": {"yide_rate": 0.25}}
+  },
+  "ren_mai": {
+    "id": "ren_mai", "name": "任脉", "pos": 8, "cost": {"zhenqi": 250, "dan": 3},
+    "desc": "阴脉之海，任受诸阴。",
+    "shun": {"text": "顺通：气血上限+80", "mods": {"hp_max": 80}},
+    "ni": {"text": "逆通：集气+10%", "mods": {"gauge": 0.10}}
+  }
+}

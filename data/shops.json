@@ -1,0 +1,83 @@
+{
+  "shop_village": {
+    "id": "shop_village", "name": "王大娘的货摊", "owner": "wang_daniang",
+    "items": [
+      {"item": "c_mantou", "price": 12}, {"item": "c_chuibing", "price": 20},
+      {"item": "c_jinchuang", "price": 60}, {"item": "m_mianma", "price": 10},
+      {"item": "a_cubuyi", "price": 90}, {"item": "w_mugun", "price": 80}
+    ]
+  },
+  "shop_zahu": {
+    "id": "shop_zahu", "name": "钱多多杂货铺", "owner": "qian_duoduo",
+    "items": [
+      {"item": "c_jinchuang", "price": 60}, {"item": "c_dajinchuang", "price": 180},
+      {"item": "c_jiedudan", "price": 90}, {"item": "c_juqisan", "price": 100},
+      {"item": "x_neitiepi", "price": 500},
+      {"item": "g_dianxin", "price": 80}, {"item": "g_yanzhi", "price": 150},
+      {"item": "c_longjing", "price": 80}
+    ]
+  },
+  "shop_yaopu": {
+    "id": "shop_yaopu", "name": "回春堂药铺", "owner": "sun_daifu",
+    "items": [
+      {"item": "c_jinchuang", "price": 55}, {"item": "c_dajinchuang", "price": 170},
+      {"item": "c_jiedudan", "price": 85}, {"item": "c_juqisan", "price": 95},
+      {"item": "m_caoy", "price": 18}, {"item": "m_lingzhi", "price": 160},
+      {"item": "c_xingqidan", "price": 220}
+    ]
+  },
+  "shop_wuqi": {
+    "id": "shop_wuqi", "name": "欧冶记兵器铺", "owner": "ouye_qing",
+    "items": [
+      {"item": "w_tiehushou", "price": 120}, {"item": "w_tiejian", "price": 130},
+      {"item": "w_pudao", "price": 130}, {"item": "w_mugun", "price": 80},
+      {"item": "w_liuyunjian", "price": 500}, {"item": "w_jingtie", "price": 450},
+      {"item": "w_poshandao", "price": 520}, {"item": "w_tiegun", "price": 460},
+      {"item": "a_pijia", "price": 420}, {"item": "t_yupei", "price": 480},
+      {"item": "a_cubuyi", "price": 90}
+    ]
+  },
+  "shop_jiuguan": {
+    "id": "shop_jiuguan", "name": "醉仙楼", "owner": "wu_san",
+    "items": [
+      {"item": "c_nverhong", "price": 160}, {"item": "c_jiaohuaji", "price": 150},
+      {"item": "c_chuibing", "price": 20}, {"item": "g_jiangnanchun", "price": 220},
+      {"item": "c_mantou", "price": 12}
+    ]
+  },
+  "shop_heishi": {
+    "id": "shop_heishi", "name": "子夜黑市", "owner": "guishou", "night_only": true,
+    "items": [
+      {"item": "x_hongsha", "price": 2200}, {"item": "c_xingqidan", "price": 200},
+      {"item": "c_dajinchuang", "price": 150}, {"item": "t_baibaonang", "price": 1250},
+      {"item": "a_ruanweijia", "price": 3800}, {"item": "w_hongshadao", "price": 1700}
+    ]
+  },
+  "shop_yushi": {
+    "id": "shop_yushi", "name": "周伯的渔摊", "owner": "zhou_bo",
+    "items": [
+      {"item": "m_xianyu", "price": 18}, {"item": "c_mantou", "price": 12},
+      {"item": "c_longjing", "price": 80}
+    ]
+  },
+  "sect_tiejianmen": {
+    "id": "sect_tiejianmen", "name": "铁剑门·贡献阁", "owner": "ye_guhong", "sect_shop": true,
+    "items": [
+      {"item": "x_liuyunjian", "price": 0, "contrib": 200}, {"item": "x_tianhe", "price": 0, "contrib": 600},
+      {"item": "w_tianhejian", "price": 0, "contrib": 800}, {"item": "w_qingshuang", "price": 0, "contrib": 500}
+    ]
+  },
+  "sect_fuhusi": {
+    "id": "sect_fuhusi", "name": "伏虎禅寺·功德堂", "owner": "hong_jue", "sect_shop": true,
+    "items": [
+      {"item": "x_quanliehu", "price": 0, "contrib": 100}, {"item": "x_dacheng", "price": 0, "contrib": 400},
+      {"item": "x_luohan", "price": 0, "contrib": 700}, {"item": "w_fuhugun", "price": 0, "contrib": 300}
+    ]
+  },
+  "sect_yanbolou": {
+    "id": "sect_yanbolou", "name": "烟波楼·藏珍阁", "owner": "bai_lingbo", "sect_shop": true,
+    "items": [
+      {"item": "x_yanbo_nei", "price": 0, "contrib": 500}, {"item": "x_yanbo_jian", "price": 0, "contrib": 300}
+    ]
+  }
+}

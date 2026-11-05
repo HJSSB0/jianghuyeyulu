@@ -1,0 +1,260 @@
+{
+  "quan_jichu": {
+    "id": "quan_jichu", "name": "基础拳法", "kind": "套路", "weapon": "拳", "grade": "丁",
+    "source": "无名小村·玄尘老者授艺", "desc": "乡野把式，胜在朴实无华。", "traits": ["朴实"],
+    "moves": [
+      {"name": "冲拳", "mult": 1.0, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "崩拳", "mult": 1.5, "mp": 6, "cd": 1, "target": "对位"},
+      {"name": "连环双拳", "mult": 1.1, "mp": 10, "cd": 2, "target": "横扫"},
+      {"name": "铁山靠", "mult": 1.9, "mp": 15, "cd": 3, "target": "对位", "status": {"id": "内伤", "turns": 2, "val": 0.15}},
+      {"name": "全力崩拳", "mult": 2.7, "mp": 24, "cd": 4, "target": "对位", "ult": true}
+    ]
+  },
+  "quan_liehu": {
+    "id": "quan_liehu", "name": "猛虎拳", "kind": "套路", "weapon": "拳", "grade": "丙",
+    "source": "伏虎禅寺·入门传授", "desc": "拳出如虎啸山林，刚猛无俦。", "traits": ["重势"],
+    "moves": [
+      {"name": "恶虎扑食", "mult": 1.1, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "虎爪撕", "mult": 1.4, "mp": 7, "cd": 1, "target": "对位", "status": {"id": "流血", "turns": 3, "val": 6}},
+      {"name": "虎啸", "mult": 0.7, "mp": 10, "cd": 3, "target": "全体", "status": {"id": "内伤", "turns": 2, "val": 0.12}},
+      {"name": "猛虎下山", "mult": 1.4, "mp": 16, "cd": 3, "target": "横扫"},
+      {"name": "虎王咆哮", "mult": 2.5, "mp": 26, "cd": 4, "target": "横扫", "ult": true}
+    ]
+  },
+  "quan_zui": {
+    "id": "quan_zui", "name": "醉八仙", "kind": "套路", "weapon": "拳", "grade": "丙",
+    "source": "江州酒馆·醉侠奇遇", "desc": "似醉非醉，拳法无常，行踪不定。", "traits": ["灵动"],
+    "moves": [
+      {"name": "醉步撩拳", "mult": 1.0, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "颠三倒四", "mult": 1.2, "mp": 8, "cd": 2, "target": "对位", "status": {"id": "封穴", "turns": 1, "val": 0.55}},
+      {"name": "酒气冲天", "mult": 1.2, "mp": 12, "cd": 3, "target": "横扫"},
+      {"name": "仙翁倒骑驴", "mult": 1.7, "mp": 14, "cd": 3, "target": "突进", "buff_self": {"id": "迟缓", "turns": 1, "val": 0}},
+      {"name": "醉里乾坤", "mult": 2.6, "mp": 26, "cd": 4, "target": "对位", "ult": true, "buff_self": {"id": "攻增", "turns": 2, "val": 0.15}}
+    ]
+  },
+  "quan_dacheng": {
+    "id": "quan_dacheng", "name": "大力金刚掌", "kind": "套路", "weapon": "拳", "grade": "乙",
+    "source": "伏虎禅寺·镇派武学", "desc": "掌力沉雄，一掌之下金石为开。", "traits": ["破甲"],
+    "moves": [
+      {"name": "金刚掌", "mult": 1.15, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "降魔印", "mult": 1.45, "mp": 9, "cd": 2, "target": "对位", "status": {"id": "内伤", "turns": 3, "val": 0.18}},
+      {"name": "韦陀献杵", "mult": 1.6, "mp": 14, "cd": 3, "target": "对位"},
+      {"name": "金刚怒目", "mult": 1.15, "mp": 20, "cd": 3, "target": "全体"},
+      {"name": "大金刚轮印", "mult": 2.9, "mp": 30, "cd": 5, "target": "对位", "ult": true}
+    ]
+  },
+  "quan_luohan": {
+    "id": "quan_luohan", "name": "罗汉伏虎拳", "kind": "套路", "weapon": "拳", "grade": "甲",
+    "source": "伏虎禅寺·贡献兑换", "desc": "百八罗汉之势，伏虎擒龙，佛门至高拳法。", "traits": ["霸体", "重势"],
+    "moves": [
+      {"name": "罗汉拳", "mult": 1.2, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "伏虎势", "mult": 1.5, "mp": 10, "cd": 2, "target": "对位", "status": {"id": "内伤", "turns": 3, "val": 0.2}},
+      {"name": "虎啸龙吟", "mult": 1.35, "mp": 18, "cd": 3, "target": "横扫"},
+      {"name": "百八罗汉阵", "mult": 1.3, "mp": 24, "cd": 4, "target": "全体"},
+      {"name": "伏虎降魔", "mult": 3.3, "mp": 34, "cd": 5, "target": "对位", "ult": true, "buff_self": {"id": "防增", "turns": 2, "val": 0.2}}
+    ]
+  },
+  "quan_liuxu": {
+    "id": "quan_liuxu", "name": "柳絮掌", "kind": "套路", "weapon": "拳", "grade": "丙",
+    "source": "随从·柳绵绵自带", "desc": "掌如柳絮随风，柔中带韧。", "traits": ["迅疾"],
+    "moves": [
+      {"name": "柳絮飘飘", "mult": 0.9, "mp": 0, "cd": 0, "target": "对位", "status": {"id": "迟缓", "turns": 2, "val": 0}},
+      {"name": "拂柳式", "mult": 1.3, "mp": 7, "cd": 1, "target": "对位"},
+      {"name": "柳浪闻莺", "mult": 1.25, "mp": 12, "cd": 3, "target": "横扫"},
+      {"name": "柔丝缠手", "mult": 1.1, "mp": 13, "cd": 3, "target": "对位", "mp_burn": 20},
+      {"name": "柳暗花明", "mult": 2.4, "mp": 24, "cd": 4, "target": "突进", "ult": true}
+    ]
+  },
+  "jian_jichu": {
+    "id": "jian_jichu", "name": "基础剑法", "kind": "套路", "weapon": "剑", "grade": "丁",
+    "source": "无名小村·玄尘老者授艺", "desc": "粗浅剑式，直刺斜撩。", "traits": ["朴实"],
+    "moves": [
+      {"name": "直刺", "mult": 1.05, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "斜撩", "mult": 1.45, "mp": 6, "cd": 1, "target": "对位"},
+      {"name": "三连剑", "mult": 1.15, "mp": 11, "cd": 2, "target": "横扫"},
+      {"name": "格挡反刺", "mult": 1.7, "mp": 14, "cd": 3, "target": "对位", "buff_self": {"id": "防增", "turns": 2, "val": 0.18}},
+      {"name": "剑出无声", "mult": 2.7, "mp": 24, "cd": 4, "target": "突进", "ult": true}
+    ]
+  },
+  "jian_qingshuang": {
+    "id": "jian_qingshuang", "name": "青霜剑法", "kind": "套路", "weapon": "剑", "grade": "丙",
+    "source": "西山河畔·垂钓奇遇", "desc": "剑气如霜，凛冽清寒。", "traits": ["连击"],
+    "moves": [
+      {"name": "霜刃", "mult": 1.1, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "寒霜点", "mult": 1.4, "mp": 7, "cd": 1, "target": "对位", "hit_bonus": 10},
+      {"name": "霜华漫野", "mult": 1.2, "mp": 12, "cd": 3, "target": "横扫"},
+      {"name": "凝霜断水", "mult": 1.8, "mp": 15, "cd": 3, "target": "对位", "status": {"id": "迟缓", "turns": 2, "val": 0}},
+      {"name": "青霜贯日", "mult": 2.6, "mp": 26, "cd": 4, "target": "对位", "ult": true}
+    ]
+  },
+  "jian_tiejian": {
+    "id": "jian_tiejian", "name": "铁剑十三式", "kind": "套路", "weapon": "剑", "grade": "乙",
+    "source": "铁剑门·入门传授", "desc": "剑走刚猛，式式进逼，铁剑门的立派之本。", "traits": ["破甲"],
+    "moves": [
+      {"name": "铁剑横斩", "mult": 1.15, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "破锋", "mult": 1.5, "mp": 9, "cd": 2, "target": "对位"},
+      {"name": "连环剑幕", "mult": 1.25, "mp": 14, "cd": 3, "target": "横扫"},
+      {"name": "剑贯长虹", "mult": 1.85, "mp": 16, "cd": 3, "target": "突进"},
+      {"name": "十三式归一", "mult": 2.9, "mp": 30, "cd": 5, "target": "对位", "ult": true}
+    ]
+  },
+  "jian_liuyun": {
+    "id": "jian_liuyun", "name": "流云剑法", "kind": "套路", "weapon": "剑", "grade": "乙",
+    "source": "铁剑门·贡献传授", "desc": "剑如流云，绵密不绝，攻守相生。", "traits": ["迅疾", "灵动"],
+    "moves": [
+      {"name": "流云拂袖", "mult": 1.1, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "云卷云舒", "mult": 1.4, "mp": 9, "cd": 1, "target": "对位", "buff_self": {"id": "防增", "turns": 2, "val": 0.15}},
+      {"name": "风起云涌", "mult": 1.3, "mp": 15, "cd": 3, "target": "横扫"},
+      {"name": "穿云一剑", "mult": 1.9, "mp": 17, "cd": 3, "target": "突进"},
+      {"name": "流云归海", "mult": 2.8, "mp": 30, "cd": 5, "target": "对位", "ult": true, "buff_self": {"id": "迟缓", "turns": 0, "val": 0}}
+    ]
+  },
+  "jian_tianhe": {
+    "id": "jian_tianhe", "name": "天河剑法", "kind": "套路", "weapon": "剑", "grade": "甲",
+    "source": "铁剑门·镇派武学", "desc": "剑光如天河倒悬，倾泻而下无可撄锋。", "traits": ["蓄力", "连击"],
+    "moves": [
+      {"name": "天河引", "mult": 1.2, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "星河点点", "mult": 1.5, "mp": 10, "cd": 2, "target": "对位"},
+      {"name": "银河横贯", "mult": 1.4, "mp": 18, "cd": 3, "target": "横扫"},
+      {"name": "天倾之势", "mult": 2.0, "mp": 20, "cd": 4, "target": "突进", "status": {"id": "目盲", "turns": 2, "val": 0}},
+      {"name": "天河倒悬", "mult": 3.4, "mp": 36, "cd": 5, "target": "全体", "ult": true}
+    ]
+  },
+  "jian_yanbo": {
+    "id": "jian_yanbo", "name": "烟波剑法", "kind": "套路", "weapon": "剑", "grade": "甲",
+    "source": "烟波楼·贡献传授", "desc": "烟波浩渺，剑意空蒙，无处可捉。", "traits": ["灵动", "迅疾"],
+    "moves": [
+      {"name": "烟波渺渺", "mult": 1.15, "mp": 0, "cd": 0, "target": "对位", "buff_self": {"id": "免伤", "turns": 1, "val": 0.1}},
+      {"name": "细雨斜风", "mult": 1.45, "mp": 10, "cd": 1, "target": "对位"},
+      {"name": "雾锁楼台", "mult": 1.35, "mp": 16, "cd": 3, "target": "全体", "status": {"id": "目盲", "turns": 2, "val": 0}},
+      {"name": "一蓑烟雨", "mult": 1.95, "mp": 18, "cd": 3, "target": "突进"},
+      {"name": "烟波万顷", "mult": 3.2, "mp": 34, "cd": 5, "target": "横扫", "ult": true}
+    ]
+  },
+  "dao_jichu": {
+    "id": "dao_jichu", "name": "基础刀法", "kind": "套路", "weapon": "刀", "grade": "丁",
+    "source": "无名小村·玄尘老者授艺", "desc": "大开大合的粗浅刀法。", "traits": ["朴实"],
+    "moves": [
+      {"name": "劈砍", "mult": 1.1, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "拖刀式", "mult": 1.5, "mp": 6, "cd": 1, "target": "对位"},
+      {"name": "横扫千军", "mult": 1.15, "mp": 11, "cd": 2, "target": "横扫"},
+      {"name": "力劈华山", "mult": 1.8, "mp": 15, "cd": 3, "target": "对位"},
+      {"name": "刀斩长空", "mult": 2.7, "mp": 24, "cd": 4, "target": "对位", "ult": true}
+    ]
+  },
+  "dao_poshan": {
+    "id": "dao_poshan", "name": "破山刀", "kind": "套路", "weapon": "刀", "grade": "丙",
+    "source": "随从·秦无衣自带", "desc": "刀势沉重如山崩，一刀既出再无回头。", "traits": ["重势"],
+    "moves": [
+      {"name": "裂石", "mult": 1.15, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "断岳", "mult": 1.5, "mp": 8, "cd": 2, "target": "对位"},
+      {"name": "山崩", "mult": 1.3, "mp": 13, "cd": 3, "target": "横扫"},
+      {"name": "开山势", "mult": 1.85, "mp": 16, "cd": 3, "target": "对位", "status": {"id": "内伤", "turns": 2, "val": 0.15}},
+      {"name": "破山一刀", "mult": 2.8, "mp": 27, "cd": 4, "target": "对位", "ult": true}
+    ]
+  },
+  "dao_hongsha": {
+    "id": "dao_hongsha", "name": "红煞刀法", "kind": "套路", "weapon": "刀", "grade": "乙",
+    "source": "江州黑市·秘籍", "desc": "刀刀见血，煞气冲霄，江湖人闻之色变。", "traits": ["吸血"],
+    "moves": [
+      {"name": "血影刀", "mult": 1.15, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "饮血", "mult": 1.45, "mp": 9, "cd": 2, "target": "对位", "drain": 0.2},
+      {"name": "红雾漫天", "mult": 1.25, "mp": 15, "cd": 3, "target": "横扫", "status": {"id": "流血", "turns": 3, "val": 8}},
+      {"name": "煞气冲击", "mult": 1.8, "mp": 16, "cd": 3, "target": "突进"},
+      {"name": "红煞噬日", "mult": 2.85, "mp": 30, "cd": 5, "target": "对位", "ult": true, "drain": 0.3}
+    ]
+  },
+  "dao_tianchen": {
+    "id": "dao_tianchen", "name": "天沉刀", "kind": "套路", "weapon": "刀", "grade": "甲",
+    "source": "主线·拜月护法遗留", "desc": "刀势如夜幕沉降，光华尽敛，杀机暗藏。", "traits": ["破甲", "吸血"],
+    "moves": [
+      {"name": "暮色斩", "mult": 1.2, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "沉光", "mult": 1.55, "mp": 10, "cd": 2, "target": "对位", "hit_bonus": 8},
+      {"name": "夜幕垂落", "mult": 1.35, "mp": 18, "cd": 3, "target": "全体"},
+      {"name": "星沉", "mult": 2.0, "mp": 20, "cd": 4, "target": "突进", "status": {"id": "封穴", "turns": 1, "val": 0.5}},
+      {"name": "天沉地暗", "mult": 3.4, "mp": 36, "cd": 5, "target": "对位", "ult": true, "drain": 0.25}
+    ]
+  },
+  "gun_jichu": {
+    "id": "gun_jichu", "name": "基础棍法", "kind": "套路", "weapon": "棍", "grade": "丁",
+    "source": "无名小村·玄尘老者授艺", "desc": "防身棍术，横扫直捣。", "traits": ["朴实"],
+    "moves": [
+      {"name": "横棍", "mult": 1.0, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "直捣", "mult": 1.45, "mp": 6, "cd": 1, "target": "对位"},
+      {"name": "拨草寻蛇", "mult": 1.2, "mp": 11, "cd": 2, "target": "横扫"},
+      {"name": "举火撩天", "mult": 1.75, "mp": 14, "cd": 3, "target": "对位"},
+      {"name": "当头棒喝", "mult": 2.6, "mp": 24, "cd": 4, "target": "对位", "ult": true, "status": {"id": "封穴", "turns": 1, "val": 0.4}}
+    ]
+  },
+  "gun_fuhu": {
+    "id": "gun_fuhu", "name": "伏虎棍法", "kind": "套路", "weapon": "棍", "grade": "乙",
+    "source": "伏虎禅寺·武学堂", "desc": "棍扫一大片，禅武合一。", "traits": ["坚韧"],
+    "moves": [
+      {"name": "禅棍横扫", "mult": 1.15, "mp": 0, "cd": 0, "target": "对位"},
+      {"name": "降魔杵", "mult": 1.5, "mp": 9, "cd": 2, "target": "对位"},
+      {"name": "伏虎棍势", "mult": 1.3, "mp": 14, "cd": 3, "target": "横扫", "status": {"id": "内伤", "turns": 2, "val": 0.12}},
+      {"name": "金刚伏虎", "mult": 1.85, "mp": 16, "cd": 3, "target": "对位", "buff_self": {"id": "防增", "turns": 2, "val": 0.2}},
+      {"name": "百兽慑服", "mult": 2.8, "mp": 29, "cd": 5, "target": "全体", "ult": true}
+    ]
+  },
+  "nei_jichu": {
+    "id": "nei_jichu", "name": "吐纳诀", "kind": "内功", "grade": "丁",
+    "source": "无名小村·玄尘老者授艺", "desc": "最基础的吐纳法门，调息养气。", "traits": [],
+    "stats": {"mp": 8, "hp": 6}, "passive": {"id": "回气", "val": 2}
+  },
+  "nei_tiepi": {
+    "id": "nei_tiepi", "name": "铁皮功", "kind": "内功", "grade": "丙",
+    "source": "江州杂货铺·秘籍", "desc": "外门硬功，皮糙肉厚。", "traits": ["坚韧"],
+    "stats": {"hp": 14, "def": 2}, "passive": {"id": "无", "val": 0}
+  },
+  "nei_xuehe": {
+    "id": "nei_xuehe", "name": "血河心法", "kind": "内功", "grade": "乙",
+    "source": "北郊野林·悍匪遗落", "desc": "气血奔涌如江河，伤而不倒。", "traits": ["吸血"],
+    "stats": {"hp": 22, "atk": 2}, "passive": {"id": "回血", "val": 2}
+  },
+  "nei_jingang": {
+    "id": "nei_jingang", "name": "金刚不坏功", "kind": "内功", "grade": "乙",
+    "source": "伏虎禅寺·藏经阁", "desc": "佛门护体神功，金刚刚不坏之身。", "traits": ["霸体"],
+    "stats": {"hp": 16, "def": 3}, "passive": {"id": "免伤", "val": 4}
+  },
+  "nei_jianxin": {
+    "id": "nei_jianxin", "name": "剑心诀", "kind": "内功", "grade": "乙",
+    "source": "铁剑门·剑冢悟道", "desc": "心剑合一，剑气自然流转。", "traits": ["迅疾"],
+    "stats": {"atk": 3, "crit": 3}, "passive": {"id": "无", "val": 0}
+  },
+  "nei_yanbo": {
+    "id": "nei_yanbo", "name": "烟波心法", "kind": "内功", "grade": "甲",
+    "source": "烟波楼·镇派内功", "desc": "身随烟波，气走玄微。", "traits": ["灵动"],
+    "stats": {"spd": 2, "dodge": 2, "mp": 10}, "passive": {"id": "集气", "val": 12}
+  },
+  "nei_chunyang": {
+    "id": "nei_chunyang", "name": "纯阳无极功", "kind": "内功", "grade": "甲",
+    "source": "月下论剑·奇遇悟道", "desc": "至刚至阳，无极而生，一气贯注。", "traits": ["重势", "蓄力"],
+    "stats": {"atk": 5, "hp": 12}, "passive": {"id": "攻增", "val": 6}
+  },
+  "nei_baiyue": {
+    "id": "nei_baiyue", "name": "拜月冥功", "kind": "内功", "grade": "甲",
+    "source": "拜月护法·暗渊之约", "desc": "月下冥修，摄人心魄，练者性情渐冷。", "traits": ["吸血", "蓄力"],
+    "stats": {"atk": 6, "hp": 10}, "passive": {"id": "回血", "val": 3}, "moral_cost": {"仁": -30}
+  },
+  "qing_jichu": {
+    "id": "qing_jichu", "name": "燕青小步", "kind": "轻功", "grade": "丁",
+    "source": "无名小村·玄尘老者授艺", "desc": "市井步法，闪转腾挪。", "traits": [],
+    "stats": {"spd": 2, "dodge": 1}, "passive": {"id": "无", "val": 0}
+  },
+  "qing_liuyun": {
+    "id": "qing_liuyun", "name": "流云身法", "kind": "轻功", "grade": "丙",
+    "source": "铁剑门·入门传授", "desc": "身随云动，步落无声。", "traits": ["迅疾"],
+    "stats": {"spd": 3, "dodge": 1}, "passive": {"id": "集气", "val": 8}
+  },
+  "qing_yanbo": {
+    "id": "qing_yanbo", "name": "烟波遁", "kind": "轻功", "grade": "乙",
+    "source": "烟波楼·入门传授", "desc": "烟波浩渺间来去自如，赶路省时。", "traits": ["灵动"],
+    "stats": {"spd": 3, "dodge": 2}, "passive": {"id": "旅行", "val": 2}
+  },
+  "qing_hubu": {
+    "id": "qing_hubu", "name": "虎跃功", "kind": "轻功", "grade": "乙",
+    "source": "伏虎禅寺·武学堂", "desc": "纵跃如虎，先声夺人。", "traits": ["重势"],
+    "stats": {"spd": 4, "dodge": 1}, "passive": {"id": "先机", "val": 15}
+  }
+}

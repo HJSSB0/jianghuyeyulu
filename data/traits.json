@@ -1,0 +1,74 @@
+{
+  "t_lixia": {
+    "id": "t_lixia", "name": "力大如牛", "grade": "普通", "kind": "战斗", "desc": "臂力+1，攻击+2。",
+    "mods": {"attr_臂力": 1, "atk": 2}
+  },
+  "t_tiegu": {
+    "id": "t_tiegu", "name": "铜筋铁骨", "grade": "普通", "kind": "战斗", "desc": "体质+1，气血上限+30。",
+    "mods": {"attr_体质": 1, "hp_max": 30}
+  },
+  "t_qingying": {
+    "id": "t_qingying", "name": "身轻如燕", "grade": "普通", "kind": "战斗", "desc": "敏捷+1，闪避+3%。",
+    "mods": {"attr_敏捷": 1, "dodge": 3}
+  },
+  "t_congmin": {
+    "id": "t_congmin", "name": "天资聪颖", "grade": "普通", "kind": "养成", "desc": "悟性+1，修为获取+10%。",
+    "mods": {"attr_悟性": 1, "xiuwei_rate": 0.10}
+  },
+  "t_fuyuan": {
+    "id": "t_fuyuan", "name": "福至心灵", "grade": "普通", "kind": "探索", "desc": "福缘+1，奇遇触发率+10%。",
+    "mods": {"attr_福缘": 1, "luck_rate": 0.10}
+  },
+  "t_xianfa": {
+    "id": "t_xianfa", "name": "先发制人", "grade": "稀有", "kind": "战斗", "desc": "战斗开始时集气+100。",
+    "mods": {"gauge_start": 100}
+  },
+  "t_dongrutuo": {
+    "id": "t_dongrutuo", "name": "动如脱兔", "grade": "稀有", "kind": "战斗", "desc": "集气速度+10%。",
+    "mods": {"gauge": 0.10}
+  },
+  "t_wufu": {
+    "id": "t_wufu", "name": "万夫之勇", "grade": "稀有", "kind": "战斗", "desc": "全队最终伤害+10%。",
+    "mods": {"team_amp": 0.10}
+  },
+  "t_yiboyuntian": {
+    "id": "t_yiboyuntian", "name": "义薄云天", "grade": "稀有", "kind": "社交", "desc": "提升好感的效果+25%。",
+    "mods": {"affinity_rate": 0.25}
+  },
+  "t_tongsuwuqi": {
+    "id": "t_tongsuwuqi", "name": "童叟无欺", "grade": "稀有", "kind": "社交", "desc": "商店购物9折。",
+    "mods": {"shop_disc": 0.9}
+  },
+  "t_jianshin": {
+    "id": "t_jianshin", "name": "剑心通明", "grade": "门派", "kind": "门派", "desc": "铁剑门弟子：剑类套路伤害+8%。",
+    "mods": {"weapon_amp_剑": 0.08}
+  },
+  "t_chanxin": {
+    "id": "t_chanxin", "name": "禅心", "grade": "门派", "kind": "门派", "desc": "伏虎禅寺弟子：受击时减免伤害5%。",
+    "mods": {"dr": 0.05}
+  },
+  "t_yanbobu": {
+    "id": "t_yanbobu", "name": "烟波步", "grade": "门派", "kind": "门派", "desc": "烟波楼弟子：集气+8%，大地图赶路省时。",
+    "mods": {"gauge": 0.08, "travel": 1}
+  },
+  "t_zhongqing": {
+    "id": "t_zhongqing", "name": "重情重义", "grade": "奇遇", "kind": "社交", "desc": "随从在队时全队+5%攻击。",
+    "mods": {"follower_amp": 0.05}
+  },
+  "t_kuaiyi": {
+    "id": "t_kuaiyi", "name": "快意恩仇", "grade": "奇遇", "kind": "战斗", "desc": "战意获取+15%。",
+    "mods": {"yide_rate": 0.15}
+  },
+  "t_renxin": {
+    "id": "t_renxin", "name": "仁心妙手", "grade": "奇遇", "kind": "养成", "desc": "药品回复效果+30%。",
+    "mods": {"heal_amp": 0.30}
+  },
+  "t_pinqiong": {
+    "id": "t_pinqiong", "name": "家徒四壁", "grade": "负面", "kind": "负面", "desc": "开局铜钱减半，但悟性+1。",
+    "mods": {"start_money_mult": 0.5, "attr_悟性": 1}
+  },
+  "t_duoming": {
+    "id": "t_duoming", "name": "多疑", "grade": "负面", "kind": "负面", "desc": "好感获取-15%，但闪避+4%。",
+    "mods": {"affinity_rate": -0.15, "dodge": 4}
+  }
+}

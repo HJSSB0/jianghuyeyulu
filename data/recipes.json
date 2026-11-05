@@ -1,0 +1,37 @@
+{
+  "r_jinchuang": {
+    "id": "r_jinchuang", "name": "金创药", "skill": "炼丹", "lv": 1,
+    "mats": {"m_caoy": 2}, "out": "c_jinchuang", "count": 2, "exp": 10,
+    "desc": "两株草药熬一贴金创药。"
+  },
+  "r_dajinchuang": {
+    "id": "r_dajinchuang", "name": "大金创药", "skill": "炼丹", "lv": 3,
+    "mats": {"m_caoy": 2, "m_lingzhi": 1}, "out": "c_dajinchuang", "count": 1, "exp": 25,
+    "desc": "灵芝配草药，方成上品伤药。"
+  },
+  "r_jiedudan": {
+    "id": "r_jiedudan", "name": "解毒丹", "skill": "炼丹", "lv": 2,
+    "mats": {"m_caoy": 1, "m_xianyu": 1}, "out": "c_jiedudan", "count": 1, "exp": 15,
+    "desc": "鱼腥入药，以毒攻毒。"
+  },
+  "r_juqisan": {
+    "id": "r_juqisan", "name": "聚气散", "skill": "炼丹", "lv": 2,
+    "mats": {"m_caoy": 2, "m_lingzhi": 1}, "out": "c_juqisan", "count": 1, "exp": 20,
+    "desc": "凝气安神的散剂。"
+  },
+  "r_xingqidan": {
+    "id": "r_xingqidan", "name": "行气丹", "skill": "炼丹", "lv": 4,
+    "mats": {"m_lingzhi": 2}, "out": "c_xingqidan", "count": 1, "exp": 40,
+    "desc": "灵芝精华所聚，战前服之攻伐大增。"
+  },
+  "r_kaoji": {
+    "id": "r_kaoji", "name": "烤野猪肉", "skill": "烹饪", "lv": 1,
+    "mats": {"m_yezhurou": 1}, "out": "c_jiaohuaji", "count": 1, "exp": 12,
+    "desc": "野火烤肉，粗但是香。"
+  },
+  "r_manbuyu": {
+    "id": "r_manbuyu", "name": "清蒸鲜鱼", "skill": "烹饪", "lv": 2,
+    "mats": {"m_xianyu": 1, "m_caoy": 1}, "out": "c_jiaohuaji", "count": 1, "exp": 18,
+    "desc": "清蒸保留鱼鲜，食之回复气血、气力微增。"
+  }
+}

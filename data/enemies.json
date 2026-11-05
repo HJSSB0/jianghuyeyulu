@@ -1,0 +1,103 @@
+{
+  "black_riders": {
+    "id": "black_riders", "name": "黑衣蒙面人", "lv": 2, "weapon": "刀", "hp": 90, "atk": 14, "def": 4, "spd": 9, "hit": 85, "dodge": 5, "crit": 5, "exp": 30, "money": 40,
+    "wuxue": "dao_jichu", "moves": [0, 1, 4], "traits": [],
+    "drops": [{"item": "c_jinchuang", "rate": 0.6}],
+    "drops_force": [{"item": "q_baiyueling", "rate": 1.0}],
+    "desc": "雨夜袭击小村的蒙面人，臂上纹着弯月。"
+  },
+  "wolf": {
+    "id": "wolf", "name": "灰狼", "lv": 3, "weapon": "拳", "hp": 70, "atk": 13, "def": 3, "spd": 12, "hit": 85, "dodge": 8, "crit": 8, "exp": 22, "money": 8,
+    "wuxue": "quan_jichu", "moves": [0, 1], "traits": [],
+    "drops": [{"item": "m_langpi", "rate": 0.55}, {"item": "m_yezhurou", "rate": 0.3}],
+    "desc": "北郊野林的野狼，眼睛在草丛里发亮。"
+  },
+  "wolf_alpha": {
+    "id": "wolf_alpha", "name": "头狼", "lv": 4, "weapon": "拳", "hp": 120, "atk": 17, "def": 5, "spd": 13, "hit": 88, "dodge": 10, "crit": 10, "exp": 45, "money": 20,
+    "wuxue": "quan_jichu", "moves": [0, 1, 3], "traits": ["迅疾"],
+    "drops": [{"item": "m_langpi", "rate": 0.9}, {"item": "m_yezhurou", "rate": 0.5}],
+    "desc": "狼群之首，体格比同类大出一圈。"
+  },
+  "bandit": {
+    "id": "bandit", "name": "山贼", "lv": 3, "weapon": "刀", "hp": 95, "atk": 14, "def": 4, "spd": 9, "hit": 85, "dodge": 5, "crit": 5, "exp": 25, "money": 35,
+    "wuxue": "dao_jichu", "moves": [0, 1, 2], "traits": [],
+    "drops": [{"item": "c_chuibing", "rate": 0.4}, {"item": "m_tiekuang", "rate": 0.25}],
+    "desc": "剪径的毛贼，刀口卷了刃也舍不得换。"
+  },
+  "bandit_chief": {
+    "id": "bandit_chief", "name": "山贼头目", "lv": 5, "weapon": "刀", "hp": 160, "atk": 19, "def": 6, "spd": 10, "hit": 88, "dodge": 6, "crit": 8, "exp": 60, "money": 90,
+    "wuxue": "dao_poshan", "moves": [0, 1, 2, 4], "traits": ["重势"],
+    "drops": [{"item": "w_poshandao", "rate": 0.3}, {"item": "c_dajinchuang", "rate": 0.5}],
+    "desc": "北郊山贼的头目，一身横肉，手里那口破山刀颇有分量。"
+  },
+  "dadao": {
+    "id": "dadao", "name": "江洋大盗", "lv": 6, "weapon": "刀", "hp": 180, "atk": 21, "def": 6, "spd": 11, "hit": 88, "dodge": 8, "crit": 10, "exp": 70, "money": 130,
+    "wuxue": "dao_hongsha", "moves": [0, 1, 3], "traits": ["吸血"],
+    "drops": [{"item": "m_jingtie2", "rate": 0.4}, {"item": "c_dajinchuang", "rate": 0.5}],
+    "desc": "西山河畔流窜的大盗，刀法带煞。"
+  },
+  "biaofei": {
+    "id": "biaofei", "name": "劫镖匪", "lv": 5, "weapon": "棍", "hp": 150, "atk": 18, "def": 6, "spd": 9, "hit": 86, "dodge": 5, "crit": 6, "exp": 55, "money": 80,
+    "wuxue": "gun_jichu", "moves": [0, 1, 2], "traits": [],
+    "drops": [{"item": "m_mianma", "rate": 0.5}, {"item": "c_jinchuang", "rate": 0.5}],
+    "desc": "专挑软镖下手的匪徒，棍子抡得虎虎生风。"
+  },
+  "baiyue_guard": {
+    "id": "baiyue_guard", "name": "拜月护法·玄", "lv": 8, "weapon": "刀", "hp": 320, "atk": 26, "def": 9, "spd": 12, "hit": 92, "dodge": 10, "crit": 12, "exp": 200, "money": 400,
+    "wuxue": "dao_tianchen", "moves": [0, 1, 3, 4], "traits": ["破甲", "吸血"], "boss": true,
+    "drops": [{"item": "c_dajinchuang", "rate": 1.0}],
+    "drops_force": [{"item": "x_tianchen", "rate": 1.0}],
+    "desc": "拜月教左右护法之一，月下刀光如水银泻地。"
+  },
+  "baiyue_adept": {
+    "id": "baiyue_adept", "name": "拜月教众", "lv": 7, "weapon": "拳", "hp": 140, "atk": 22, "def": 7, "spd": 11, "hit": 90, "dodge": 8, "crit": 8, "exp": 80, "money": 60,
+    "wuxue": "quan_liehu", "moves": [0, 1, 3], "traits": [],
+    "drops": [{"item": "q_baiyueling", "rate": 0.5}],
+    "desc": "拜月教徒，行动整齐如一人，眼白泛着淡淡的月色。"
+  },
+  "n_liumianmian": {
+    "id": "n_liumianmian", "name": "柳绵绵", "lv": 2, "weapon": "拳", "hp": 100, "atk": 12, "def": 4, "spd": 10, "hit": 85, "dodge": 6, "crit": 6, "exp": 0, "money": 0,
+    "wuxue": "quan_jichu", "moves": [0, 1, 3], "traits": [], "spar": true,
+    "desc": "柳绵绵的切磋身手。"
+  },
+  "n_qinwuyi": {
+    "id": "n_qinwuyi", "name": "秦无衣", "lv": 5, "weapon": "刀", "hp": 200, "atk": 20, "def": 7, "spd": 11, "hit": 88, "dodge": 7, "crit": 9, "exp": 0, "money": 0,
+    "wuxue": "dao_poshan", "moves": [0, 1, 2, 4], "traits": ["重势"], "spar": true,
+    "desc": "秦无衣的切磋身手。"
+  },
+  "n_linjianxin": {
+    "id": "n_linjianxin", "name": "林剑心", "lv": 5, "weapon": "剑", "hp": 190, "atk": 19, "def": 7, "spd": 11, "hit": 89, "dodge": 8, "crit": 8, "exp": 0, "money": 0,
+    "wuxue": "jian_tiejian", "moves": [0, 1, 2, 4], "traits": ["破甲"], "spar": true,
+    "desc": "林剑心的切磋身手。"
+  },
+  "n_shenshuang": {
+    "id": "n_shenshuang", "name": "沈霜", "lv": 6, "weapon": "剑", "hp": 210, "atk": 21, "def": 7, "spd": 12, "hit": 90, "dodge": 9, "crit": 10, "exp": 0, "money": 0,
+    "wuxue": "jian_tiejian", "moves": [0, 1, 3, 4], "traits": ["破甲", "迅疾"], "spar": true,
+    "desc": "沈霜的切磋身手。"
+  },
+  "n_yeguhong": {
+    "id": "n_yeguhong", "name": "叶孤鸿", "lv": 9, "weapon": "剑", "hp": 380, "atk": 28, "def": 10, "spd": 13, "hit": 94, "dodge": 12, "crit": 14, "exp": 0, "money": 0,
+    "wuxue": "jian_tianhe", "moves": [0, 1, 2, 4], "traits": ["蓄力", "连击"], "spar": true, "boss": true,
+    "desc": "铁剑门掌门叶孤鸿的全力一搏。"
+  },
+  "n_hongjue": {
+    "id": "n_hongjue", "name": "弘觉方丈", "lv": 9, "weapon": "拳", "hp": 420, "atk": 26, "def": 12, "spd": 11, "hit": 92, "dodge": 8, "crit": 10, "exp": 0, "money": 0,
+    "wuxue": "quan_luohan", "moves": [0, 1, 2, 4], "traits": ["霸体", "重势"], "spar": true, "boss": true,
+    "desc": "弘觉方丈的金刚之躯。"
+  },
+  "n_liaokong": {
+    "id": "n_liaokong", "name": "武僧了空", "lv": 6, "weapon": "棍", "hp": 230, "atk": 20, "def": 8, "spd": 10, "hit": 88, "dodge": 6, "crit": 8, "exp": 0, "money": 0,
+    "wuxue": "gun_fuhu", "moves": [0, 1, 2, 4], "traits": ["坚韧"], "spar": true,
+    "desc": "武僧了空的切磋身手。"
+  },
+  "n_qingque": {
+    "id": "n_qingque", "name": "青雀", "lv": 5, "weapon": "剑", "hp": 170, "atk": 18, "def": 6, "spd": 14, "hit": 89, "dodge": 12, "crit": 9, "exp": 0, "money": 0,
+    "wuxue": "jian_yanbo", "moves": [0, 1, 3, 4], "traits": ["灵动", "迅疾"], "spar": true,
+    "desc": "青雀的切磋身手。"
+  },
+  "d_eng": {
+    "id": "d_eng", "name": "大公鸡司晨", "lv": 1, "weapon": "拳", "hp": 30, "atk": 5, "def": 1, "spd": 14, "hit": 80, "dodge": 15, "crit": 5, "exp": 8, "money": 2,
+    "wuxue": "quan_jichu", "moves": [0], "traits": ["灵动"], "spar": true,
+    "desc": "村口的芦花鸡，被惹急了也会啄人。（致敬彩蛋）"
+  }
+}

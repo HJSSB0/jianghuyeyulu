@@ -1,0 +1,101 @@
+{
+  "e_dujiangcan": {
+    "id": "e_dujiangcan", "name": "奇遇·醉侠", "type": "奇遇", "desc": "戌时后的江州酒馆，独孤残靠着酒缸打盹。",
+    "trigger": {"npc": "dugucan", "shichen_gte": 10, "money": 100},
+    "text": "独孤残眯眼打量你：'小子，陪老夫喝一碗。喝得赢，教你两手真的。'",
+    "options": [
+      {"text": "豪饮一碗（付100文）", "money": -100, "affinity": {"npc": "dugucan", "val": 30}, "learn": "quan_zui", "after": "独孤残大笑三声，醉拳如烟。你在踉跄中悟出了【醉八仙】！"},
+      {"text": "婉拒", "after": "独孤残撇撇嘴：'没胆。'翻身又睡。"}
+    ]
+  },
+  "e_shanmiao": {
+    "id": "e_shanmiao", "name": "奇遇·小乞儿", "type": "奇遇", "desc": "北郊山神庙里缩着一个小乞儿。",
+    "trigger": {"npc": "shanmiao_qier"},
+    "text": "小乞儿抱着膝盖：'别抢我的饼！……你要是给饼，那没事了。'",
+    "options": [
+      {"text": "给他馒头", "items": {"c_mantou": -1}, "morality": {"仁": 10}, "affinity": {"npc": "shanmiao_qier", "val": 40}, "counter": {"key": "beggar_fed", "val": 1}, "after": "小乞儿狼吞虎咽，从怀里摸出一枚磨得发亮的铜钱塞给你：'好人。'"},
+      {"text": "问问他黑衣人的事", "affinity": {"npc": "shanmiao_qier", "val": 10}, "after": "小乞儿摇摇头：'我只知道，他们往西边去了，走路没有声音。'（西山河畔？）"}
+    ]
+  },
+  "e_zhoubo_qingguang": {
+    "id": "e_zhoubo_qingguang", "name": "奇遇·河底青光", "type": "奇遇", "desc": "周伯说河底有青光闪动。",
+    "trigger": {"npc": "zhou_bo", "counter_gte": {"key": "fish", "val": 5}},
+    "text": "周伯压低声音：'小伙子，老汉看你会水，河湾最深处（13,5），青光就在那儿。手气好的话——捞得上来了。'",
+    "options": [
+      {"text": "潜水打捞", "hp": -30, "items": {"w_qingshuang": 1, "x_qingshuang": 1}, "after": "你在冰冷刺骨的河水里摸到了一柄古剑！剑身寒霜，正是【青霜剑】与它的剑谱！"},
+      {"text": "改日再来", "after": "你记下了位置。"}
+    ]
+  },
+  "e_saihuatuo": {
+    "id": "e_saihuatuo", "name": "奇遇·药眼", "type": "奇遇", "desc": "赛华佗想考考你的采药眼力。",
+    "trigger": {"npc": "sai_huatuo", "counter_gte": {"key": "gather_herb", "val": 3}},
+    "text": "赛华佗眯眼笑道：'老夫这儿有株七叶灵芝，配以河畔清泉，能熬一炉大还散。你若识货，便拿去。'",
+    "options": [
+      {"text": "谢过先生", "items": {"m_lingzhi": 1, "c_dajinchuang": 1}, "affinity": {"npc": "sai_huatuo", "val": 25}, "after": "赛华佗捋须：'采药三株方来见我，是用心人。收好。'"},
+      {"text": "以茶相赠再请教", "items": {"c_longjing": -1}, "items_get": {"m_lingzhi": 2}, "affinity": {"npc": "sai_huatuo", "val": 35}, "learn_meridian_hint": true, "after": "赛华佗眉开眼笑，多赠你一株灵芝，还点拨了几句经脉行气的门道。"}
+    ]
+  },
+  "e_zhuangjia": {
+    "id": "e_zhuangjia", "name": "奇遇·赌坊", "type": "奇遇", "desc": "赌坊庄家的骰盅摇得哗哗响。",
+    "trigger": {"npc": "zhuang_jia", "money_gte": 100},
+    "text": "庄家嘿嘿一笑：'买大买小，买定离手！'",
+    "options": [
+      {"text": "押100文买大", "gamble": {"stake": 100, "win_mult": 2, "chance": 45}, "after": ""},
+      {"text": "押100文买小", "gamble": {"stake": 100, "win_mult": 2, "chance": 45}, "after": ""},
+      {"text": "不赌（义气+2）", "morality": {"义": 2}, "after": "你摇头离开。身后的庄家撇了撇嘴：'不识趣。'"}
+    ]
+  },
+  "e_zhaotieshan": {
+    "id": "e_zhaotieshan", "name": "奇遇·老镖师的委托", "type": "奇遇", "desc": "临安镇口，赵铁山捶着老腰。",
+    "trigger": {"npc": "zhao_tieshan", "lv_gte": 3},
+    "text": "赵铁山：'小兄弟，这趟镖要送去江州钱多多那儿。老朽这腰不争气……酬劳三百文，路上小心剪径的。'",
+    "options": [
+      {"text": "接下押镖", "quest": "bounty_a1", "after": "赵铁山把镖箱交到你手上：'记住，镖在人在。'"},
+      {"text": "婉拒", "after": "赵铁山叹了口气：'也罢，再想想别的法子。'"}
+    ]
+  },
+  "e_ligao_teach": {
+    "id": "e_ligao_teach", "name": "奇遇·书生论侠", "type": "奇遇", "desc": "李墨在墙根下晒书。",
+    "trigger": {"npc": "li_mo", "attr_gte": {"attr": "悟性", "val": 6}},
+    "text": "李墨抚卷而笑：'少侠目光沉静，想是有几分悟性。老生有一问：侠之大者，为何？'",
+    "options": [
+      {"text": "'为国为民。'", "morality": {"仁": 10, "义": 5}, "exp": 80, "after": "李墨击节赞叹：'好一个为国为民！'他赠你一部手抄兵法。"},
+      {"text": "'快意恩仇。'", "morality": {"勇": 10}, "exp": 50, "after": "李墨微微一笑：'快意恩仇，也是江湖本色。'"},
+      {"text": "'不知。愿闻其详。'", "exp": 60, "morality": {"仁": 5}, "after": "李墨讲了一个时辰，你听得入神，若有所悟。"}
+    ]
+  },
+  "e_heishi_child": {
+    "id": "e_heishi_child", "name": "奇遇·黑市的规矩", "type": "奇遇", "desc": "你注意到鬼手摊位下压着一张字条。",
+    "trigger": {"npc": "guishou"},
+    "text": "字条上写着：'只收货，不问来路。带拜月令者，另有买卖。'",
+    "options": [
+      {"text": "记下这条规矩", "counter": {"key": "heishi_rule", "val": 1}, "after": "黑市的门道，又多懂了一分。"}
+    ]
+  },
+  "e_laoGai_gossip": {
+    "id": "e_laoGai_gossip", "name": "奇遇·井底鬼市", "type": "奇遇", "desc": "老丐压低声音说过：子时井底有集。",
+    "trigger": {"npc": "lao_gai", "shichen_gte": 0},
+    "text": "老丐：'井底的东西，来路不正，但便宜。子时过后，你自己看。'",
+    "options": [
+      {"text": "给他30文买消息", "money": -30, "counter": {"key": "well_secret", "val": 1}, "after": "老丐收了钱：'记住，井里的东西，别问来路。'"},
+      {"text": "起身离开", "after": "老丐缩回井台边，继续打瞌睡。"}
+    ]
+  },
+  "e_wolf_night": {
+    "id": "e_wolf_night", "name": "奇遇·月下狼嚎", "type": "奇遇", "desc": "夜宿野林时，狼群围了上来。",
+    "trigger": {"wild_map": true, "shichen_in": ["子", "丑", "亥"], "chance": 0.25},
+    "text": "月光惨白，草丛中亮起七八对绿眼。",
+    "options": [
+      {"text": "拔刀迎战", "battle": {"units": [{"enemy": "wolf", "pos": [0, 0]}, {"enemy": "wolf", "pos": [2, 0]}, {"enemy": "wolf_alpha", "pos": [1, 0]}]}, "after": ""},
+      {"text": "燃火驱狼（福缘检定）", "luck_check": {"dc": 6, "success": "火光冲天，狼群迟疑着退入了黑暗。", "fail": "火堆噼啪作响，狼群却越围越近！", "fail_battle": {"units": [{"enemy": "wolf", "pos": [0, 0]}, {"enemy": "wolf", "pos": [2, 0]}]}}}
+    ]
+  },
+  "e_blood_stain": {
+    "id": "e_blood_stain", "name": "奇遇·村口血迹", "type": "奇遇", "desc": "村口的泥地里有一道拖行的血痕。",
+    "trigger": {"pos_map": "village", "pos": [10, 12], "quest_gte": {"quest": "m2", "step": 1}},
+    "text": "血痕一路拖向东南——雨把它冲得只剩淡淡一线。你蹲下细看，泥里还嵌着半枚弯月形的铁扣。",
+    "options": [
+      {"text": "收起铁扣", "counter": {"key": "blood_clue", "val": 1}, "quest_step": {"quest": "m2"}, "after": "弯月铁扣……黑衣人的身份，又近了一分。（刘二那里应该还有线索）"}
+    ]
+  }
+}
