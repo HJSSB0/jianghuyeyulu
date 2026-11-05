@@ -38,6 +38,10 @@ jobs:
           mv /tmp/tpl/templates "$HOME/Library/Application Support/Godot/export_templates/4.7.2.stable"
       - name: 导入资源（生成 .godot/imported）
         run: ./Godot.app/Contents/MacOS/Godot --headless --path . --import
+      - name: 环境探针（ETC2 设置可读性）
+        run: |
+          mkdir -p build
+          ./Godot.app/Contents/MacOS/Godot --headless --path . --script res://.github/scripts/etc2probe.gd 2>&1 | tee build/probe.log
       - name: 导出 iOS（未签名 Xcode 工程）
         run: |
           mkdir -p build
@@ -60,15 +64,35 @@ jobs:
             cat build/export.log
             echo '</pre>'
           } >> "$GITHUB_STEP_SUMMARY"
-      - name: 失败时回传导出日志到 ci-logs 分支
+      - name: 失败时回传诊断包
         if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          {
+            echo "HEAD=$(git rev-parse HEAD)"
+            echo "=== probe.log ==="
+            cat build/probe.log 2>/dev/null || echo "(无)"
+            echo "=== export.log ==="
+            cat build/export.log 2>/dev/null || echo "(无)"
+            echo "=== export_presets.cfg ==="
+            cat export_presets.cfg
+            echo "=== project.godot [rendering] 段 ==="
+            sed -n '/^\[rendering\]/,/^\[/p' project.godot | sed '$d'
+            echo "=== build 目录 ==="
+            ls -la build
+          } > build/diag.txt
           git config user.email "ci@jianghuyeyulu.invalid"
           git config user.name "ci-bot"
           git checkout -B ci-logs
-          git add -f build/export.log
-          git commit -m "ci: export log ${GITHUB_SHA::7}"
-          git push -f origin ci-logs
+          git add -f build/diag.txt || true
+          git add -f build/export.log || true
+          git add -f build/probe.log || true
+          git commit -m "ci: diag ${GITHUB_SHA::7}" --allow-empty
+          git push -f origin ci-logs || true
+          gh release delete "diag-${GITHUB_RUN_NUMBER}" --yes --cleanup-tag 2>/dev/null || true
+          gh release create "diag-${GITHUB_RUN_NUMBER}" build/diag.txt build/export.log build/probe.log \
+            --title "diag run ${GITHUB_RUN_NUMBER}" --notes "自动诊断包（匿名可下载）" || true
       - name: 打包未签名 ipa
         run: |
           cd build
