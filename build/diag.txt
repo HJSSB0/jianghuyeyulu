@@ -1,0 +1,74 @@
+HEAD=f4f8b6ca2cd1f6e22c4f29bc2a6c87decfbc24d7
+=== probe.log ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+probe_etc2=false
+registered: rendering/textures/vram_compression/import_s3tc_bptc
+registered: rendering/textures/vram_compression/import_etc2_astc
+registered: rendering/textures/vram_compression/compress_with_gpu
+registered: rendering/textures/vram_compression/cache_gpu_compressor
+registered_count=4
+os=macOS
+=== export.log ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+ERROR: Cannot export project with preset "iOS" due to configuration errors:
+
+   at: _fs_changed (editor/editor_node.cpp:1401)
+ERROR: Project export for preset "iOS" failed.
+   at: _fs_changed (editor/editor_node.cpp:1417)
+=== export_presets.cfg ===
+[preset.0]
+
+name="iOS"
+platform="iOS"
+runnable=true
+advanced_options=false
+dedicated_server=false
+custom_features=""
+export_filter="all_resources"
+include_filter=""
+exclude_filter=""
+export_path="build/JiangHuYeYuLu.xcodeproj"
+patches=PackedStringArray()
+encryption_include_filters=""
+encryption_exclude_filters=""
+encrypt_pck=false
+encrypt_directory=false
+script_export_mode=2
+
+[preset.0.options]
+
+custom_template/debug=""
+custom_template/release=""
+architectures/arm64=true
+application/export_project_only=true
+application/bundle_identifier="com.example.jianghuyeyulu"
+application/app_store_team_id="AAAAAAAAAA"
+application/short_version="0.2.0"
+application/version="0.2.0"
+application/min_ios_version="13.0"
+capabilities/access_wifi=false
+icons/icon_1024x1024="res://assets/icons/icon_1024.png"
+icons/app_store_1024x1024="res://assets/icons/icon_1024.png"
+=== project.godot [rendering] 段 ===
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+=== build 目录 ===
+total 24
+drwxr-xr-x   5 runner  staff   160 Nov  6 00:28 .
+drwxr-xr-x  23 runner  staff   736 Nov  6 00:28 ..
+-rw-r--r--   1 runner  staff  2460 Nov  6 00:28 diag.txt
+-rw-r--r--   1 runner  staff   941 Nov  6 00:28 export.log
+-rw-r--r--   1 runner  staff   383 Nov  6 00:28 probe.log

@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+probe_etc2=false
+registered: rendering/textures/vram_compression/import_s3tc_bptc
+registered: rendering/textures/vram_compression/import_etc2_astc
+registered: rendering/textures/vram_compression/compress_with_gpu
+registered: rendering/textures/vram_compression/cache_gpu_compressor
+registered_count=4
+os=macOS
