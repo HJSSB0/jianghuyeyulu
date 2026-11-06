@@ -1,5 +1,8 @@
 extends Control
-## 大地图：节点行进（烟雨章节解锁式）+ 移动耗时 + 野外遭遇
+## 大地图：宣纸水墨底 + 地点木牌行进（章节解锁式）+ 移动耗时 + 野外遭遇
+
+const ArtLib := preload("res://scripts/art/art_lib.gd")
+const UITheme := preload("res://scripts/ui_theme.gd")
 
 var main: Node
 var cur_node := "village"
@@ -15,23 +18,29 @@ func on_enter(p: Dictionary = {}) -> void:
 func rebuild() -> void:
 	for c in get_children():
 		c.queue_free()
-	var bg := ColorRect.new()
-	bg.color = Color("10141f")
+	# 宣纸水墨底图
+	var bg := TextureRect.new()
+	bg.texture = ArtLib.world_map_base()
+	bg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
 
 	var title := Label.new()
-	title.text = "江湖行 · 大地图"
-	title.add_theme_font_size_override("font_size", 20)
-	title.position = Vector2(24, 12)
+	title.text = "江 湖 行"
+	var tf: FontFile = UITheme.title_font()
+	if tf != null:
+		title.add_theme_font_override("font", tf)
+	title.add_theme_font_size_override("font_size", 30)
+	title.add_theme_color_override("font_color", UITheme.INK)
+	title.position = Vector2(24, 16)
 	add_child(title)
 
 	hud = Label.new()
-	hud.position = Vector2(24, 44)
-	hud.add_theme_color_override("font_color", Color("9aa8bc"))
+	hud.position = Vector2(24, 60)
+	hud.add_theme_color_override("font_color", UITheme.INK_SOFT)
 	add_child(hud)
 
-	# 连线（节点坐标统一缩放：y 压至 0.62 防溢出）
+	# 道路（墨色虚线感：分段绘制）
 	var lines := Control.new()
 	lines.position = Vector2.ZERO
 	lines.size = Vector2(960, 540)
@@ -41,9 +50,20 @@ func rebuild() -> void:
 			var a: Dictionary = GameDB.world["nodes"][e["a"]]
 			var b: Dictionary = GameDB.world["nodes"][e["b"]]
 			var unlocked: bool = _node_unlocked(e["a"]) and _node_unlocked(e["b"])
-			lines.draw_line(_np(a), _np(b), Color("3a4a5f") if unlocked else Color("232833"), 2.0))
+			var col := Color(0.13, 0.11, 0.09, 0.7) if unlocked else Color(0.13, 0.11, 0.09, 0.22)
+			var pa := _np(a)
+			var pb := _np(b)
+			var seg := 6
+			for i in seg:
+				if i % 2 == 0:
+					var t0 := float(i) / seg
+					var t1 := float(i + 1) / seg
+					lines.draw_line(pa.lerp(pb, t0), pa.lerp(pb, t1), col, 2.0)
+			# 路程印（时辰数）
+			var mid := pa.lerp(pb, 0.5)
+			lines.draw_string(get_tree().root.theme.default_font, mid + Vector2(-8, -4), str(e.get("cost", 2)), HORIZONTAL_ALIGNMENT_LEFT, 20, 11, Color(0.4, 0.33, 0.2, 0.8)))
 
-	# 节点
+	# 节点（木牌）
 	for nid in GameDB.world["nodes"]:
 		var nd: Dictionary = GameDB.world["nodes"][nid]
 		var unlocked := _node_unlocked(nid)
@@ -56,7 +76,9 @@ func rebuild() -> void:
 		var is_cur: bool = nid == cur_node
 		var is_adj: bool = _adjacent(nid)
 		btn.add_theme_font_size_override("font_size", 13)
-		btn.modulate = Color(1, 1, 1) if not is_cur else Color("c9a067")
+		btn.modulate = Color(1, 1, 1, 1) if unlocked else Color(1, 1, 1, 0.55)
+		if is_cur:
+			btn.modulate = Color(1.25, 1.15, 0.9, 1)
 		if is_adj and unlocked and nid != cur_node:
 			btn.text = "→ " + btn.text
 		btn.pressed.connect(func(): _travel(nid))
@@ -67,12 +89,13 @@ func rebuild() -> void:
 	desc.text = "【%s】%s" % [cd["name"], cd.get("desc", "")]
 	desc.position = Vector2(24, 470)
 	desc.add_theme_font_size_override("font_size", 14)
+	desc.add_theme_color_override("font_color", UITheme.INK)
 	add_child(desc)
 
 	status_hint = Label.new()
-	status_hint.text = "点击相邻地名行进（消耗时辰）。"
+	status_hint.text = "点击相邻地名行进（数字=路程时辰）。"
 	status_hint.position = Vector2(24, 500)
-	status_hint.add_theme_color_override("font_color", Color("6a7a8a"))
+	status_hint.add_theme_color_override("font_color", UITheme.INK_SOFT)
 	status_hint.add_theme_font_size_override("font_size", 12)
 	add_child(status_hint)
 

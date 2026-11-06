@@ -13,7 +13,8 @@ var views: Dictionary = {}
 var current := ""
 
 func _ready() -> void:
-	get_tree().root.theme = UITheme.make_theme()
+	var th := UITheme.make_theme()
+	get_tree().root.theme = th
 	var defs := {
 		"title": TitleView, "create": CharCreateView, "world": WorldView,
 		"town": TownView, "battle": BattleView, "ending": EndingView,
@@ -22,6 +23,7 @@ func _ready() -> void:
 		var v: Control = defs[k].new()
 		v.name = k
 		v.set("main", self)
+		v.theme = th   # 主题传播不跨普通 Node（main），必须挂在视图 Control 上
 		v.visible = false
 		v.set_anchors_preset(Control.PRESET_FULL_RECT)
 		add_child(v)

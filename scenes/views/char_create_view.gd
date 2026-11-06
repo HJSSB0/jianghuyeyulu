@@ -30,7 +30,7 @@ func rebuild() -> void:
 	add_child(title)
 
 	var story := Label.new()
-	story.text = "昨夜大雨，黑衣人过村，火光冲天。\n你从塌了半边的屋檐下爬出来，手里只握着半截断剑。\n村口的老槐树下，幸存的人们等着你开口。"
+	story.text = "雨是从三更下起来的。雨停的时候，村子已经不在了。\n你从塌了半边的屋檐下爬出来。手里半截断剑，身上一枚平安符。\n村口的老槐树下，幸存的人们等着你开口。"
 	story.add_theme_font_size_override("font_size", 14)
 	story.add_theme_color_override("font_color", Color("9aa8bc"))
 	story.position = Vector2(310, 52)

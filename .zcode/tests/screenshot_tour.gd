@@ -7,6 +7,8 @@ func GS_BATTLE() -> Node: return root.get_node("Battle")
 var frame := 0
 var stage := 0
 var main: Node
+var move_start := -1   # 移动回归检查：按住 D 前的玩家格 x
+var move_ms := 0       # 移动回归检查：按下时刻（真实时间）
 const OUT := "res://.zcode/shots/"
 
 func _initialize() -> void:
@@ -48,15 +50,40 @@ func _process(_d: float) -> bool:
 				print("TOUCHCHECK released=", tctrl.held_dir == Vector2i.ZERO)
 			else:
 				print("TOUCHCHECK MISSING TouchControls")
-			main.switch_to("world", {"node": "village"})
+			# 移动回归检查：合成按住 D（与 PC 键盘同一条 is_action_pressed 轮询路径）
+			var town: Node = main.views["town"]
+			move_start = town.px
+			move_ms = Time.get_ticks_msec()
+			var ev := InputEventKey.new()
+			ev.keycode = KEY_D
+			ev.physical_keycode = KEY_D
+			ev.pressed = true
+			Input.parse_input_event(ev)
+			Input.flush_buffered_events()
+			print("KEYCHECK has_action=", InputMap.has_action("move_right"),
+				" is_key_pressed=", Input.is_key_pressed(KEY_D),
+				" is_action_pressed=", Input.is_action_pressed("move_right"))
 		3:
+			# 等满 0.5s（平滑移动按真实时间累计，与帧率无关）再检查
+			if Time.get_ticks_msec() - move_ms < 500:
+				return false
+			var town: Node = main.views["town"]
+			_snap("03b_village_moved")
+			print("MOVECHECK start_px=", move_start, " now_px=", town.px, " moved=", town.px != move_start)
+			var ev2 := InputEventKey.new()
+			ev2.keycode = KEY_D
+			ev2.physical_keycode = KEY_D
+			ev2.pressed = false
+			Input.parse_input_event(ev2)
+			main.switch_to("world", {"node": "village"})
+		4:
 			_snap("04_worldmap")
 			main.switch_to("town", {"map": "jiangzhou"})
-		4:
+		5:
 			_snap("05_jiangzhou")
 			var town: Node = main.views["town"]
 			town.panels.status_panel()
-		5:
+		6:
 			_snap("06_status")
 			# 切到云同步页签（第 6 个）
 			var tabs: TabContainer = null
@@ -69,36 +96,36 @@ func _process(_d: float) -> bool:
 				tabs.current_tab = 5
 			else:
 				print("CLOUDTAB MISSING")
-		6:
+		7:
 			_snap("07_cloud")
 			var town: Node = main.views["town"]
 			town.panels._clear()
 			town.panels.npc_dialog("xuanchen")
-		7:
+		8:
 			_snap("08_dialog")
 			var town: Node = main.views["town"]
 			town.panels._clear()
 			town.panels.shop_panel("shop_wuqi")
-		8:
+		9:
 			_snap("09_shop")
 			var town: Node = main.views["town"]
 			town.panels._clear()
 			main.switch_to("battle", {"name": "巡检·狼群", "enemies": [{"enemy": "wolf", "pos": [0, 0]}, {"enemy": "wolf_alpha", "pos": [2, 1]}], "formation": "tiangang", "back": "town", "map": "village"})
-		9:
+		10:
 			_snap("10_battle")
 			var bv: Node = main.views["battle"]
 			var hero: Dictionary = GS_BATTLE().units[0] if GS_BATTLE().units.size() > 0 else {}
 			if not hero.is_empty() and not GS_BATTLE().finished:
 				GS_BATTLE().use_move(hero, 0, {})
-		10:
+		11:
 			_snap("11_battle2")
 			var bv: Node = main.views["battle"]
 			bv._finish()
-		11:
+		12:
 			_snap("12_after_battle")
 			GS.quest_states["m8"] = {"state": "active", "step": 0}
 			main.switch_to("ending")
-		12:
+		13:
 			_snap("13_ending")
 			print("TOUR DONE")
 			quit(0)

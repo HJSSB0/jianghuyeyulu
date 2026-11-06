@@ -26,7 +26,16 @@
       "text": "叶孤鸿收剑入鞘：'剑心既动，去意已决。门中武学你且留着，莫辱没了它。'"
     },
     "elder": "ye_guhong",
-    "map": "tiejian"
+    "map": "tiejian",
+    "contrib_rewards": [
+      {
+        "gte": 120,
+        "text": "剑冢深处，掌门亲手开了匣——《镇岳剑诀》归你了。",
+        "rewards": {
+          "wuxue": "jian_zhenyue"
+        }
+      }
+    ]
   },
   "fuhusi": {
     "id": "fuhusi",
@@ -56,7 +65,16 @@
       "text": "弘觉方丈双手合十：'尘缘未了，去亦随缘。施主珍重。'"
     },
     "elder": "hong_jue",
-    "map": "fuhu"
+    "map": "fuhu",
+    "contrib_rewards": [
+      {
+        "gte": 60,
+        "text": "演武场上，首座与你拆了三百招，收拳一笑：「伏虎拳，传你了。」",
+        "rewards": {
+          "wuxue": "quan_fuhu"
+        }
+      }
+    ]
   },
   "yanbolou": {
     "id": "yanbolou",
@@ -85,6 +103,15 @@
       "text": "白凌波琴音一停：'去吧。烟波万里，何处不可容身。'"
     },
     "elder": "bai_lingbo",
-    "map": "yanbo"
+    "map": "yanbo",
+    "contrib_rewards": [
+      {
+        "gte": 80,
+        "text": "水榭琴音七日不辍。第七日，楼主说：「心了，功成。」",
+        "rewards": {
+          "wuxue": "nei_lingbo"
+        }
+      }
+    ]
   }
 }

@@ -9,10 +9,29 @@ func on_enter(_p: Dictionary = {}) -> void:
 func rebuild() -> void:
 	for c in get_children():
 		c.queue_free()
+	var ArtLib := preload("res://scripts/art/art_lib.gd")
 	var bg := ColorRect.new()
 	bg.color = Color("0d1017")
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
+	# 水墨结局画按品格取向选择（圣经三结局）
+	var kind := "world"
+	if GameState.morality["仁"] >= 50:
+		kind = "hidden"
+	elif GameState.morality["义"] < 50 and GameState.morality["勇"] < 50 and GameState.learned.has("nei_baiyue"):
+		kind = "dark"
+	var art: Texture2D = ArtLib.mood_art("ending_" + kind)
+	if art != null:
+		var pic := TextureRect.new()
+		pic.texture = art
+		pic.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		pic.set_anchors_preset(Control.PRESET_FULL_RECT)
+		pic.modulate = Color(1, 1, 1, 0.55)
+		add_child(pic)
+		var shade := ColorRect.new()
+		shade.color = Color(0.02, 0.03, 0.05, 0.35)
+		shade.set_anchors_preset(Control.PRESET_FULL_RECT)
+		add_child(shade)
 
 	var t := Label.new()
 	t.text = "—— 第一章 · 夜雨初歇 ——"

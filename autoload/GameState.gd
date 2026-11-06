@@ -265,9 +265,95 @@ func add_affinity(npc_id: String, val: int) -> void:
 	var rate: float = 1.0 + float(get_all_mods().get("affinity_rate", 0.0))
 	affinity[npc_id] = clampi(int(affinity.get(npc_id, 0)) + int(round(val * rate)), -100, 100)
 	EventBus.affinity_changed.emit(npc_id, affinity[npc_id])
+	_check_affinity_rewards(npc_id)
 
 func get_affinity(npc_id: String) -> int:
 	return int(affinity.get(npc_id, 0))
+
+# ---------- 人际四层网：送礼 / 好感阈值 / 门派贡献 / 名声门槛 ----------
+
+## 礼签：物品 id/名 → gift_pref 标签（江南春=酒之类名实映射）
+func _gift_tag(iid: String, item: Dictionary) -> String:
+	var alias := {"g_jiangnanchun": "酒", "g_dianxin": "点心", "g_yanzhi": "胭脂", "g_zihua": "字画", "g_fojing": "佛经", "g_chouduan": "绸缎"}
+	if alias.has(iid):
+		return str(alias[iid])
+	return str(item.get("name", ""))
+
+## 送礼预览（不消耗）：{"delta": int, "mood": str}
+func gift_preview(npc_id: String, iid: String) -> Dictionary:
+	var npc: Dictionary = GameDB.get_npc(npc_id)
+	var item: Dictionary = GameDB.get_item(iid)
+	var pref: Dictionary = npc.get("gift_pref", {})
+	var tag := _gift_tag(iid, item)
+	var mood := "一般"
+	if (pref.get("hate", []) as Array).has(tag):
+		mood = "厌恶"
+	elif (pref.get("love", []) as Array).has(tag):
+		mood = "至爱"
+	elif (pref.get("like", []) as Array).has(tag):
+		mood = "喜欢"
+	var val := int(item.get("gift_value", 0))
+	var mult := 1.5 if mood == "至爱" else (1.0 if mood == "喜欢" else (0.6 if mood == "一般" else -1.0))
+	var delta := maxi(1 if mult > 0 else -4, int(round((val / 10.0 + 2.0) * mult)))
+	return {"delta": delta, "mood": mood}
+
+## 送礼（消耗物品 + 好感 + 阈值奖励）
+func gift(npc_id: String, iid: String) -> Dictionary:
+	var npc: Dictionary = GameDB.get_npc(npc_id)
+	var item: Dictionary = GameDB.get_item(iid)
+	if npc == {} or item == {} or item.get("cat", "") != "礼物":
+		return {"ok": false, "msg": "这东西不便送人。"}
+	if not remove_item(iid, 1):
+		return {"ok": false, "msg": "行囊里没有这样东西。"}
+	var pv := gift_preview(npc_id, iid)
+	add_affinity(npc_id, int(pv["delta"]))
+	var msg := "%s 收下了%s，微微颔首。（好感%+d）" % [npc.get("name", npc_id), item.get("name", iid), int(pv["delta"])]
+	if pv["mood"] == "至爱":
+		msg = "%s 眼前一亮：%s这东西，正对心思。（好感%+d）" % [npc.get("name", npc_id), item.get("name", iid), int(pv["delta"])]
+	elif pv["mood"] == "厌恶":
+		msg = "%s 皱了皱眉，把%s推了回来。（好感%+d）" % [npc.get("name", npc_id), item.get("name", iid), int(pv["delta"])]
+	return {"ok": true, "msg": msg, "delta": int(pv["delta"])}
+
+## 好感阈值奖励（npcs.json affinity_rewards，一次性，flags 记账）
+func _check_affinity_rewards(npc_id: String) -> void:
+	var rewards: Array = GameDB.get_npc(npc_id).get("affinity_rewards", [])
+	for i in rewards.size():
+		var rw: Dictionary = rewards[i]
+		var flag := "affinity_rw_%s_%d" % [npc_id, i]
+		if flags.get(flag, false):
+			continue
+		if get_affinity(npc_id) >= int(rw.get("gte", 999)):
+			flags[flag] = true
+			_grant_rewards(rw.get("rewards", {}))
+			EventBus.toast.emit("【%s】%s" % [GameDB.get_npc(npc_id).get("name", npc_id), rw.get("text", "对你另眼相看。")])
+
+## 通用奖励发放（exp/money/items/wuxue/contrib/fame/morality）
+func _grant_rewards(rw: Dictionary) -> void:
+	if int(rw.get("exp", 0)) > 0: add_exp(int(rw["exp"]))
+	if int(rw.get("money", 0)) != 0: add_money(int(rw["money"]))
+	for iid in rw.get("items", {}):
+		if int(rw["items"][iid]) > 0:
+			add_item(iid, int(rw["items"][iid]))
+			learn_book(iid)
+	if rw.has("wuxue") and GameDB.get_wuxue(str(rw["wuxue"])) != {}:
+		learn_wuxue(str(rw["wuxue"]))
+	if int(rw.get("contrib", 0)) != 0: add_contrib(int(rw["contrib"]))
+	if int(rw.get("fame", 0)) != 0: add_fame(int(rw["fame"]))
+	for mk in rw.get("morality", {}):
+		add_morality(mk, int(rw["morality"][mk]))
+
+## 悬赏品级名声门槛（甲25 / 乙10 / 丙0）
+func bounty_locked(qid: String) -> Dictionary:
+	var q: Dictionary = GameDB.get_quest(qid)
+	var qname: String = q.get("name", "")
+	var need := 0
+	if qname.contains("·甲·"):
+		need = 25
+	elif qname.contains("·乙·"):
+		need = 10
+	if fame < need:
+		return {"locked": true, "need": need}
+	return {"locked": false, "need": need}
 
 # ---------- 背包/货币 ----------
 func add_item(iid: String, n: int) -> void:
@@ -410,6 +496,20 @@ func leave_faction() -> void:
 
 func add_contrib(v: int) -> void:
 	faction_contrib = maxi(0, faction_contrib + v)
+	# 门派贡献晋升（factions.json contrib_rewards，一次性）
+	if faction == "":
+		return
+	var f: Dictionary = GameDB.get_faction(faction)
+	var crs: Array = f.get("contrib_rewards", [])
+	for i in crs.size():
+		var rw: Dictionary = crs[i]
+		var flag := "contrib_rw_%s_%d" % [faction, i]
+		if flags.get(flag, false):
+			continue
+		if faction_contrib >= int(rw.get("gte", 999)):
+			flags[flag] = true
+			_grant_rewards(rw.get("rewards", {}))
+			EventBus.toast.emit("【%s】%s" % [f.get("name", faction), rw.get("text", "你在门派中声望日隆。")])
 
 # ---------- 随从 ----------
 func recruit(npc_id: String) -> bool:
@@ -476,6 +576,9 @@ func complete_quest(qid: String) -> void:
 			traits.append(tid); EventBus.trait_gained.emit(tid); got.append("特性·" + GameDB.get_trait(tid).get("name", tid))
 	for mk in rw.get("morality", {}):
 		add_morality(mk, int(rw["morality"][mk]))
+	if rw.has("wuxue") and GameDB.get_wuxue(str(rw["wuxue"])) != {}:
+		learn_wuxue(str(rw["wuxue"])); got.append("武学·" + GameDB.get_wuxue(str(rw["wuxue"])).get("name", str(rw["wuxue"])))
+	if int(rw.get("contrib", 0)) != 0: add_contrib(int(rw["contrib"])); got.append("门派贡献%+d" % int(rw["contrib"]))
 	if int(rw.get("fame", 0)) != 0: add_fame(int(rw["fame"]))
 	if q.get("type", "") == "悬赏":
 		bounty_pool.erase(qid)

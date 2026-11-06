@@ -3,7 +3,7 @@
     "id": "m1",
     "name": "主线·雨夜之后",
     "type": "主线",
-    "desc": "村子遭袭的第二天，去看看幸存的村民。",
+    "desc": "雨停了。村子没了，人还在。去看看活着的人。",
     "steps": [
       {
         "text": "与顾老丈交谈",
@@ -39,7 +39,7 @@
     "id": "m2",
     "name": "主线·拜月之影",
     "type": "主线",
-    "desc": "玄尘先生让你收集线索，查明黑衣人的来历。",
+    "desc": "玄尘先生让你查黑衣人的来历。他说：去问活人——孩子的眼睛，比大人的干净。",
     "steps": [
       {
         "text": "询问顾小满",
@@ -85,7 +85,7 @@
     "id": "m3",
     "name": "主线·江州风云",
     "type": "主线",
-    "desc": "前往江州城，拜入三大门派之一。",
+    "desc": "家已不成家。去江州，学一身能护人的本事。",
     "steps": [
       {
         "text": "抵达江州城",
@@ -134,7 +134,7 @@
     "id": "m4",
     "name": "主线·随行之人",
     "type": "主线",
-    "desc": "行走江湖需有同伴。至少招募一名随从。",
+    "desc": "一个人走夜路，容易想起旧事。找个人同行。",
     "steps": [
       {
         "text": "招募任意一名随从",
@@ -165,7 +165,7 @@
     "id": "m5",
     "name": "主线·北郊剿狼",
     "type": "主线",
-    "desc": "铁捕头悬赏北郊狼群。剿灭头狼，还商路太平。",
+    "desc": "北郊的狼成了群。头狼不除，商路不安。",
     "steps": [
       {
         "text": "前往北郊野林",
@@ -208,7 +208,7 @@
     "id": "m6",
     "name": "主线·弯月再现",
     "type": "主线",
-    "desc": "铁捕头截获密信：拜月教将在江州城有所动作。子时去黑市打探。",
+    "desc": "弯月再现。铁捕头截获密信：子时，黑市，有人等一桩买卖。",
     "steps": [
       {
         "text": "子时造访黑市",
@@ -220,7 +220,7 @@
       },
       {
         "text": "从教众处取得拜月令",
-        "hint": "击败出没的拜月教众。",
+        "hint": "眼白泛月色的那种人，身上都带令。",
         "do": {
           "type": "kill",
           "enemy": "baiyue_adept",
@@ -249,7 +249,7 @@
     "id": "m7",
     "name": "主线·护法现身",
     "type": "主线",
-    "desc": "持拜月令赴西山河畔，引出拜月护法·玄。",
+    "desc": "令牌是饵，护法是鱼。酉时之后，西山河畔，月影自现。",
     "steps": [
       {
         "text": "酉时后前往西山河畔",
@@ -293,7 +293,7 @@
     "id": "m8",
     "name": "主线·夜雨初歇",
     "type": "主线",
-    "desc": "护法败退，临走留下一句'月圆之夜，武神殿见'。第一章落幕。",
+    "desc": "护法败退，却留下请帖：'月圆之夜，武神殿见。'杀人的刀客，为什么下请帖？",
     "steps": [
       {
         "text": "做出你的选择",
@@ -467,7 +467,8 @@
       },
       "traits": [],
       "morality": {},
-      "fame": 10
+      "fame": 10,
+      "contrib": 20
     },
     "prereq": {},
     "auto": true
@@ -503,7 +504,8 @@
       },
       "traits": [],
       "morality": {},
-      "fame": 10
+      "fame": 10,
+      "contrib": 20
     },
     "prereq": {},
     "auto": true
@@ -539,7 +541,8 @@
       },
       "traits": [],
       "morality": {},
-      "fame": 10
+      "fame": 10,
+      "contrib": 20
     },
     "prereq": {},
     "auto": true
@@ -735,6 +738,327 @@
       "fame": 3
     },
     "prereq": {},
+    "auto": true
+  },
+  "s_xin": {
+    "id": "s_xin",
+    "name": "支线·一封旧信",
+    "type": "支线",
+    "desc": "玄尘贴身收了二十年的信，终于交到你手上。烧，或者留。",
+    "steps": [
+      {
+        "text": "听玄尘把话说完",
+        "hint": "他想说的话，似乎憋了很多年。",
+        "do": {
+          "type": "talk",
+          "npc": "xuanchen"
+        }
+      },
+      {
+        "text": "给这封信一个去向",
+        "hint": "再找玄尘谈一次。烧，或者留，只能自己定。",
+        "do": {
+          "type": "talk",
+          "npc": "xuanchen"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 80,
+      "money": 0,
+      "items": {},
+      "traits": [],
+      "morality": {},
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": false
+  },
+  "s_meng": {
+    "id": "s_meng",
+    "name": "支线·孟千的酒",
+    "type": "支线",
+    "desc": "孟千要一壶女儿红，倒在西山河畔的芦苇最深处。不必问给谁。",
+    "steps": [
+      {
+        "text": "问清倒酒的地点",
+        "hint": "西山河畔，芦苇最深处。",
+        "do": {
+          "type": "talk",
+          "npc": "meng_qian"
+        }
+      },
+      {
+        "text": "备一壶女儿红",
+        "hint": "醉仙楼有售。一壶一百六十文。",
+        "do": {
+          "type": "talk",
+          "npc": "wu_san"
+        }
+      },
+      {
+        "text": "走一趟西山河畔",
+        "hint": "大地图西南。倒酒要静，人也要静。",
+        "do": {
+          "type": "visit",
+          "map": "wild_west"
+        }
+      },
+      {
+        "text": "回江州告诉孟千",
+        "hint": "他在茶旗杆下等你。",
+        "do": {
+          "type": "talk",
+          "npc": "meng_qian"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 100,
+      "money": 300,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 8,
+        "勇": 4
+      },
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": false
+  },
+  "s_guiju": {
+    "id": "s_guiju",
+    "name": "支线·三条规矩",
+    "type": "支线",
+    "desc": "铁捕头的断案规矩：孩子的眼睛，市井的耳目，教众身上的令。",
+    "steps": [
+      {
+        "text": "听孩子的证词",
+        "hint": "顾小满看见的，大人未必看见。",
+        "do": {
+          "type": "talk",
+          "npc": "gu_xiaoman"
+        }
+      },
+      {
+        "text": "探市井的耳目",
+        "hint": "茶摊阿六：一壶茶三文，一桩风闻三十文。",
+        "do": {
+          "type": "talk",
+          "npc": "cha_alium"
+        }
+      },
+      {
+        "text": "取一枚弯月令为证",
+        "hint": "眼白泛月色的人，身上都带令。",
+        "do": {
+          "type": "kill",
+          "enemy": "baiyue_adept",
+          "count": 1
+        }
+      },
+      {
+        "text": "带证物回官府结案",
+        "hint": "铁捕头在告示板前。",
+        "do": {
+          "type": "talk",
+          "npc": "tie_putou"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 120,
+      "money": 400,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 10
+      },
+      "fame": 15
+    },
+    "prereq": {},
+    "auto": false
+  },
+  "s_citang": {
+    "id": "s_citang",
+    "name": "支线·祠堂",
+    "type": "支线",
+    "desc": "柳绵绵想修好村口的祠堂。村子没了，根不能没。",
+    "steps": [
+      {
+        "text": "备四份木料",
+        "hint": "北郊野林伐木。木头要硬实的。",
+        "do": {
+          "type": "gather",
+          "count": 4
+        }
+      },
+      {
+        "text": "请村长点头",
+        "hint": "顾老丈是村里最老的人。",
+        "do": {
+          "type": "talk",
+          "npc": "gu_laozhang"
+        }
+      },
+      {
+        "text": "回村上梁",
+        "hint": "柳绵绵在老槐树下等你。",
+        "do": {
+          "type": "talk",
+          "npc": "liumianmian"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 80,
+      "money": 0,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "仁": 15
+      },
+      "fame": 10
+    },
+    "prereq": {},
+    "auto": false
+  },
+  "bounty_a2": {
+    "id": "bounty_a2",
+    "name": "悬赏·甲·夜枭之令",
+    "type": "悬赏",
+    "desc": "拜月教徒夜杀商队，官府悬红缉拿。活口不要，人头要紧。",
+    "steps": [
+      {
+        "text": "击杀拜月教护法武者",
+        "hint": "西山河一带，走路没有声音的人。",
+        "do": {
+          "type": "kill",
+          "enemy": "baiyue_guard",
+          "count": 1
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 220,
+      "money": 2200,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 12
+      },
+      "fame": 15
+    },
+    "prereq": {},
+    "auto": false
+  },
+  "bounty_b3": {
+    "id": "bounty_b3",
+    "name": "悬赏·乙·缉拿劫镖匪",
+    "type": "悬赏",
+    "desc": "劫镖匪啸聚东岗，赵铁山的旧镖旗不能倒。",
+    "steps": [
+      {
+        "text": "击杀劫镖匪",
+        "hint": "东岗乱石间。",
+        "do": {
+          "type": "kill",
+          "enemy": "biaofei",
+          "count": 2
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 130,
+      "money": 900,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 6
+      },
+      "fame": 8
+    },
+    "prereq": {},
+    "auto": false
+  },
+  "bounty_c5": {
+    "id": "bounty_c5",
+    "name": "悬赏·丙·肃清竹海毛贼",
+    "type": "悬赏",
+    "desc": "竹海毛贼剪径，吓坏采药人。凑钱悬赏，肃清为止。",
+    "steps": [
+      {
+        "text": "击杀毛贼",
+        "hint": "南郊竹海。",
+        "do": {
+          "type": "kill",
+          "enemy": "bandit",
+          "count": 2
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 70,
+      "money": 450,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 4
+      },
+      "fame": 4
+    },
+    "prereq": {},
+    "auto": false
+  },
+  "s_yan2": {
+    "id": "s_yan2",
+    "name": "烟波楼·唤雨之踪",
+    "type": "支线",
+    "desc": "白凌波查了二十年的两个字：唤雨。西山河的雨，不是天落的。",
+    "steps": [
+      {
+        "text": "向西山河查访异象",
+        "hint": "酉时之后，西山河畔。",
+        "do": {
+          "type": "visit",
+          "map": "wild_west"
+        }
+      },
+      {
+        "text": "击退暗中布雨的教众",
+        "hint": "他们走路没有声音。",
+        "do": {
+          "type": "kill",
+          "enemy": "baiyue_adept",
+          "count": 2
+        }
+      },
+      {
+        "text": "回禀白楼主",
+        "hint": "烟波楼水榭。",
+        "do": {
+          "type": "talk",
+          "npc": "bai_lingbo"
+        }
+      }
+    ],
+    "rewards": {
+      "exp": 160,
+      "money": 600,
+      "items": {},
+      "traits": [],
+      "morality": {
+        "义": 8
+      },
+      "fame": 10,
+      "contrib": 30
+    },
+    "prereq": {
+      "quests": [
+        "m6"
+      ]
+    },
     "auto": true
   }
 }

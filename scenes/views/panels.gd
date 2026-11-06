@@ -2,6 +2,9 @@ extends Control
 ## Panels —— 交互面板层：对话/商店/背包/状态/武学/经脉/任务/炼制/悬赏/奇遇。
 ## 由 TownView 挂载，覆盖在地图之上。
 
+const ArtLib := preload("res://scripts/art/art_lib.gd")
+const UITheme := preload("res://scripts/ui_theme.gd")
+
 var main: Node
 var town: Node   # 反向引用 town_view（战斗跳转用）
 
@@ -32,7 +35,7 @@ func _base(title: String, w := 640.0, h := 420.0) -> Dictionary:
 	var tl := Label.new()
 	tl.text = title
 	tl.add_theme_font_size_override("font_size", 18)
-	tl.add_theme_color_override("font_color", Color("e8e0d0"))
+	tl.add_theme_color_override("font_color", Color("221d17"))
 	vb.add_child(tl)
 	var sep := HSeparator.new()
 	vb.add_child(sep)
@@ -73,6 +76,21 @@ func npc_dialog(npc_id: String) -> void:
 	var aff: int = GameState.get_affinity(npc_id)
 	var b := _base("%s · %s   （好感 %d）" % [n.get("name", npc_id), n.get("title", ""), aff], 660, 470)
 	var vb: VBoxContainer = b["vb"]
+	# 水墨头像（墨环框 + 描金）
+	var prow := HBoxContainer.new()
+	prow.add_theme_constant_override("separation", 10)
+	var pt := TextureRect.new()
+	pt.texture = ArtLib.npc_face(npc_id)
+	pt.custom_minimum_size = Vector2(48, 48)
+	pt.stretch_mode = TextureRect.STRETCH_SCALE
+	prow.add_child(pt)
+	var ptxt := Label.new()
+	ptxt.text = "「%s」" % n.get("title", "")
+	ptxt.add_theme_font_size_override("font_size", 14)
+	ptxt.add_theme_color_override("font_color", UITheme.INK_SOFT)
+	ptxt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	prow.add_child(ptxt)
+	vb.add_child(prow)
 	var greets: Array = n.get("greet", ["……"])
 	_body(vb, greets[randi() % greets.size()])
 
@@ -162,24 +180,22 @@ func _gift_pick(npc_id: String) -> void:
 	var n: Dictionary = GameDB.get_npc(npc_id)
 	var b := _base("送礼 → %s" % n.get("name", npc_id), 560, 420)
 	var vb: VBoxContainer = b["vb"]
-	var pref: Dictionary = n.get("gift_pref", {})
 	var opts := []
 	for iid in _gift_list():
 		var it: Dictionary = GameDB.get_item(iid)
-		var val := int(it.get("gift_value", 0))
-		var mood := "一般"
+		var pv: Dictionary = GameState.gift_preview(npc_id, iid)
+		var mood: String = pv["mood"]
 		var col := Color("8a94a8")
-		if (pref.get("love", []) as Array).has(it.get("name", "")):
-			mood = "至爱"; col = Color("c96a8a")
-		elif (pref.get("like", []) as Array).has(it.get("name", "")):
-			mood = "喜欢"; col = Color("7ab86a")
-		elif (pref.get("hate", []) as Array).has(it.get("name", "")):
-			mood = "厌恶"; col = Color("c96a5a")
-		var aff_gain: int = maxi(1, int(round((val / 10.0 + 2.0) * (1.5 if mood == "至爱" else 1.0 if mood == "喜欢" else 0.6 if mood == "一般" else -1.0))))
-		opts.append({"text": "【%s】×%d（%s，好感%+d）" % [it.get("name", iid), GameState.inventory[iid], mood, aff_gain], "cb": func():
-			if GameState.remove_item(iid, 1):
-				GameState.add_affinity(npc_id, aff_gain)
-				main.toast_panel("%s 收下了%s。（好感%+d）" % [n.get("name", npc_id), it.get("name", iid), aff_gain])
+		if mood == "至爱":
+			col = Color("c96a8a")
+		elif mood == "喜欢":
+			col = Color("7ab86a")
+		elif mood == "厌恶":
+			col = Color("c96a5a")
+		opts.append({"text": "【%s】×%d（%s，好感%+d）" % [it.get("name", iid), GameState.inventory[iid], mood, int(pv["delta"])], "cb": func():
+			var out: Dictionary = GameState.gift(npc_id, iid)
+			main.toast_panel(out.get("msg", ""))
+			if out.get("ok", false):
 				_after_affinity_event(npc_id)
 			npc_dialog(npc_id)})
 	_opts(vb, opts)
@@ -290,6 +306,13 @@ func _enc_cond_ok(tr: Dictionary) -> bool:
 		var qg: Dictionary = tr["quest_gte"]
 		if GameState.quest_state(qg["quest"]) != "active" or GameState.quest_step(qg["quest"]) < int(qg["step"]):
 			return false
+	if tr.has("quest_done"):
+		if GameState.quest_state(str(tr["quest_done"])) != "done":
+			return false
+	if tr.has("item"):
+		var ie: Dictionary = tr["item"]
+		if GameState.count_item(str(ie["id"])) < int(ie.get("n", 1)):
+			return false
 	if tr.has("once") and GameState.flags.get("enc_" + tr["once"], false):
 		return false
 	return true
@@ -387,7 +410,7 @@ func shop_panel(shop_id: String) -> void:
 	# 卖出区
 	var sell_hdr := Label.new()
 	sell_hdr.text = "—— 卖出（半价，任务物除外）——"
-	sell_hdr.add_theme_color_override("font_color", Color("7a8aa0"))
+	sell_hdr.add_theme_color_override("font_color", Color("4a4238"))
 	vb.add_child(sell_hdr)
 	var sell_scroll := ScrollContainer.new()
 	sell_scroll.custom_minimum_size = Vector2(650, 60)
@@ -425,9 +448,12 @@ func bounty_panel() -> void:
 	for qid in GameState.bounty_pool:
 		var q: Dictionary = GameDB.get_quest(qid)
 		var st := GameState.quest_state(qid)
+		var lock: Dictionary = GameState.bounty_locked(qid)
 		var txt := "%s\n    %s（赏 %d 文）" % [q.get("name", qid), q.get("desc", ""), int(q.get("rewards", {}).get("money", 0))]
 		if st == "active":
 			opts.append({"text": "▶ " + txt + " [进行中]", "disabled": true, "cb": func(): pass})
+		elif lock.get("locked", false):
+			opts.append({"text": txt + "\n    🔒 名声不足（需 %d）" % int(lock["need"]), "disabled": true, "cb": func(): pass})
 		else:
 			opts.append({"text": txt, "cb": func():
 				GameState.accept_bounty(qid)
@@ -613,7 +639,7 @@ func _tab_meridian() -> Control:
 	var info := Label.new()
 	info.text = "真气 %d（打坐与行动自然恢复）。每条经脉顺通/逆通二择一。资质丹=行气丹替代。"
 	info.add_theme_font_size_override("font_size", 13)
-	info.add_theme_color_override("font_color", Color("7a8aa0"))
+	info.add_theme_color_override("font_color", Color("4a4238"))
 	vb.add_child(info)
 	for mid in GameDB.meridians:
 		var m: Dictionary = GameDB.meridians[mid]
@@ -654,7 +680,7 @@ func _tab_quests() -> Control:
 	var vb := VBoxContainer.new()
 	vb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	sc.add_child(vb)
-	var groups := {"主线": [], "门派": [], "随从": [], "悬赏": []}
+	var groups := {"主线": [], "支线": [], "门派": [], "随从": [], "悬赏": []}
 	for qid in GameState.quest_states:
 		var st: Dictionary = GameState.quest_states[qid]
 		var q: Dictionary = GameDB.get_quest(qid)
@@ -762,7 +788,7 @@ func _tab_cloud() -> Control:
 	info.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	info.text = "双端云存档互通：电脑上传 → 手机拉取（或反向）。需先启动 server/save_server.mjs，双端填同一地址与账号。保存时若已配置会自动上传。"
 	info.add_theme_font_size_override("font_size", 12)
-	info.add_theme_color_override("font_color", Color("7a8aa0"))
+	info.add_theme_color_override("font_color", Color("4a4238"))
 	vb.add_child(info)
 	var gh := Label.new()
 	gh.text = "服务器与账号"

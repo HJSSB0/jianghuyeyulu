@@ -12,8 +12,11 @@ var held_dir := Vector2i.ZERO
 func _ready() -> void:
 	set_anchors_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	visible = DisplayServer.is_touchscreen_available() or OS.has_feature("mobile") \
-		or OS.has_feature("web_ios") or OS.has_feature("web_android") \
+	# 仅真实触屏设备显示；桌面端 emulate_touch_from_mouse 会令 is_touchscreen_available()
+	# 误报 true，需排除（PC 玩家用 WASD/点击双轨，无需虚拟键）。JH_TOUCH=1 仍可强制开启。
+	var emu_mouse: bool = bool(ProjectSettings.get_setting("input_devices/pointing/emulate_touch_from_mouse"))
+	visible = OS.has_feature("mobile") or OS.has_feature("web_ios") or OS.has_feature("web_android") \
+		or (DisplayServer.is_touchscreen_available() and not emu_mouse) \
 		or OS.get_environment("JH_TOUCH") == "1"
 	if not visible:
 		return

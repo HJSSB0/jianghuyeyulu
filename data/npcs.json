@@ -1,246 +1,1194 @@
 {
   "gu_laozhang": {
-    "id": "gu_laozhang", "name": "顾老丈", "title": "村长", "map": "village", "pos": [6, 3],
-    "role": "任务", "desc": "鬓发花白的老者，长衫上还沾着雨夜的泥点。",
-    "greet": ["这雨下了整夜……村口的王屠户就这么去了。", "少侠若要出村闯荡，先去拜会住在村东的玄尘老先生吧。"],
-    "gift_pref": {"love": ["茶"], "like": ["点心", "酒"], "hate": ["胭脂"]},
-    "inquire": {"cost": 100, "affinity": 20, "exp": 40}
+    "id": "gu_laozhang",
+    "name": "顾老丈",
+    "title": "村长",
+    "map": "village",
+    "pos": [
+      6,
+      3
+    ],
+    "role": "任务",
+    "desc": "鬓发花白的老者，长衫上还沾着雨夜的泥点。",
+    "greet": [
+      "这雨下了整夜。雨停了，村里少了王屠户，少了绵绵她娘，少了小满他爹。",
+      "走的人走的时候，连口热饭都没吃上。",
+      "少侠要出村闯荡，先去拜会村东的玄尘老先生吧。"
+    ],
+    "gift_pref": {
+      "love": [
+        "茶"
+      ],
+      "like": [
+        "点心",
+        "酒"
+      ],
+      "hate": [
+        "胭脂"
+      ]
+    },
+    "inquire": {
+      "cost": 100,
+      "affinity": 20,
+      "exp": 40
+    },
+    "affinity_rewards": [
+      {
+        "gte": 25,
+        "text": "老人把祠堂的钥匙影交给你：「村子，交给你了。」",
+        "rewards": {
+          "money": 200
+        }
+      }
+    ]
   },
   "xuanchen": {
-    "id": "xuanchen", "name": "玄尘", "title": "隐居老者", "map": "village", "pos": [10, 7],
-    "role": "任务", "desc": "蓑衣斗笠的老者，正在檐下打坐，呼吸绵长。",
-    "greet": ["少年人，你眼中的火气还没散。", "武学之道，不在快，而在勤。打坐修炼，方能水到渠成。"],
-    "gift_pref": {"love": ["茶"], "like": ["点心"], "hate": ["酒"]},
-    "inquire": {"cost": 120, "affinity": 20, "exp": 60}
+    "id": "xuanchen",
+    "name": "玄尘",
+    "title": "隐居老者",
+    "map": "village",
+    "pos": [
+      10,
+      7
+    ],
+    "role": "任务",
+    "desc": "蓑衣斗笠的老者，在檐下打坐。这村子二十年没下过那么大的雨，他二十年没脱过蓑衣。",
+    "greet": [
+      "少年人，你眼中的火气还没散。火气散了，才看得清路。",
+      "有些事，你不知道，才活得了。知道的人，都死了。",
+      "武学之道，不在快，而在勤。打坐修炼，方能水到渠成。"
+    ],
+    "gift_pref": {
+      "love": [
+        "茶"
+      ],
+      "like": [
+        "点心"
+      ],
+      "hate": [
+        "酒"
+      ]
+    },
+    "inquire": {
+      "cost": 120,
+      "affinity": 20,
+      "exp": 60
+    },
+    "affinity_rewards": [
+      {
+        "gte": 40,
+        "text": "他从蓑衣底下摸出一册旧抄本：「龟息功。学它，不是为杀人，是为活过不该活过的夜。」",
+        "rewards": {
+          "wuxue": "nei_guixi"
+        }
+      }
+    ]
   },
   "liumianmian": {
-    "id": "liumianmian", "name": "柳绵绵", "title": "村中孤女", "map": "village", "pos": [14, 5],
-    "role": "随从", "desc": "粗布衣裳的少女，一双拳握得紧紧的，眼眶微红。",
-    "greet": ["我娘……我娘她没能跑出来。", "我想变强。强到再也不会失去任何人。"],
-    "gift_pref": {"love": ["胭脂", "点心"], "like": ["字画", "绸缎"], "hate": []},
-    "spar": "n_liumianmian", "inquire": {"cost": 80, "affinity": 20, "exp": 50}
+    "id": "liumianmian",
+    "name": "柳绵绵",
+    "title": "村中孤女",
+    "map": "village",
+    "pos": [
+      14,
+      5
+    ],
+    "role": "随从",
+    "desc": "粗布衣裳的少女，一双拳握得紧紧的，眼眶微红。",
+    "greet": [
+      "我娘……我娘她没能跑出来。",
+      "我想变强。强到再也不会失去任何人。",
+      "娘的遗物丢在北郊了。找到它，我就回村把祠堂修起来。"
+    ],
+    "gift_pref": {
+      "love": [
+        "胭脂",
+        "点心"
+      ],
+      "like": [
+        "字画",
+        "绸缎"
+      ],
+      "hate": []
+    },
+    "spar": "n_liumianmian",
+    "inquire": {
+      "cost": 80,
+      "affinity": 20,
+      "exp": 50
+    },
+    "affinity_rewards": [
+      {
+        "gte": 30,
+        "text": "她把那方绣帕的角，悄悄缝进了你的衣襟。",
+        "rewards": {
+          "money": 300,
+          "morality": {
+            "仁": 5
+          }
+        }
+      }
+    ]
   },
   "wang_daniang": {
-    "id": "wang_daniang", "name": "王大娘", "title": "村中货郎", "map": "village", "pos": [3, 9],
-    "role": "杂货", "desc": "围着围裙的妇人，摊子上摆着针头线脑和几张炊饼。",
-    "greet": ["哎哟，要买点什么？炊饼刚出炉的。"],
-    "gift_pref": {"love": ["绸缎"], "like": ["点心"], "hate": []},
-    "shop": "shop_village", "inquire": {"cost": 60, "affinity": 20, "exp": 30}
+    "id": "wang_daniang",
+    "name": "王大娘",
+    "title": "村中货郎",
+    "map": "village",
+    "pos": [
+      3,
+      9
+    ],
+    "role": "杂货",
+    "desc": "围着围裙的妇人，摊子上摆着针头线脑和几张炊饼。",
+    "greet": [
+      "哎哟，要买点什么？炊饼刚出炉的。"
+    ],
+    "gift_pref": {
+      "love": [
+        "绸缎"
+      ],
+      "like": [
+        "点心"
+      ],
+      "hate": []
+    },
+    "shop": "shop_village",
+    "inquire": {
+      "cost": 60,
+      "affinity": 20,
+      "exp": 30
+    }
   },
   "liu_er": {
-    "id": "liu_er", "name": "猎户刘二", "title": "猎户", "map": "village", "pos": [17, 5],
-    "role": "闲人", "desc": "背着弓的精瘦汉子，正往陷阱上抹桐油。",
-    "greet": ["北郊野林的狼最近邪性得很，成群结队的。", "你要去采药？跟你说，草药这东西，隔个把时辰又会长出来，不急。"],
-    "gift_pref": {"love": ["酒"], "like": ["肉", "点心"], "hate": ["佛经"]},
-    "inquire": {"cost": 80, "affinity": 20, "exp": 40}
+    "id": "liu_er",
+    "name": "猎户刘二",
+    "title": "猎户",
+    "map": "village",
+    "pos": [
+      17,
+      5
+    ],
+    "role": "闲人",
+    "desc": "背着弓的精瘦汉子，正往陷阱上抹桐油。",
+    "greet": [
+      "北郊野林的狼最近邪性得很。狼不怕人，反倒人怕狼——这不对，这很不对。",
+      "你要去采药？跟你说，草药这东西，隔个把时辰又会长出来，不急。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒"
+      ],
+      "like": [
+        "肉",
+        "点心"
+      ],
+      "hate": [
+        "佛经"
+      ]
+    },
+    "inquire": {
+      "cost": 80,
+      "affinity": 20,
+      "exp": 40
+    }
   },
   "gu_xiaoman": {
-    "id": "gu_xiaoman", "name": "顾小满", "title": "村中孩童", "map": "village", "pos": [11, 11],
-    "role": "闲人", "desc": "七八岁的娃娃，抱着一只芦花鸡，眼睛肿得像桃子。",
-    "greet": ["大哥哥，我爹说是黑衣人烧了村子……黑衣人还会来吗？"],
-    "gift_pref": {"love": ["点心"], "like": [], "hate": []},
-    "inquire": {"cost": 40, "affinity": 20, "exp": 20}
+    "id": "gu_xiaoman",
+    "name": "顾小满",
+    "title": "村中孩童",
+    "map": "village",
+    "pos": [
+      11,
+      11
+    ],
+    "role": "闲人",
+    "desc": "七八岁的娃娃，抱着一只芦花鸡，眼睛肿得像桃子。",
+    "greet": [
+      "大哥哥，我爹说是黑衣人烧了村子……黑衣人还会来吗？",
+      "芦花鸡也不叫了。它以前天天叫的。"
+    ],
+    "gift_pref": {
+      "love": [
+        "点心"
+      ],
+      "like": [],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 40,
+      "affinity": 20,
+      "exp": 20
+    }
   },
   "meng_qian": {
-    "id": "meng_qian", "name": "孟千", "title": "江湖引路人", "map": "jiangzhou", "pos": [15, 10],
-    "role": "任务", "desc": "青衫剑客，倚着茶旗杆，见人便三分笑。",
-    "greet": ["小友从北边来？听闻无名小村遭了难，唉，这世道。", "想在江州立足，总得有个门派傍身。铁剑门、伏虎禅寺、烟波楼，都在招人。"],
-    "gift_pref": {"love": ["酒"], "like": ["茶", "字画"], "hate": []},
-    "inquire": {"cost": 150, "affinity": 20, "exp": 70}
+    "id": "meng_qian",
+    "name": "孟千",
+    "title": "江湖引路人",
+    "map": "jiangzhou",
+    "pos": [
+      15,
+      10
+    ],
+    "role": "任务",
+    "desc": "青衫剑客，倚着茶旗杆，见人便三分笑。",
+    "greet": [
+      "小友从北边来？听闻无名小村遭了难……唉，这世道。",
+      "想在江州立足，总得有个门派傍身。铁剑门、伏虎禅寺、烟波楼，都在招人。",
+      "臂上纹弯月的那伙人，别去查。查他们的人，坟头草都换过三茬了。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒"
+      ],
+      "like": [
+        "茶",
+        "字画"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 150,
+      "affinity": 20,
+      "exp": 70
+    }
   },
   "cha_alium": {
-    "id": "cha_alium", "name": "茶摊阿六", "title": "风闻贩子", "map": "jiangzhou", "pos": [9, 10],
-    "role": "闲人", "desc": "茶摊老板，一壶茶卖三文，一桩风闻卖三十文。",
-    "greet": ["客官喝茶不喝？不喝茶也行，听个新鲜事儿再走？", "这江州城啊，井底下、城墙根，藏着的事儿可多了。"],
-    "gift_pref": {"love": ["茶"], "like": ["点心"], "hate": []},
-    "inquire": {"cost": 60, "affinity": 20, "exp": 30}
+    "id": "cha_alium",
+    "name": "茶摊阿六",
+    "title": "风闻贩子",
+    "map": "jiangzhou",
+    "pos": [
+      9,
+      10
+    ],
+    "role": "闲人",
+    "desc": "茶摊老板，一壶茶卖三文，一桩风闻卖三十文。",
+    "greet": [
+      "客官喝茶不喝？不喝茶也行，听个新鲜事儿再走？",
+      "这江州城啊，井底下、城墙根，藏着的事儿可多了。"
+    ],
+    "gift_pref": {
+      "love": [
+        "茶"
+      ],
+      "like": [
+        "点心"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 60,
+      "affinity": 20,
+      "exp": 30
+    }
   },
   "qian_duoduo": {
-    "id": "qian_duoduo", "name": "钱多多", "title": "杂货铺老板", "map": "jiangzhou", "pos": [4, 3],
-    "role": "杂货", "desc": "满脸堆笑的胖商人，算盘打得噼啪响。",
-    "greet": ["客官里边请！秘籍丹药，兵刃暗器，童叟无欺！"],
-    "gift_pref": {"love": ["绸缎"], "like": ["字画"], "hate": []},
-    "shop": "shop_zahu", "inquire": {"cost": 100, "affinity": 20, "exp": 40}
+    "id": "qian_duoduo",
+    "name": "钱多多",
+    "title": "杂货铺老板",
+    "map": "jiangzhou",
+    "pos": [
+      4,
+      3
+    ],
+    "role": "杂货",
+    "desc": "满脸堆笑的胖商人，算盘打得噼啪响。",
+    "greet": [
+      "客官里边请！秘籍丹药，兵刃暗器，童叟无欺！"
+    ],
+    "gift_pref": {
+      "love": [
+        "绸缎"
+      ],
+      "like": [
+        "字画"
+      ],
+      "hate": []
+    },
+    "shop": "shop_zahu",
+    "inquire": {
+      "cost": 100,
+      "affinity": 20,
+      "exp": 40
+    }
   },
   "sun_daifu": {
-    "id": "sun_daifu", "name": "孙大夫", "title": "回春堂掌柜", "map": "jiangzhou", "pos": [7, 3],
-    "role": "药铺", "desc": "山羊胡的老大夫，指间常年一股药香。",
-    "greet": ["草药、灵芝，收来都收。炼丹的手艺，老朽也可教你两手。"],
-    "gift_pref": {"love": ["佛经"], "like": ["茶"], "hate": ["酒"]},
-    "shop": "shop_yaopu", "inquire": {"cost": 120, "affinity": 20, "exp": 50}
+    "id": "sun_daifu",
+    "name": "孙大夫",
+    "title": "回春堂掌柜",
+    "map": "jiangzhou",
+    "pos": [
+      7,
+      3
+    ],
+    "role": "药铺",
+    "desc": "山羊胡的老大夫，指间常年一股药香。",
+    "greet": [
+      "草药、灵芝，收来都收。炼丹的手艺，老朽也可教你两手。"
+    ],
+    "gift_pref": {
+      "love": [
+        "佛经"
+      ],
+      "like": [
+        "茶"
+      ],
+      "hate": [
+        "酒"
+      ]
+    },
+    "shop": "shop_yaopu",
+    "inquire": {
+      "cost": 120,
+      "affinity": 20,
+      "exp": 50
+    }
   },
   "ouye_qing": {
-    "id": "ouye_qing", "name": "欧冶青", "title": "武器铺匠人", "map": "jiangzhou", "pos": [18, 3],
-    "role": "武器", "desc": "赤膊的铁匠，胳膊上的肌肉像老树根。",
-    "greet": ["刀剑棍棒，看家护命。客官来一件？"],
-    "gift_pref": {"love": ["酒", "肉"], "like": [], "hate": ["胭脂"]},
-    "shop": "shop_wuqi", "inquire": {"cost": 120, "affinity": 20, "exp": 50}
+    "id": "ouye_qing",
+    "name": "欧冶青",
+    "title": "武器铺匠人",
+    "map": "jiangzhou",
+    "pos": [
+      18,
+      3
+    ],
+    "role": "武器",
+    "desc": "赤膊的铁匠，胳膊上的肌肉像老树根。",
+    "greet": [
+      "刀剑棍棒，看家护命。客官来一件？"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒",
+        "肉"
+      ],
+      "like": [],
+      "hate": [
+        "胭脂"
+      ]
+    },
+    "shop": "shop_wuqi",
+    "inquire": {
+      "cost": 120,
+      "affinity": 20,
+      "exp": 50
+    }
   },
   "wu_san": {
-    "id": "wu_san", "name": "吴三", "title": "醉仙楼掌柜", "map": "jiangzhou", "pos": [20, 3],
-    "role": "酒馆", "desc": "擦着酒碗的掌柜，眼皮一抬就把来客打量了个遍。",
-    "greet": ["打尖还是住店？女儿红只剩两坛了，要趁早。", "戌时往后，有位醉侠常来白吃白喝——可没人敢赶他。"],
-    "gift_pref": {"love": ["酒"], "like": ["肉"], "hate": []},
-    "shop": "shop_jiuguan", "inquire": {"cost": 100, "affinity": 20, "exp": 40}
+    "id": "wu_san",
+    "name": "吴三",
+    "title": "醉仙楼掌柜",
+    "map": "jiangzhou",
+    "pos": [
+      20,
+      3
+    ],
+    "role": "酒馆",
+    "desc": "擦着酒碗的掌柜，眼皮一抬就把来客打量了个遍。",
+    "greet": [
+      "打尖还是住店？女儿红只剩两坛了，要趁早。",
+      "戌时往后，有位醉侠常来白吃白喝——可没人敢赶他。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒"
+      ],
+      "like": [
+        "肉"
+      ],
+      "hate": []
+    },
+    "shop": "shop_jiuguan",
+    "inquire": {
+      "cost": 100,
+      "affinity": 20,
+      "exp": 40
+    }
   },
   "dugucan": {
-    "id": "dugucan", "name": "醉侠·独孤残", "title": "醉侠", "map": "jiangzhou", "pos": [21, 11],
-    "role": "奇遇", "desc": "浑身酒气的落拓剑客，靠在酒缸上打盹，手边横着一柄豁口长剑。",
-    "greet": ["嗝……酒呢？我的酒呢？", "你这拳脚……有点意思。陪老夫喝一碗，教你两手真的。"],
-    "gift_pref": {"love": ["酒"], "like": ["肉"], "hate": ["佛经"]},
-    "night_only": false, "hours": ["戌", "亥", "子"],
-    "inquire": {"cost": 200, "affinity": 30, "exp": 90}
+    "id": "dugucan",
+    "name": "醉侠·独孤残",
+    "title": "醉侠",
+    "map": "jiangzhou",
+    "pos": [
+      21,
+      11
+    ],
+    "role": "奇遇",
+    "desc": "浑身酒气的落拓剑客，靠在酒缸上打盹，手边横着一柄豁口长剑。",
+    "greet": [
+      "嗝……酒呢？我的酒呢？",
+      "你问老夫的剑为什么有豁口？剑有豁口，人有旧账。喝酒，喝酒。",
+      "你这拳脚……有点意思。陪老夫喝一碗，教你两手真的。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒"
+      ],
+      "like": [
+        "肉"
+      ],
+      "hate": [
+        "佛经"
+      ]
+    },
+    "night_only": false,
+    "hours": [
+      "戌",
+      "亥",
+      "子"
+    ],
+    "inquire": {
+      "cost": 200,
+      "affinity": 30,
+      "exp": 90
+    },
+    "affinity_rewards": [
+      {
+        "gte": 50,
+        "text": "他把豁口剑横在膝上比划了三招：「记住了。剑歪，人不歪。」",
+        "rewards": {
+          "wuxue": "jian_canhe"
+        }
+      }
+    ]
   },
   "zhuang_jia": {
-    "id": "zhuang_jia", "name": "赌坊庄家", "title": "庄家", "map": "jiangzhou", "pos": [22, 2],
-    "role": "奇遇", "desc": "摇着骰盅的干瘦男人，笑声像夜枭。",
-    "greet": ["买大买小，买定离手！", "小兄弟面色红润，来一把？赢了翻倍，输了……嘿嘿。"],
-    "gift_pref": {"love": ["绸缎"], "like": ["酒"], "hate": []}
+    "id": "zhuang_jia",
+    "name": "赌坊庄家",
+    "title": "庄家",
+    "map": "jiangzhou",
+    "pos": [
+      22,
+      2
+    ],
+    "role": "奇遇",
+    "desc": "摇着骰盅的干瘦男人，笑声像夜枭。",
+    "greet": [
+      "买大买小，买定离手！",
+      "小兄弟面色红润，来一把？赢了翻倍，输了……嘿嘿。"
+    ],
+    "gift_pref": {
+      "love": [
+        "绸缎"
+      ],
+      "like": [
+        "酒"
+      ],
+      "hate": []
+    }
   },
   "qin_wuyi": {
-    "id": "qin_wuyi", "name": "秦无衣", "title": "独行刀客", "map": "jiangzhou", "pos": [21, 11],
-    "role": "随从", "desc": "抱刀独坐的汉子，刀鞘上的红绸洗得发白。",
-    "greet": ["这位置，有人了。", "……你要是闲得慌，找个练武场，别在我耳边嗡嗡。"],
-    "gift_pref": {"love": ["酒", "肉"], "like": [], "hate": ["胭脂"]},
-    "spar": "n_qinwuyi", "inquire": {"cost": 200, "affinity": 30, "exp": 80}
+    "id": "qin_wuyi",
+    "name": "秦无衣",
+    "title": "独行刀客",
+    "map": "jiangzhou",
+    "pos": [
+      21,
+      11
+    ],
+    "role": "随从",
+    "desc": "抱刀独坐的汉子，刀鞘上的红绸洗得发白。",
+    "greet": [
+      "这位置，有人了。",
+      "……你要是闲得慌，找个练武场，别在我耳边嗡嗡。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒",
+        "肉"
+      ],
+      "like": [],
+      "hate": [
+        "胭脂"
+      ]
+    },
+    "spar": "n_qinwuyi",
+    "inquire": {
+      "cost": 200,
+      "affinity": 30,
+      "exp": 80
+    },
+    "affinity_rewards": [
+      {
+        "gte": 40,
+        "text": "他解下刀鞘上的旧红绸，系在你腕上：「燕青刀，替我把债讨完。」",
+        "rewards": {
+          "wuxue": "dao_yanqing"
+        }
+      }
+    ]
   },
   "tie_putou": {
-    "id": "tie_putou", "name": "铁捕头", "title": "江州捕头", "map": "jiangzhou", "pos": [12, 11],
-    "role": "任务", "desc": "腰挎铁牌的捕头，告示板前抱臂而立。",
-    "greet": ["悬赏告示都在板上，按本事领赏。", "近来江湖不太平，拜月教的探子四处窥探，见着黑衣人速来报官。"],
-    "gift_pref": {"love": ["酒"], "like": ["字画"], "hate": []},
-    "inquire": {"cost": 150, "affinity": 20, "exp": 60}
+    "id": "tie_putou",
+    "name": "铁捕头",
+    "title": "江州捕头",
+    "map": "jiangzhou",
+    "pos": [
+      12,
+      11
+    ],
+    "role": "任务",
+    "desc": "腰挎铁牌的捕头，告示板前抱臂而立。",
+    "greet": [
+      "悬赏告示都在板上，按本事领赏。",
+      "近来江湖不太平，拜月教的探子四处窥探，见着黑衣人速来报官。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒"
+      ],
+      "like": [
+        "字画"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 150,
+      "affinity": 20,
+      "exp": 60
+    },
+    "affinity_rewards": [
+      {
+        "gte": 35,
+        "text": "他记下了你的名字——官府的名册上，多了个可信的人。",
+        "rewards": {
+          "fame": 8
+        }
+      }
+    ]
   },
   "lin_jianxin": {
-    "id": "lin_jianxin", "name": "林剑心", "title": "铁剑门执事", "map": "jiangzhou", "pos": [5, 11],
-    "role": "门派", "desc": "负手而立的剑客，铁剑门玄色劲装，脊背挺得像一柄剑。",
-    "greet": ["铁剑门招徒，要的是心志坚毅之辈。", "剑者，直道而行。你，可敢问剑？"],
-    "gift_pref": {"love": ["字画"], "like": ["茶", "酒"], "hate": ["胭脂"]},
-    "faction": "tiejianmen", "spar": "n_linjianxin", "inquire": {"cost": 200, "affinity": 30, "exp": 80}
+    "id": "lin_jianxin",
+    "name": "林剑心",
+    "title": "铁剑门执事",
+    "map": "jiangzhou",
+    "pos": [
+      5,
+      11
+    ],
+    "role": "门派",
+    "desc": "负手而立的剑客，铁剑门玄色劲装，脊背挺得像一柄剑。",
+    "greet": [
+      "铁剑门招徒，要的是心志坚毅之辈。",
+      "剑者，直道而行。你，可敢问剑？"
+    ],
+    "gift_pref": {
+      "love": [
+        "字画"
+      ],
+      "like": [
+        "茶",
+        "酒"
+      ],
+      "hate": [
+        "胭脂"
+      ]
+    },
+    "faction": "tiejianmen",
+    "spar": "n_linjianxin",
+    "inquire": {
+      "cost": 200,
+      "affinity": 30,
+      "exp": 80
+    }
   },
   "su_yanbo": {
-    "id": "su_yanbo", "name": "苏烟波", "title": "烟波楼执事", "map": "jiangzhou", "pos": [26, 4],
-    "role": "门派", "desc": "一袭烟青色罗衫的女子，说话像在水里浸过，温温凉凉。",
-    "greet": ["烟波楼收人，不看出身，看眼缘。", "轻功、暗器、剑法，楼里样样都教——只要你吃得了苦。"],
-    "gift_pref": {"love": ["胭脂", "绸缎"], "like": ["茶", "字画"], "hate": []},
-    "faction": "yanbolou", "inquire": {"cost": 200, "affinity": 30, "exp": 80}
+    "id": "su_yanbo",
+    "name": "苏烟波",
+    "title": "烟波楼执事",
+    "map": "jiangzhou",
+    "pos": [
+      26,
+      4
+    ],
+    "role": "门派",
+    "desc": "一袭烟青色罗衫的女子，说话像在水里浸过，温温凉凉。",
+    "greet": [
+      "烟波楼收人，不看出身，看眼缘。",
+      "轻功、暗器、剑法，楼里样样都教——只要你吃得了苦。"
+    ],
+    "gift_pref": {
+      "love": [
+        "胭脂",
+        "绸缎"
+      ],
+      "like": [
+        "茶",
+        "字画"
+      ],
+      "hate": []
+    },
+    "faction": "yanbolou",
+    "inquire": {
+      "cost": 200,
+      "affinity": 30,
+      "exp": 80
+    }
   },
   "lao_gai": {
-    "id": "lao_gai", "name": "老丐", "title": "井边老丐", "map": "jiangzhou", "pos": [23, 10],
-    "role": "闲人", "desc": "蜷在井台边打瞌睡的老乞丐，破碗里有半文钱。",
-    "greet": ["行行好……", "（他压低声音）子时过后，井底下有'鬼'开集。别说是我讲的。"],
-    "gift_pref": {"love": ["肉", "点心"], "like": ["酒"], "hate": []},
-    "inquire": {"cost": 40, "affinity": 20, "exp": 30}
+    "id": "lao_gai",
+    "name": "老丐",
+    "title": "井边老丐",
+    "map": "jiangzhou",
+    "pos": [
+      23,
+      10
+    ],
+    "role": "闲人",
+    "desc": "蜷在井台边打瞌睡的老乞丐，破碗里有半文钱。",
+    "greet": [
+      "行行好……",
+      "（他压低声音）子时过后，井底下有'鬼'开集。别说是我讲的。",
+      "井里的东西，来路不正，可是便宜。这世道，干净的东西都贵。"
+    ],
+    "gift_pref": {
+      "love": [
+        "肉",
+        "点心"
+      ],
+      "like": [
+        "酒"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 40,
+      "affinity": 20,
+      "exp": 30
+    }
   },
   "guishou": {
-    "id": "guishou", "name": "鬼手", "title": "黑市商人", "map": "jiangzhou", "pos": [25, 10],
-    "role": "黑市", "desc": "黑袍人，只露出一双枯瘦的手，指甲缝里全是洗不掉的暗红。",
-    "greet": ["嘘——东西看中就拿，钱货两讫，概不退换。"],
-    "gift_pref": {"love": ["酒"], "like": [], "hate": []},
-    "shop": "shop_heishi", "night_only": true, "hours": ["子", "丑"]
+    "id": "guishou",
+    "name": "鬼手",
+    "title": "黑市商人",
+    "map": "jiangzhou",
+    "pos": [
+      25,
+      10
+    ],
+    "role": "黑市",
+    "desc": "黑袍人，只露出一双枯瘦的手，指甲缝里全是洗不掉的暗红。",
+    "greet": [
+      "嘘——东西看中就拿，钱货两讫，概不退换。",
+      "别问货的来路。问过的人，现在都很安静。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒"
+      ],
+      "like": [],
+      "hate": []
+    },
+    "shop": "shop_heishi",
+    "night_only": true,
+    "hours": [
+      "子",
+      "丑"
+    ]
   },
   "li_mo": {
-    "id": "li_mo", "name": "李墨", "title": "落第书生", "map": "jiangzhou", "pos": [2, 16],
-    "role": "闲人", "desc": "洗得发白的青衿书生，在墙根下晒书，也晒太阳。",
-    "greet": ["'侠'之一字，人旁夹人。助人者，方为侠。", "在下读圣贤书，也读江湖。少侠可愿听老生常谈？"],
-    "gift_pref": {"love": ["字画", "佛经"], "like": ["茶"], "hate": []},
-    "inquire": {"cost": 100, "affinity": 20, "exp": 60}
+    "id": "li_mo",
+    "name": "李墨",
+    "title": "落第书生",
+    "map": "jiangzhou",
+    "pos": [
+      2,
+      16
+    ],
+    "role": "闲人",
+    "desc": "洗得发白的青衿书生，在墙根下晒书，也晒太阳。",
+    "greet": [
+      "'侠'之一字，人旁夹人。助人者，方为侠。",
+      "在下落第三次了。落第不丢人，读不懂江湖才丢人。",
+      "少侠可愿听老生常谈？"
+    ],
+    "gift_pref": {
+      "love": [
+        "字画",
+        "佛经"
+      ],
+      "like": [
+        "茶"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 100,
+      "affinity": 20,
+      "exp": 60
+    }
   },
   "zhou_bo": {
-    "id": "zhou_bo", "name": "周伯", "title": "老渔翁", "map": "linan", "pos": [20, 4],
-    "role": "渔市", "desc": "蓑衣老翁，正把渔网摊在石滩上补，手指翻飞如梭。",
-    "greet": ["钓鱼一道，急不得。下钩、守静、起竿，都是修行。", "老汉我在这河上五十年，近来总见河底闪青光，邪门得很。"],
-    "gift_pref": {"love": ["酒"], "like": ["鱼", "茶"], "hate": []},
-    "shop": "shop_yushi", "inquire": {"cost": 80, "affinity": 20, "exp": 50}
+    "id": "zhou_bo",
+    "name": "周伯",
+    "title": "老渔翁",
+    "map": "linan",
+    "pos": [
+      20,
+      4
+    ],
+    "role": "渔市",
+    "desc": "蓑衣老翁，正把渔网摊在石滩上补，手指翻飞如梭。",
+    "greet": [
+      "钓鱼一道，急不得。下钩、守静、起竿，都是修行。",
+      "老汉我在这河上五十年，近来总见河底闪青光，邪门得很。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒"
+      ],
+      "like": [
+        "鱼",
+        "茶"
+      ],
+      "hate": []
+    },
+    "shop": "shop_yushi",
+    "inquire": {
+      "cost": 80,
+      "affinity": 20,
+      "exp": 50
+    }
   },
   "bai_zhi": {
-    "id": "bai_zhi", "name": "白芷", "title": "药庐医女", "map": "linan", "pos": [18, 7],
-    "role": "随从", "desc": "挽着袖口的医女，指尖有常年碾药磨出的薄茧，眼神干净利落。",
-    "greet": ["病人请进，买药请右转，踢馆的——请回吧。", "山里毒虫多，出门的人，最好都懂点医术。"],
-    "gift_pref": {"love": ["字画", "茶"], "like": ["点心", "绸缎"], "hate": ["酒"]},
-    "inquire": {"cost": 120, "affinity": 20, "exp": 60}
+    "id": "bai_zhi",
+    "name": "白芷",
+    "title": "药庐医女",
+    "map": "linan",
+    "pos": [
+      18,
+      7
+    ],
+    "role": "随从",
+    "desc": "挽着袖口的医女，指尖有常年碾药磨出的薄茧，眼神干净利落。",
+    "greet": [
+      "病人请进，买药请右转，踢馆的——请回吧。",
+      "山里毒虫多，出门的人，最好都懂点医术。"
+    ],
+    "gift_pref": {
+      "love": [
+        "字画",
+        "茶"
+      ],
+      "like": [
+        "点心",
+        "绸缎"
+      ],
+      "hate": [
+        "酒"
+      ]
+    },
+    "inquire": {
+      "cost": 120,
+      "affinity": 20,
+      "exp": 60
+    },
+    "affinity_rewards": [
+      {
+        "gte": 30,
+        "text": "她把一叠晒好的药材分你一半：「别客气，采药的人不该缺药。」",
+        "rewards": {
+          "money": 400,
+          "exp": 60
+        }
+      }
+    ]
   },
   "sai_huatuo": {
-    "id": "sai_huatuo", "name": "赛华佗", "title": "药庐怪客", "map": "linan", "pos": [16, 8],
-    "role": "奇遇", "desc": "鹤发童颜的老者，眯着眼晒药，看似打盹，实则什么都知道。",
-    "greet": ["医人易，医心难。", "你身上药气不浅——常采药？老夫考考你的眼力。"],
-    "gift_pref": {"love": ["佛经"], "like": ["茶"], "hate": ["酒"]},
-    "inquire": {"cost": 200, "affinity": 30, "exp": 90}
+    "id": "sai_huatuo",
+    "name": "赛华佗",
+    "title": "药庐怪客",
+    "map": "linan",
+    "pos": [
+      16,
+      8
+    ],
+    "role": "奇遇",
+    "desc": "鹤发童颜的老者，眯着眼晒药，看似打盹，实则什么都知道。",
+    "greet": [
+      "医人易，医心难。",
+      "你身上药气不浅——常采药？老夫考考你的眼力。"
+    ],
+    "gift_pref": {
+      "love": [
+        "佛经"
+      ],
+      "like": [
+        "茶"
+      ],
+      "hate": [
+        "酒"
+      ]
+    },
+    "inquire": {
+      "cost": 200,
+      "affinity": 30,
+      "exp": 90
+    }
   },
   "liao_chen": {
-    "id": "liao_chen", "name": "了尘", "title": "伏虎禅寺知客僧", "map": "linan", "pos": [4, 11],
-    "role": "门派", "desc": "灰袍僧人，单掌立于胸前，宝相庄严。",
-    "greet": ["阿弥陀佛。施主面有戾气，可愿随贫僧入寺清修？", "禅寺武学，强身护道，不欺弱小。"],
-    "gift_pref": {"love": ["佛经"], "like": ["茶", "点心"], "hate": ["酒", "肉"]},
-    "faction": "fuhusi", "inquire": {"cost": 150, "affinity": 30, "exp": 70}
+    "id": "liao_chen",
+    "name": "了尘",
+    "title": "伏虎禅寺知客僧",
+    "map": "linan",
+    "pos": [
+      4,
+      11
+    ],
+    "role": "门派",
+    "desc": "灰袍僧人，单掌立于胸前，宝相庄严。",
+    "greet": [
+      "阿弥陀佛。施主面有戾气，可愿随贫僧入寺清修？",
+      "禅寺武学，强身护道，不欺弱小。"
+    ],
+    "gift_pref": {
+      "love": [
+        "佛经"
+      ],
+      "like": [
+        "茶",
+        "点心"
+      ],
+      "hate": [
+        "酒",
+        "肉"
+      ]
+    },
+    "faction": "fuhusi",
+    "inquire": {
+      "cost": 150,
+      "affinity": 30,
+      "exp": 70
+    }
   },
   "zhao_tieshan": {
-    "id": "zhao_tieshan", "name": "赵铁山", "title": "老镖师", "map": "linan", "pos": [10, 11],
-    "role": "奇遇", "desc": "刀疤脸的老镖师，捶着腰，镖旗叠在脚边。",
-    "greet": ["老喽，走不动喽。", "这趟镖要送去江州，老朽这腰……小兄弟，可愿代走一遭？酬劳照付。"],
-    "gift_pref": {"love": ["酒", "肉"], "like": ["点心"], "hate": []},
-    "inquire": {"cost": 120, "affinity": 20, "exp": 60}
+    "id": "zhao_tieshan",
+    "name": "赵铁山",
+    "title": "老镖师",
+    "map": "linan",
+    "pos": [
+      10,
+      11
+    ],
+    "role": "奇遇",
+    "desc": "刀疤脸的老镖师，捶着腰，镖旗叠在脚边。",
+    "greet": [
+      "老喽，走不动喽。",
+      "这趟镖要送去江州，老朽这腰……小兄弟，可愿代走一遭？酬劳照付。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒",
+        "肉"
+      ],
+      "like": [
+        "点心"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 120,
+      "affinity": 20,
+      "exp": 60
+    }
   },
   "qiao_gu": {
-    "id": "qiao_gu", "name": "巧姑", "title": "绣娘", "map": "linan", "pos": [5, 11],
-    "role": "闲人", "desc": "飞针走线的年轻绣娘，绷子上是一只振翅的鹤。",
-    "greet": ["白芷姐姐的医术，是这一带最好的。", "赛老爷子看着凶，其实心软得很，就是嘴硬。"],
-    "gift_pref": {"love": ["胭脂", "绸缎"], "like": ["点心"], "hate": []},
-    "inquire": {"cost": 60, "affinity": 20, "exp": 30}
+    "id": "qiao_gu",
+    "name": "巧姑",
+    "title": "绣娘",
+    "map": "linan",
+    "pos": [
+      5,
+      11
+    ],
+    "role": "闲人",
+    "desc": "飞针走线的年轻绣娘，绷子上是一只振翅的鹤。",
+    "greet": [
+      "白芷姐姐的医术，是这一带最好的。",
+      "赛老爷子看着凶，其实心软得很，就是嘴硬。"
+    ],
+    "gift_pref": {
+      "love": [
+        "胭脂",
+        "绸缎"
+      ],
+      "like": [
+        "点心"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 60,
+      "affinity": 20,
+      "exp": 30
+    }
   },
   "zhang_fuu": {
-    "id": "zhang_fuu", "name": "樵夫张斧", "title": "樵夫", "map": "linan", "pos": [20, 12],
-    "role": "闲人", "desc": "担着两捆柴的憨厚汉子，歇脚喝茶。",
-    "greet": ["这山的木头，越往深處越硬实。", "挖矿砍柴，都是力气活，也是修行咧。"],
-    "gift_pref": {"love": ["肉", "酒"], "like": ["点心"], "hate": []},
-    "inquire": {"cost": 60, "affinity": 20, "exp": 40}
+    "id": "zhang_fuu",
+    "name": "樵夫张斧",
+    "title": "樵夫",
+    "map": "linan",
+    "pos": [
+      20,
+      12
+    ],
+    "role": "闲人",
+    "desc": "担着两捆柴的憨厚汉子，歇脚喝茶。",
+    "greet": [
+      "这山的木头，越往深處越硬实。",
+      "挖矿砍柴，都是力气活，也是修行咧。"
+    ],
+    "gift_pref": {
+      "love": [
+        "肉",
+        "酒"
+      ],
+      "like": [
+        "点心"
+      ],
+      "hate": []
+    },
+    "inquire": {
+      "cost": 60,
+      "affinity": 20,
+      "exp": 40
+    }
   },
   "ye_guhong": {
-    "id": "ye_guhong", "name": "叶孤鸿", "title": "铁剑门掌门", "map": "tiejian", "pos": [4, 5],
-    "role": "门派", "desc": "霜眉剑目的中年人，一柄未出鞘的剑横在膝上，气势却已锁住整座大殿。",
-    "greet": ["剑冢峰上，无弱者。", "你既入了铁剑门，当知我门规：剑，只向不义之人出鞘。"],
-    "gift_pref": {"love": ["字画", "酒"], "like": ["茶"], "hate": ["胭脂"]},
-    "faction": "tiejianmen", "spar": "n_yeguhong", "inquire": {"cost": 250, "affinity": 40, "exp": 110}
+    "id": "ye_guhong",
+    "name": "叶孤鸿",
+    "title": "铁剑门掌门",
+    "map": "tiejian",
+    "pos": [
+      4,
+      5
+    ],
+    "role": "门派",
+    "desc": "霜眉剑目的中年人，一柄未出鞘的剑横在膝上，气势却已锁住整座大殿。",
+    "greet": [
+      "剑冢峰上，无弱者。",
+      "你既入了铁剑门，当知我门规：剑，只向不义之人出鞘。"
+    ],
+    "gift_pref": {
+      "love": [
+        "字画",
+        "酒"
+      ],
+      "like": [
+        "茶"
+      ],
+      "hate": [
+        "胭脂"
+      ]
+    },
+    "faction": "tiejianmen",
+    "spar": "n_yeguhong",
+    "inquire": {
+      "cost": 250,
+      "affinity": 40,
+      "exp": 110
+    }
   },
   "shen_shuang": {
-    "id": "shen_shuang", "name": "沈霜", "title": "铁剑门大师姐", "map": "tiejian", "pos": [14, 5],
-    "role": "门派", "desc": "一身劲装的飒爽女子，正对着剑冢练剑，剑风割得草叶纷飞。",
-    "greet": ["师弟（师妹），剑要稳，心更要稳。", "来，过两招？我让着你点。"],
-    "gift_pref": {"love": ["酒", "字画"], "like": ["点心"], "hate": []},
-    "faction": "tiejianmen", "spar": "n_shenshuang", "inquire": {"cost": 180, "affinity": 30, "exp": 80}
+    "id": "shen_shuang",
+    "name": "沈霜",
+    "title": "铁剑门大师姐",
+    "map": "tiejian",
+    "pos": [
+      14,
+      5
+    ],
+    "role": "门派",
+    "desc": "一身劲装的飒爽女子，正对着剑冢练剑，剑风割得草叶纷飞。",
+    "greet": [
+      "师弟（师妹），剑要稳，心更要稳。",
+      "来，过两招？我让着你点。"
+    ],
+    "gift_pref": {
+      "love": [
+        "酒",
+        "字画"
+      ],
+      "like": [
+        "点心"
+      ],
+      "hate": []
+    },
+    "faction": "tiejianmen",
+    "spar": "n_shenshuang",
+    "inquire": {
+      "cost": 180,
+      "affinity": 30,
+      "exp": 80
+    }
   },
   "hong_jue": {
-    "id": "hong_jue", "name": "弘觉方丈", "title": "伏虎禅寺方丈", "map": "fuhu", "pos": [9, 5],
-    "role": "门派", "desc": "眉目慈和的老僧，掌心厚茧说明他礼佛也从未放下武学。",
-    "greet": ["来者是客。施主若向武，禅寺的门白日不闭。", "拳脚棍棒，皆是禅。打坐挑水，亦皆是禅。"],
-    "gift_pref": {"love": ["佛经"], "like": ["茶"], "hate": ["酒", "肉"]},
-    "faction": "fuhusi", "spar": "n_hongjue", "inquire": {"cost": 250, "affinity": 40, "exp": 110}
+    "id": "hong_jue",
+    "name": "弘觉方丈",
+    "title": "伏虎禅寺方丈",
+    "map": "fuhu",
+    "pos": [
+      9,
+      5
+    ],
+    "role": "门派",
+    "desc": "眉目慈和的老僧，掌心厚茧说明他礼佛也从未放下武学。",
+    "greet": [
+      "来者是客。施主若向武，禅寺的门白日不闭。",
+      "拳脚棍棒，皆是禅。打坐挑水，亦皆是禅。"
+    ],
+    "gift_pref": {
+      "love": [
+        "佛经"
+      ],
+      "like": [
+        "茶"
+      ],
+      "hate": [
+        "酒",
+        "肉"
+      ]
+    },
+    "faction": "fuhusi",
+    "spar": "n_hongjue",
+    "inquire": {
+      "cost": 250,
+      "affinity": 40,
+      "exp": 110
+    }
   },
   "liao_kong": {
-    "id": "liao_kong", "name": "武僧了空", "title": "伏虎禅寺武僧首座", "map": "fuhu", "pos": [5, 4],
-    "role": "门派", "desc": "虎背熊腰的武僧，僧衣半敞，正在演武场上扎马步，岿如山岳。",
-    "greet": ["力气，是修行；不用力气，也是修行。", "施主，切磋一番？点到即止。"],
-    "gift_pref": {"love": ["点心"], "like": ["佛经", "茶"], "hate": []},
-    "faction": "fuhusi", "spar": "n_liaokong", "inquire": {"cost": 180, "affinity": 30, "exp": 80}
+    "id": "liao_kong",
+    "name": "武僧了空",
+    "title": "伏虎禅寺武僧首座",
+    "map": "fuhu",
+    "pos": [
+      5,
+      4
+    ],
+    "role": "门派",
+    "desc": "虎背熊腰的武僧，僧衣半敞，正在演武场上扎马步，岿如山岳。",
+    "greet": [
+      "力气，是修行；不用力气，也是修行。",
+      "施主，切磋一番？点到即止。"
+    ],
+    "gift_pref": {
+      "love": [
+        "点心"
+      ],
+      "like": [
+        "佛经",
+        "茶"
+      ],
+      "hate": []
+    },
+    "faction": "fuhusi",
+    "spar": "n_liaokong",
+    "inquire": {
+      "cost": 180,
+      "affinity": 30,
+      "exp": 80
+    }
   },
   "bai_lingbo": {
-    "id": "bai_lingbo", "name": "白凌波", "title": "烟波楼主", "map": "yanbo", "pos": [9, 3],
-    "role": "门派", "desc": "白衣胜雪的女子，抚琴于水榭，琴音里藏着极深的内力。",
-    "greet": ["能登上烟波岛的，都不算俗人。", "烟波楼的功夫，讲究一个'借'字——借风、借水、借敌之势。"],
-    "gift_pref": {"love": ["胭脂", "绸缎", "字画"], "like": ["茶"], "hate": []},
-    "faction": "yanbolou", "inquire": {"cost": 250, "affinity": 40, "exp": 110}
+    "id": "bai_lingbo",
+    "name": "白凌波",
+    "title": "烟波楼主",
+    "map": "yanbo",
+    "pos": [
+      9,
+      3
+    ],
+    "role": "门派",
+    "desc": "白衣胜雪的女子，抚琴于水榭，琴音里藏着极深的内力。",
+    "greet": [
+      "能登上烟波岛的，都不算俗人。",
+      "烟波楼的功夫，讲究一个'借'字——借风、借水、借敌之势。"
+    ],
+    "gift_pref": {
+      "love": [
+        "胭脂",
+        "绸缎",
+        "字画"
+      ],
+      "like": [
+        "茶"
+      ],
+      "hate": []
+    },
+    "faction": "yanbolou",
+    "inquire": {
+      "cost": 250,
+      "affinity": 40,
+      "exp": 110
+    },
+    "affinity_rewards": [
+      {
+        "gte": 40,
+        "text": "琴音一转：「唤雨之事，烟波楼与你同查。」",
+        "rewards": {
+          "contrib": 20
+        }
+      }
+    ]
   },
   "qing_que": {
-    "id": "qing_que", "name": "青雀", "title": "烟波楼弟子", "map": "yanbo", "pos": [5, 4],
-    "role": "门派", "desc": "机灵的小师妹，足尖点地悄无声息，手里转着三枚铜钱镖。",
-    "greet": ["新来的？轻功练到能在芦苇上落脚，才算出师哦。", "楼里的烟波遁，赶路可快了，省下的时辰能多睡个懒觉。"],
-    "gift_pref": {"love": ["点心", "胭脂"], "like": ["绸缎"], "hate": []},
-    "faction": "yanbolou", "spar": "n_qingque", "inquire": {"cost": 180, "affinity": 30, "exp": 80}
+    "id": "qing_que",
+    "name": "青雀",
+    "title": "烟波楼弟子",
+    "map": "yanbo",
+    "pos": [
+      5,
+      4
+    ],
+    "role": "门派",
+    "desc": "机灵的小师妹，足尖点地悄无声息，手里转着三枚铜钱镖。",
+    "greet": [
+      "新来的？轻功练到能在芦苇上落脚，才算出师哦。",
+      "楼里的烟波遁，赶路可快了，省下的时辰能多睡个懒觉。"
+    ],
+    "gift_pref": {
+      "love": [
+        "点心",
+        "胭脂"
+      ],
+      "like": [
+        "绸缎"
+      ],
+      "hate": []
+    },
+    "faction": "yanbolou",
+    "spar": "n_qingque",
+    "inquire": {
+      "cost": 180,
+      "affinity": 30,
+      "exp": 80
+    }
   },
   "shanmiao_qier": {
-    "id": "shanmiao_qier", "name": "山神庙乞儿", "title": "小乞儿", "map": "wild_north", "pos": [9, 6],
-    "role": "奇遇", "desc": "缩在破庙角落的小乞儿，抱着膝盖，警惕地盯着来人。",
-    "greet": ["别抢我的饼！……你要是给饼，那没事了。"],
-    "gift_pref": {"love": ["点心", "肉"], "like": [], "hate": []}
+    "id": "shanmiao_qier",
+    "name": "山神庙乞儿",
+    "title": "小乞儿",
+    "map": "wild_north",
+    "pos": [
+      9,
+      6
+    ],
+    "role": "奇遇",
+    "desc": "缩在破庙角落的小乞儿，抱着膝盖，警惕地盯着来人。",
+    "greet": [
+      "别抢我的饼！……你要是给饼，那没事了。"
+    ],
+    "gift_pref": {
+      "love": [
+        "点心",
+        "肉"
+      ],
+      "like": [],
+      "hate": []
+    }
   }
 }

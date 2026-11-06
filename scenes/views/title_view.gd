@@ -1,29 +1,46 @@
 extends Control
 ## 标题画面
 
+const ArtLib := preload("res://scripts/art/art_lib.gd")
+const UITheme := preload("res://scripts/ui_theme.gd")
+
 var main: Node
 
 func on_enter(_p: Dictionary = {}) -> void:
 	for c in get_children():
 		c.queue_free()
 	var PixelArt := preload("res://scripts/art/pixel_art.gd")
-	var art: ImageTexture = PixelArt.gen_title_art()
+	# 2.5D 重绘：CC0 山门插画（缺失时回退程序化标题画）
+	var art: Texture2D = ArtLib.mood_art("07_immortal_gate")
+	if art == null:
+		art = PixelArt.gen_title_art()
 	var bg := TextureRect.new()
 	bg.texture = art
 	bg.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(bg)
+	# 压暗层：保证标题文字与按钮可读
+	var shade := ColorRect.new()
+	shade.color = Color(0.02, 0.03, 0.05, 0.45)
+	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	add_child(shade)
 
 	var box := VBoxContainer.new()
-	box.position = Vector2(300, 110)
-	box.size = Vector2(360, 330)
-	box.add_theme_constant_override("separation", 12)
+	box.position = Vector2(640, 36)
+	box.size = Vector2(260, 470)
+	box.add_theme_constant_override("separation", 7)
 	add_child(box)
 
 	var t := Label.new()
-	t.text = "江湖夜雨录"
-	t.add_theme_font_size_override("font_size", 52)
-	t.add_theme_color_override("font_color", Color("e8e0d0"))
+	t.text = "江\n湖\n夜\n雨\n录"
+	var tf: FontFile = UITheme.title_font()
+	if tf != null:
+		t.add_theme_font_override("font", tf)
+	t.add_theme_font_size_override("font_size", 44)
+	t.add_theme_color_override("font_color", Color("e9dfc6"))
+	t.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.6))
+	t.add_theme_constant_override("shadow_offset_x", 2)
+	t.add_theme_constant_override("shadow_offset_y", 2)
 	t.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	box.add_child(t)
 
@@ -47,7 +64,7 @@ func on_enter(_p: Dictionary = {}) -> void:
 	box.add_child(_btn("退出游戏", func(): get_tree().quit()))
 
 	var foot := Label.new()
-	foot.text = "v0.2 双端互通 · Godot 4.7 · 程序化像素美术"
+	foot.text = "v0.3 2.5D 重绘 · Godot 4.7 · 素材来源见 assets/CREDITS.md"
 	foot.add_theme_font_size_override("font_size", 12)
 	foot.add_theme_color_override("font_color", Color("5a6470"))
 	foot.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
@@ -62,8 +79,8 @@ func _spacer(h: int) -> Control:
 func _btn(text: String, cb: Callable) -> Button:
 	var b := Button.new()
 	b.text = text
-	b.custom_minimum_size = Vector2(200, 40)
-	b.add_theme_font_size_override("font_size", 18)
+	b.custom_minimum_size = Vector2(190, 34)
+	b.add_theme_font_size_override("font_size", 15)
 	b.pressed.connect(cb)
 	return b
 

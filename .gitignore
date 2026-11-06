@@ -17,3 +17,9 @@ server/*.log
 .zcode/handoffs/
 .zcode/plans/
 .zcode/shots/
+
+# 素材下载暂存（原始压缩包与完整解压树不入库；精选素材在 assets/art/）
+.zcode/art_dl/
+
+# 风格参考截图（版权图仅本地对照，不入库）
+.zcode/refs/

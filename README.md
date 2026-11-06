@@ -1,7 +1,7 @@
 # 江湖夜雨录
 
-> 大侠立志传 × 烟雨江湖 融合复刻 · Godot 4.7 垂直切片
-> 调研拆解 → 系统对比 → 融合设计 → 代码实现 → **双端互通（Windows ↔ iOS）** 的完整交付。
+> 大侠立志传式重制 · Godot 4.7
+> 调研拆解 → 融合切片 → 双端互通 → 2.5D 重绘 → 世界观圣经 + 水墨美术 + ATB 战棋 → **v0.5 人际四层网 + 内容扩张**。
 
 ## 运行方式
 
@@ -19,8 +19,9 @@
 | 系统 | 来源 | 说明 |
 |---|---|---|
 | 开局构建 | 大侠立志传 | 五维 15 点分配 + 武器四选一 + 特性 Roll（可重掷一次） |
-| 九宫格战斗 | 烟雨江湖 | 上中下三路 × 前中后三列；近战打对位、突进直取后排 +25% |
-| ATB 时序条 | 大侠立志传 | 身法决定集气速率，先手与连动博弈；支持自动战斗 |
+| 战棋战斗 | 大侠立志传 | **9×7 网格走位**：ATB 集气定行动，就绪获「移动力（轻功加成）+一次行动」；侧击+15%/背击+25%；招式带射程（邻格/横扫/突进）；支持自动战斗 |
+| 战意系统 | 大侠立志传 | 攻受击积攒：100 放绝招、200 必爆 |
+| 阵法（光环化） | 烟雨江湖（改造） | 战前布阵全队光环：天罡增伤减伤 / 流云集气 / 四象回血 |
 | 战意系统 | 大侠立志传 | 攻受击积攒：100 放绝招、200 必爆 |
 | 阵法 | 烟雨江湖 | 梅花/天罡/流云/四象，按站位给全队加成 |
 | 武学三件套 | 烟雨江湖 | 套路+内功+轻功各装备一门；品级 丁/丙/乙/甲 × 五重境界 × 修为突破 |
@@ -31,9 +32,22 @@
 | 悬赏/奇遇 | 大侠立志传 | 告示板甲乙丙悬赏 + 11 个多条件奇遇 |
 | 门派 | 大侠立志传 | 铁剑门/伏虎禅寺/烟波楼，入门试炼+镇派武学+可退门 |
 | 多结局 | 大侠立志传 | 第一章三结局：入世/出世/沉沦，按品格+武学+选择分支 |
+| **人际四层网** | 大侠立志传 | **送礼**（每个 NPC 有至爱/喜欢/厌恶，按礼签判定）→ 好感阈值奖励（传功/赠财）→ **门派贡献晋升**（贡献达标掌门亲传甲乙武学）→ **名声门槛**（甲级悬赏需名声 25、乙级 10） |
 
-**操作（桌面）**：WASD/方向键移动 · E/空格 交互 · M 行囊 · C 炼制 · F5 保存 · 点击大地图行进
-**操作（触屏/iOS）**：左下虚拟方向键移动 · 右下 交互/行囊/炼制/保存 按钮（与键位一一对应）
+**移动（双轨制）**：WASD/方向键 8 向平滑移动（带摄像机跟随）＋ 鼠标点击/触屏点按 A\* 寻路（点 NPC 自动走到面前；键盘随时接管）
+**操作（桌面）**：WASD/方向键或点击地面移动 · E/空格 交互 · M 行囊 · C 炼制 · F5 保存 · 大地图点击行进
+**操作（触屏/iOS）**：点按地面寻路（虚拟方向键在触屏设备自动出现）· 右下 交互/行囊/炼制/保存 按钮
+**战斗（战棋）**：选招式 → 点蓝格走位（消耗移动力）→ 点红格出手 · 键盘光标+E 亦可
+
+## v0.4 程序化水墨美术（零外部素材）
+
+全部画面**纯代码绘制**：32px 斜45° 像素场景（瓦顶民居/竹林/山崖/水墨山门）、16×24 四向像素角色、
+宣纸卷轴 UI（墨线双边框+朱砂印+木牌按钮）、水墨标题/结局/大地图画幅，OFL 书法字体
+（Ma Shan Zheng）+ Noto Sans SC 内嵌。风格基准：《大侠立志传》公开画面 + 本作圣经意象（雨·月·灯）。
+
+- 世界观与文案的唯一锚点：[docs/05-背景故事·世界观圣经.md](docs/05-背景故事·世界观圣经.md)
+- 美术风格契约：[docs/06-美术风格规范.md](docs/06-美术风格规范.md)（色板/构图/程序化实现契约）
+- 字体许可：[assets/CREDITS.md](assets/CREDITS.md)（均为 OFL，可入库分发）
 
 ## 双端互通（Windows ↔ iOS）
 
@@ -53,11 +67,13 @@
 ## 测试与验证
 
 ```
-# headless 逻辑回归（107 项断言）
+# headless 逻辑回归（139 项断言：含战棋走位/朝向加成/阵法光环/送礼/阈值/贡献/名声门槛）
 .tools/Godot_v4.7.2-stable_win64_console.exe --headless --path . --script .zcode/tests/run_tests.gd
+# 移动/寻路回归（30 项断言：A*、防穿角、步进引擎、拾取、归位）
+.tools/Godot_v4.7.2-stable_win64_console.exe --headless --path . --script .zcode/tests/test_movement.gd
 # 云同步端到端（18 项断言；先启动服务器：node server/save_server.mjs）
 .tools/Godot_v4.7.2-stable_win64_console.exe --headless --path . --script .zcode/tests/test_cloudsync.gd
-# 截图巡检（生成 .zcode/shots/*.png 13 张，含触屏 HUD 与云同步页签）
+# 截图巡检（生成 .zcode/shots/*.png 14 张，含移动回归 MOVECHECK 与触屏 HUD）
 .tools/Godot_v4.7.2-stable_win64_console.exe --path . --script .zcode/tests/screenshot_tour.gd
 ```
 
@@ -70,17 +86,18 @@
 ## 项目结构
 
 ```
-project.godot          Godot 4.7 配置（960×540 像素风、横屏、触屏模拟）
-autoload/              EventBus / GameDB / GameState / Battle / SaveSystem(v2) / CloudSync
-data/*.json            30 武学 · 64 物品 · 35 NPC · 21 任务 · 18 敌人 · 11 奇遇 · 8 经脉 · 4 阵法 · 13 地图
+project.godot          Godot 4.7 配置（960×540、横屏、InputMap 动作、触屏模拟）
+autoload/              EventBus / GameDB / GameState / Battle(战棋引擎) / SaveSystem(v2) / CloudSync
+data/*.json            38 武学 · 66 物品 · 35 NPC(礼签/阈值) · 29 任务(甲乙丙悬赏+烟波支线) · 18 敌人 · 11 奇遇 · 8 经脉 · 4 阵法(光环) · 10 地图
+docs/05/06             世界观圣经（剧情文案锚点）· 美术风格规范（色板/构图契约）
 scenes/main.gd         视图状态机 Title→Create→World⇄Town⇄Battle→Ending
-scenes/views/*.gd      各视图 + 交互面板 + touch_controls（虚拟方向键/动作按钮）
-scripts/art/           程序化像素美术（tile/角色/头像/标题画，零外部素材）
-scripts/ui_theme.gd    暗色水墨主题（内嵌 Noto Sans SC + 系统字体回退链）
-assets/fonts/          NotoSansSC-Regular.otf（OFL 开源许可，跨平台中文渲染）
-assets/icons/          icon_1024.png（iOS 图标，程序化生成：.zcode/tools/gen_icon.gd）
-server/                save_server.mjs + start_server.bat + 部署指引
-export_presets.cfg     iOS 导出预设（bundle id 占位，首次构建时改）
-.github/workflows/     测试与 iOS 云构建（macOS runner）
-.zcode/tests/          headless 回归 + 云同步端到端 + 截图巡检
+scenes/views/battle_view.gd  9×7 战棋战场（范围高亮/双轨操作/ATB）
+scenes/views/town_view.gd    双轨移动引擎 + Y 排序 2.5D 渲染 + 摄像机
+scenes/views/world_view.gd   宣纸水墨大地图（道路行进/时辰/遭遇）
+scripts/art/           程序化美术：pixel_world(场景) / pixel_char(角色) / ink_paint(画幅) / art_lib(枢纽)
+scripts/ui_theme.gd    宣纸卷轴主题（墨线双边框/朱砂印/木牌按钮/书法标题字）
+scripts/pathfinding.gd 网格 A*（战斗走位与大地图/城镇寻路共用）
+assets/fonts/          NotoSansSC（OFL）+ MaShanZheng（OFL 书法体）
+assets/CREDITS.md      字体许可（零外部素材）
+server/ .github/ .zcode/tests/   云存档 · iOS 云构建 · 回归/巡检
 ```
