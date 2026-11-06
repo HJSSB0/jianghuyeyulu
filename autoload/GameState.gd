@@ -108,6 +108,9 @@ func get_all_mods() -> Dictionary:
 			if it.has(k): m[k] = m.get(k, 0) + int(it[k])
 		for k in it.get("stats", {}):
 			m[k] = m.get(k, 0) + int(it["stats"][k])
+	# 坐骑（健马·踏雪）：官道行进更快
+	if count_item("m_ma") > 0:
+		m["travel"] = m.get("travel", 0) + 1
 	# 已装备武学（按当前境界）
 	for slot in equipped:
 		var wid: String = equipped[slot]

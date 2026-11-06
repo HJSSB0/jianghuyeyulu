@@ -1,68 +1,620 @@
 {
-  "w_tiehushou": {"id": "w_tiehushou", "name": "铁护手", "cat": "装备", "equip": "武器", "weapon": "拳", "grade": "丁", "atk": 6, "price": 120, "desc": "铸铁护手，拳家的第一副家当。"},
-  "w_jingtie": {"id": "w_jingtie", "name": "精铁护手", "cat": "装备", "equip": "武器", "weapon": "拳", "grade": "丙", "atk": 10, "price": 450, "desc": "千锤精铁，拳风更劲。"},
-  "w_hantie": {"id": "w_hantie", "name": "寒铁护手", "cat": "装备", "equip": "武器", "weapon": "拳", "grade": "乙", "atk": 15, "price": 1400, "desc": "寒铁淬炼，触之生凉。"},
-  "w_tiejian": {"id": "w_tiejian", "name": "铁剑", "cat": "装备", "equip": "武器", "weapon": "剑", "grade": "丁", "atk": 7, "price": 130, "desc": "制式铁剑，江湖上最常见。"},
-  "w_liuyunjian": {"id": "w_liuyunjian", "name": "流云剑", "cat": "装备", "equip": "武器", "weapon": "剑", "grade": "丙", "atk": 11, "price": 500, "desc": "剑身轻灵，如流云拂面。"},
-  "w_qingshuang": {"id": "w_qingshuang", "name": "青霜剑", "cat": "装备", "equip": "武器", "weapon": "剑", "grade": "乙", "atk": 16, "price": 1600, "desc": "剑出如霜。河底沉沙三百年——剑是谁沉的，没人知道。"},
-  "w_tianhejian": {"id": "w_tianhejian", "name": "天河剑", "cat": "装备", "equip": "武器", "weapon": "剑", "grade": "甲", "atk": 22, "price": 4000, "desc": "铁剑门掌门佩剑，剑光如天河。"},
-  "w_pudao": {"id": "w_pudao", "name": "朴刀", "cat": "装备", "equip": "武器", "weapon": "刀", "grade": "丁", "atk": 7, "price": 130, "desc": "走镖看家的朴刀。"},
-  "w_poshandao": {"id": "w_poshandao", "name": "破山刀", "cat": "装备", "equip": "武器", "weapon": "刀", "grade": "丙", "atk": 12, "price": 520, "desc": "刀身厚重，一刀能开碑裂石。"},
-  "w_hongshadao": {"id": "w_hongshadao", "name": "红煞刀", "cat": "装备", "equip": "武器", "weapon": "刀", "grade": "乙", "atk": 17, "price": 1700, "desc": "刀身暗红，隐有血光流转。"},
-  "w_mugun": {"id": "w_mugun", "name": "木棍", "cat": "装备", "equip": "武器", "weapon": "棍", "grade": "丁", "atk": 5, "price": 80, "desc": "挑水劈柴皆可用。"},
-  "w_tiegun": {"id": "w_tiegun", "name": "铁棍", "cat": "装备", "equip": "武器", "weapon": "棍", "grade": "丙", "atk": 10, "price": 460, "desc": "禅寺武僧的趁手兵刃。"},
-  "w_fuhugun": {"id": "w_fuhugun", "name": "伏虎棍", "cat": "装备", "equip": "武器", "weapon": "棍", "grade": "乙", "atk": 15, "price": 1500, "desc": "伏虎禅寺制式长棍。"},
-  "a_cubuyi": {"id": "a_cubuyi", "name": "粗布衣", "cat": "装备", "equip": "防具", "grade": "丁", "def": 3, "hp": 10, "price": 90, "desc": "粗布缝制，聊胜于无。"},
-  "a_pijia": {"id": "a_pijia", "name": "皮甲", "cat": "装备", "equip": "防具", "grade": "丙", "def": 5, "hp": 20, "price": 420, "desc": "硝好的牛皮甲，轻便耐用。"},
-  "w_jinggangjia": {"id": "w_jinggangjia", "name": "精钢甲", "cat": "装备", "equip": "防具", "grade": "乙", "def": 8, "hp": 35, "price": 1300, "desc": "百炼精钢，刀剑难透。"},
-  "a_ruanweijia": {"id": "a_ruanweijia", "name": "软猬甲", "cat": "装备", "equip": "防具", "grade": "甲", "def": 10, "hp": 60, "price": 3800, "desc": "贴身软甲，暗器难伤。"},
-  "t_pinganfu": {"id": "t_pinganfu", "name": "平安符", "cat": "装备", "equip": "饰品", "grade": "丁", "stats": {"hp": 15}, "price": 100, "desc": "娘亲缝的平安符，针脚细密得过分。农妇的手粗，娘的手不粗。"},
-  "t_yupei": {"id": "t_yupei", "name": "青玉佩", "cat": "装备", "equip": "饰品", "grade": "丙", "stats": {"crit": 3, "dodge": 2}, "price": 480, "desc": "温润青玉，君子如玉。"},
-  "t_baibaonang": {"id": "t_baibaonang", "name": "百宝囊", "cat": "装备", "equip": "饰品", "grade": "乙", "stats": {"hit": 8, "dodge": 3}, "price": 1250, "desc": "囊中乾坤，暗袋层叠。"},
-  "c_jinchuang": {"id": "c_jinchuang", "name": "金创药", "cat": "消耗", "use": {"hp": 40}, "price": 60, "desc": "止血生肌，回复40点气血。"},
-  "c_dajinchuang": {"id": "c_dajinchuang", "name": "大金创药", "cat": "消耗", "use": {"hp": 100}, "price": 180, "desc": "伤药中的上品，回复100点气血。"},
-  "c_jiedudan": {"id": "c_jiedudan", "name": "解毒丹", "cat": "消耗", "use": {"cure": ["中毒", "流血"]}, "price": 90, "desc": "清热解毒，解除中毒与流血。"},
-  "c_juqisan": {"id": "c_juqisan", "name": "聚气散", "cat": "消耗", "use": {"mp": 30}, "price": 100, "desc": "行气聚息，回复30点内力。"},
-  "c_xingqidan": {"id": "c_xingqidan", "name": "行气丹", "cat": "消耗", "use": {"battle_buff": {"id": "攻增", "turns": 3, "val": 0.1}}, "price": 220, "desc": "服后真气鼓荡，三场战斗内攻击提升。"},
-  "c_mantou": {"id": "c_mantou", "name": "馒头", "cat": "消耗", "use": {"hp": 15, "mp": 10}, "price": 12, "desc": "热腾腾的白面馒头。"},
-  "c_chuibing": {"id": "c_chuibing", "name": "炊饼", "cat": "消耗", "use": {"hp": 20}, "price": 20, "desc": "武大郎炊饼，管饱。"},
-  "c_nverhong": {"id": "c_nverhong", "name": "女儿红", "cat": "消耗", "gift_value": 60, "use": {"mp": 20}, "price": 160, "desc": "十八年陈酿，酒中珍品。"},
-  "c_longjing": {"id": "c_longjing", "name": "龙井茶", "cat": "消耗", "use": {"mp": 25}, "price": 80, "desc": "明前龙井，涤烦去燥。"},
-  "c_jiaohuaji": {"id": "c_jiaohuaji", "name": "叫花鸡", "cat": "消耗", "use": {"hp": 80, "buff": {"id": "攻增", "turns": 2, "val": 0.08}}, "price": 150, "desc": "荷叶泥烤，香飘十里。"},
-  "m_tiekuang": {"id": "m_tiekuang", "name": "铁矿", "cat": "材料", "price": 25, "desc": "寻常铁矿，打造之基。"},
-  "m_jingtie2": {"id": "m_jingtie2", "name": "精铁", "cat": "材料", "price": 120, "desc": "去杂提纯的精铁。"},
-  "m_caoy": {"id": "m_caoy", "name": "草药", "cat": "材料", "price": 15, "desc": "山间采得的草药。"},
-  "m_lingzhi": {"id": "m_lingzhi", "name": "灵芝", "cat": "材料", "price": 150, "desc": "百年灵芝，药气凝实。"},
-  "m_xianyu": {"id": "m_xianyu", "name": "鲜鱼", "cat": "材料", "price": 18, "desc": "活蹦乱跳的河鱼。"},
-  "m_jinli": {"id": "m_jinli", "name": "锦鲤", "cat": "材料", "price": 300, "desc": "通体金红，传说中的福气之鱼。"},
-  "m_yezhurou": {"id": "m_yezhurou", "name": "野猪肉", "cat": "材料", "price": 22, "desc": "猎得的野猪肉。"},
-  "m_langpi": {"id": "m_langpi", "name": "狼皮", "cat": "材料", "price": 35, "desc": "北郊灰狼的毛皮。"},
-  "m_mianma": {"id": "m_mianma", "name": "棉麻", "cat": "材料", "price": 10, "desc": "织布用的棉麻。"},
-  "m_muliao": {"id": "m_muliao", "name": "木料", "cat": "材料", "price": 12, "desc": "伐下的木料。"},
-  "g_yanzhi": {"id": "g_yanzhi", "name": "胭脂", "cat": "礼物", "gift_value": 40, "price": 150, "desc": "苏州胭脂，姑娘家喜欢。"},
-  "g_zihua": {"id": "g_zihua", "name": "字画", "cat": "礼物", "gift_value": 70, "price": 300, "desc": "前朝名家的山水小品。"},
-  "g_fojing": {"id": "g_fojing", "name": "佛经", "cat": "礼物", "gift_value": 60, "price": 260, "desc": "手抄《金刚经》，禅修之人所爱。"},
-  "g_dianxin": {"id": "g_dianxin", "name": "点心", "cat": "礼物", "gift_value": 20, "price": 80, "desc": "桂花糕、绿豆酥各半盒。"},
-  "g_chouduan": {"id": "g_chouduan", "name": "绸缎", "cat": "礼物", "gift_value": 85, "price": 400, "desc": "杭州新贡的软烟罗。"},
-  "g_jiangnanchun": {"id": "g_jiangnanchun", "name": "江南春", "cat": "礼物", "gift_value": 55, "price": 220, "desc": "江南名酒，酒鬼见了走不动路。"},
-  "x_quanliehu": {"id": "x_quanliehu", "name": "猛虎拳谱", "cat": "秘籍", "learn": "quan_liehu", "price": 800, "desc": "伏虎禅寺外传拳谱。"},
-  "x_neitiepi": {"id": "x_neitiepi", "name": "铁皮功谱", "cat": "秘籍", "learn": "nei_tiepi", "price": 500, "desc": "外门硬功图谱。"},
-  "x_zuiba": {"id": "x_zuiba", "name": "醉八仙谱", "cat": "秘籍", "learn": "quan_zui", "price": 0, "desc": "酒渍斑斑的拳谱，醉侠亲书。"},
-  "x_hongsha": {"id": "x_hongsha", "name": "红煞刀谱", "cat": "秘籍", "learn": "dao_hongsha", "price": 2200, "desc": "来历不明的刀谱，煞气扑面。"},
-  "x_fuhugun": {"id": "x_fuhugun", "name": "伏虎棍谱", "cat": "秘籍", "learn": "gun_fuhu", "price": 0, "desc": "禅寺武学堂的棍谱。"},
-  "x_liuyunjian": {"id": "x_liuyunjian", "name": "流云剑谱", "cat": "秘籍", "learn": "jian_liuyun", "price": 0, "desc": "铁剑门中传剑谱。"},
-  "x_xuehe": {"id": "x_xuehe", "name": "血河心法谱", "cat": "秘籍", "learn": "nei_xuehe", "price": 0, "desc": "悍匪贴身收藏的内功谱。"},
-  "x_tianchen": {"id": "x_tianchen", "name": "天沉刀谱", "cat": "秘籍", "learn": "dao_tianchen", "price": 0, "desc": "护法·玄的刀谱，扉页画着一弯新月。字很少，杀气很多。"},
-  "x_tianhe": {"id": "x_tianhe", "name": "天河剑谱", "cat": "秘籍", "learn": "jian_tianhe", "price": 0, "desc": "铁剑门镇派剑谱，唯有立大功者可阅。"},
-  "x_dacheng": {"id": "x_dacheng", "name": "大力金刚掌谱", "cat": "秘籍", "learn": "quan_dacheng", "price": 0, "desc": "伏虎禅寺上乘掌法图谱。"},
-  "x_luohan": {"id": "x_luohan", "name": "罗汉伏虎拳谱", "cat": "秘籍", "learn": "quan_luohan", "price": 0, "desc": "禅寺镇派拳谱，百八罗汉之势。"},
-  "x_yanbo_jian": {"id": "x_yanbo_jian", "name": "烟波剑谱", "cat": "秘籍", "learn": "jian_yanbo", "price": 0, "desc": "烟波楼主亲书，剑意空蒙。"},
-  "x_yanbo_nei": {"id": "x_yanbo_nei", "name": "烟波心法谱", "cat": "秘籍", "learn": "nei_yanbo", "price": 0, "desc": "烟波楼镇派内功。"},
-  "x_qingshuang": {"id": "x_qingshuang", "name": "青霜剑谱", "cat": "秘籍", "learn": "jian_qingshuang", "price": 0, "desc": "与青霜剑同沉河底的剑谱，字迹被水洇过。"},
-  "q_suiyu": {"id": "q_suiyu", "name": "碎玉玦", "cat": "任务", "price": 0, "desc": "半枚玉玦，断口处隐见云纹。娘亲留下的东西，一共只有三样。"},
-  "q_yujue2": {"id": "q_yujue2", "name": "另半枚玉玦", "cat": "任务", "price": 0, "desc": "另半枚玉玦。断口与碎玉玦隐隐相合，云纹连起来，是一轮满月。"},
-  "q_xuanchen_xin": {"id": "q_xuanchen_xin", "name": "玄尘的旧信", "cat": "任务", "price": 0, "desc": "火漆完好，信纸黄脆，玄尘贴身收了二十年。落款只有一个字：灯。"},
-  "q_baiyueling": {"id": "q_baiyueling", "name": "拜月令", "cat": "任务", "price": 0, "desc": "黑铁所铸，弯月为纹，握在手里比冰还凉——拜月教众的信物。"},
-  "q_cunzhang": {"id": "q_cunzhang", "name": "村长遗物", "cat": "任务", "price": 0, "desc": "一串旧钥匙，柳绵绵娘亲的遗物。"},
-  "q_biaoxiang": {"id": "q_biaoxiang", "name": "镖箱", "cat": "任务", "price": 0, "desc": "赵铁山托押的镖箱，封条完好。"}
+  "w_tiehushou": {
+    "id": "w_tiehushou",
+    "name": "铁护手",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "拳",
+    "grade": "丁",
+    "atk": 6,
+    "price": 120,
+    "desc": "铸铁护手，拳家的第一副家当。"
+  },
+  "w_jingtie": {
+    "id": "w_jingtie",
+    "name": "精铁护手",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "拳",
+    "grade": "丙",
+    "atk": 10,
+    "price": 450,
+    "desc": "千锤精铁，拳风更劲。"
+  },
+  "w_hantie": {
+    "id": "w_hantie",
+    "name": "寒铁护手",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "拳",
+    "grade": "乙",
+    "atk": 15,
+    "price": 1400,
+    "desc": "寒铁淬炼，触之生凉。"
+  },
+  "w_tiejian": {
+    "id": "w_tiejian",
+    "name": "铁剑",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "剑",
+    "grade": "丁",
+    "atk": 7,
+    "price": 130,
+    "desc": "制式铁剑，江湖上最常见。"
+  },
+  "w_liuyunjian": {
+    "id": "w_liuyunjian",
+    "name": "流云剑",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "剑",
+    "grade": "丙",
+    "atk": 11,
+    "price": 500,
+    "desc": "剑身轻灵，如流云拂面。"
+  },
+  "w_qingshuang": {
+    "id": "w_qingshuang",
+    "name": "青霜剑",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "剑",
+    "grade": "乙",
+    "atk": 16,
+    "price": 1600,
+    "desc": "剑出如霜。河底沉沙三百年——剑是谁沉的，没人知道。"
+  },
+  "w_tianhejian": {
+    "id": "w_tianhejian",
+    "name": "天河剑",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "剑",
+    "grade": "甲",
+    "atk": 22,
+    "price": 4000,
+    "desc": "铁剑门掌门佩剑，剑光如天河。"
+  },
+  "w_pudao": {
+    "id": "w_pudao",
+    "name": "朴刀",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "刀",
+    "grade": "丁",
+    "atk": 7,
+    "price": 130,
+    "desc": "走镖看家的朴刀。"
+  },
+  "w_poshandao": {
+    "id": "w_poshandao",
+    "name": "破山刀",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "刀",
+    "grade": "丙",
+    "atk": 12,
+    "price": 520,
+    "desc": "刀身厚重，一刀能开碑裂石。"
+  },
+  "w_hongshadao": {
+    "id": "w_hongshadao",
+    "name": "红煞刀",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "刀",
+    "grade": "乙",
+    "atk": 17,
+    "price": 1700,
+    "desc": "刀身暗红，隐有血光流转。"
+  },
+  "w_mugun": {
+    "id": "w_mugun",
+    "name": "木棍",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "棍",
+    "grade": "丁",
+    "atk": 5,
+    "price": 80,
+    "desc": "挑水劈柴皆可用。"
+  },
+  "w_tiegun": {
+    "id": "w_tiegun",
+    "name": "铁棍",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "棍",
+    "grade": "丙",
+    "atk": 10,
+    "price": 460,
+    "desc": "禅寺武僧的趁手兵刃。"
+  },
+  "w_fuhugun": {
+    "id": "w_fuhugun",
+    "name": "伏虎棍",
+    "cat": "装备",
+    "equip": "武器",
+    "weapon": "棍",
+    "grade": "乙",
+    "atk": 15,
+    "price": 1500,
+    "desc": "伏虎禅寺制式长棍。"
+  },
+  "a_cubuyi": {
+    "id": "a_cubuyi",
+    "name": "粗布衣",
+    "cat": "装备",
+    "equip": "防具",
+    "grade": "丁",
+    "def": 3,
+    "hp": 10,
+    "price": 90,
+    "desc": "粗布缝制，聊胜于无。"
+  },
+  "a_pijia": {
+    "id": "a_pijia",
+    "name": "皮甲",
+    "cat": "装备",
+    "equip": "防具",
+    "grade": "丙",
+    "def": 5,
+    "hp": 20,
+    "price": 420,
+    "desc": "硝好的牛皮甲，轻便耐用。"
+  },
+  "w_jinggangjia": {
+    "id": "w_jinggangjia",
+    "name": "精钢甲",
+    "cat": "装备",
+    "equip": "防具",
+    "grade": "乙",
+    "def": 8,
+    "hp": 35,
+    "price": 1300,
+    "desc": "百炼精钢，刀剑难透。"
+  },
+  "a_ruanweijia": {
+    "id": "a_ruanweijia",
+    "name": "软猬甲",
+    "cat": "装备",
+    "equip": "防具",
+    "grade": "甲",
+    "def": 10,
+    "hp": 60,
+    "price": 3800,
+    "desc": "贴身软甲，暗器难伤。"
+  },
+  "t_pinganfu": {
+    "id": "t_pinganfu",
+    "name": "平安符",
+    "cat": "装备",
+    "equip": "饰品",
+    "grade": "丁",
+    "stats": {
+      "hp": 15
+    },
+    "price": 100,
+    "desc": "娘亲缝的平安符，针脚细密得过分。农妇的手粗，娘的手不粗。"
+  },
+  "t_yupei": {
+    "id": "t_yupei",
+    "name": "青玉佩",
+    "cat": "装备",
+    "equip": "饰品",
+    "grade": "丙",
+    "stats": {
+      "crit": 3,
+      "dodge": 2
+    },
+    "price": 480,
+    "desc": "温润青玉，君子如玉。"
+  },
+  "t_baibaonang": {
+    "id": "t_baibaonang",
+    "name": "百宝囊",
+    "cat": "装备",
+    "equip": "饰品",
+    "grade": "乙",
+    "stats": {
+      "hit": 8,
+      "dodge": 3
+    },
+    "price": 1250,
+    "desc": "囊中乾坤，暗袋层叠。"
+  },
+  "c_jinchuang": {
+    "id": "c_jinchuang",
+    "name": "金创药",
+    "cat": "消耗",
+    "use": {
+      "hp": 40
+    },
+    "price": 60,
+    "desc": "止血生肌，回复40点气血。"
+  },
+  "c_dajinchuang": {
+    "id": "c_dajinchuang",
+    "name": "大金创药",
+    "cat": "消耗",
+    "use": {
+      "hp": 100
+    },
+    "price": 180,
+    "desc": "伤药中的上品，回复100点气血。"
+  },
+  "c_jiedudan": {
+    "id": "c_jiedudan",
+    "name": "解毒丹",
+    "cat": "消耗",
+    "use": {
+      "cure": [
+        "中毒",
+        "流血"
+      ]
+    },
+    "price": 90,
+    "desc": "清热解毒，解除中毒与流血。"
+  },
+  "c_juqisan": {
+    "id": "c_juqisan",
+    "name": "聚气散",
+    "cat": "消耗",
+    "use": {
+      "mp": 30
+    },
+    "price": 100,
+    "desc": "行气聚息，回复30点内力。"
+  },
+  "c_xingqidan": {
+    "id": "c_xingqidan",
+    "name": "行气丹",
+    "cat": "消耗",
+    "use": {
+      "battle_buff": {
+        "id": "攻增",
+        "turns": 3,
+        "val": 0.1
+      }
+    },
+    "price": 220,
+    "desc": "服后真气鼓荡，三场战斗内攻击提升。"
+  },
+  "c_mantou": {
+    "id": "c_mantou",
+    "name": "馒头",
+    "cat": "消耗",
+    "use": {
+      "hp": 15,
+      "mp": 10
+    },
+    "price": 12,
+    "desc": "热腾腾的白面馒头。"
+  },
+  "c_chuibing": {
+    "id": "c_chuibing",
+    "name": "炊饼",
+    "cat": "消耗",
+    "use": {
+      "hp": 20
+    },
+    "price": 20,
+    "desc": "武大郎炊饼，管饱。"
+  },
+  "c_nverhong": {
+    "id": "c_nverhong",
+    "name": "女儿红",
+    "cat": "消耗",
+    "gift_value": 60,
+    "use": {
+      "mp": 20
+    },
+    "price": 160,
+    "desc": "十八年陈酿，酒中珍品。"
+  },
+  "c_longjing": {
+    "id": "c_longjing",
+    "name": "龙井茶",
+    "cat": "消耗",
+    "use": {
+      "mp": 25
+    },
+    "price": 80,
+    "desc": "明前龙井，涤烦去燥。"
+  },
+  "c_jiaohuaji": {
+    "id": "c_jiaohuaji",
+    "name": "叫花鸡",
+    "cat": "消耗",
+    "use": {
+      "hp": 80,
+      "buff": {
+        "id": "攻增",
+        "turns": 2,
+        "val": 0.08
+      }
+    },
+    "price": 150,
+    "desc": "荷叶泥烤，香飘十里。"
+  },
+  "m_tiekuang": {
+    "id": "m_tiekuang",
+    "name": "铁矿",
+    "cat": "材料",
+    "price": 25,
+    "desc": "寻常铁矿，打造之基。"
+  },
+  "m_jingtie2": {
+    "id": "m_jingtie2",
+    "name": "精铁",
+    "cat": "材料",
+    "price": 120,
+    "desc": "去杂提纯的精铁。"
+  },
+  "m_caoy": {
+    "id": "m_caoy",
+    "name": "草药",
+    "cat": "材料",
+    "price": 15,
+    "desc": "山间采得的草药。"
+  },
+  "m_lingzhi": {
+    "id": "m_lingzhi",
+    "name": "灵芝",
+    "cat": "材料",
+    "price": 150,
+    "desc": "百年灵芝，药气凝实。"
+  },
+  "m_xianyu": {
+    "id": "m_xianyu",
+    "name": "鲜鱼",
+    "cat": "材料",
+    "price": 18,
+    "desc": "活蹦乱跳的河鱼。"
+  },
+  "m_jinli": {
+    "id": "m_jinli",
+    "name": "锦鲤",
+    "cat": "材料",
+    "price": 300,
+    "desc": "通体金红，传说中的福气之鱼。"
+  },
+  "m_yezhurou": {
+    "id": "m_yezhurou",
+    "name": "野猪肉",
+    "cat": "材料",
+    "price": 22,
+    "desc": "猎得的野猪肉。"
+  },
+  "m_langpi": {
+    "id": "m_langpi",
+    "name": "狼皮",
+    "cat": "材料",
+    "price": 35,
+    "desc": "北郊灰狼的毛皮。"
+  },
+  "m_mianma": {
+    "id": "m_mianma",
+    "name": "棉麻",
+    "cat": "材料",
+    "price": 10,
+    "desc": "织布用的棉麻。"
+  },
+  "m_muliao": {
+    "id": "m_muliao",
+    "name": "木料",
+    "cat": "材料",
+    "price": 12,
+    "desc": "伐下的木料。"
+  },
+  "g_yanzhi": {
+    "id": "g_yanzhi",
+    "name": "胭脂",
+    "cat": "礼物",
+    "gift_value": 40,
+    "price": 150,
+    "desc": "苏州胭脂，姑娘家喜欢。"
+  },
+  "g_zihua": {
+    "id": "g_zihua",
+    "name": "字画",
+    "cat": "礼物",
+    "gift_value": 70,
+    "price": 300,
+    "desc": "前朝名家的山水小品。"
+  },
+  "g_fojing": {
+    "id": "g_fojing",
+    "name": "佛经",
+    "cat": "礼物",
+    "gift_value": 60,
+    "price": 260,
+    "desc": "手抄《金刚经》，禅修之人所爱。"
+  },
+  "g_dianxin": {
+    "id": "g_dianxin",
+    "name": "点心",
+    "cat": "礼物",
+    "gift_value": 20,
+    "price": 80,
+    "desc": "桂花糕、绿豆酥各半盒。"
+  },
+  "g_chouduan": {
+    "id": "g_chouduan",
+    "name": "绸缎",
+    "cat": "礼物",
+    "gift_value": 85,
+    "price": 400,
+    "desc": "杭州新贡的软烟罗。"
+  },
+  "g_jiangnanchun": {
+    "id": "g_jiangnanchun",
+    "name": "江南春",
+    "cat": "礼物",
+    "gift_value": 55,
+    "price": 220,
+    "desc": "江南名酒，酒鬼见了走不动路。"
+  },
+  "x_quanliehu": {
+    "id": "x_quanliehu",
+    "name": "猛虎拳谱",
+    "cat": "秘籍",
+    "learn": "quan_liehu",
+    "price": 800,
+    "desc": "伏虎禅寺外传拳谱。"
+  },
+  "x_neitiepi": {
+    "id": "x_neitiepi",
+    "name": "铁皮功谱",
+    "cat": "秘籍",
+    "learn": "nei_tiepi",
+    "price": 500,
+    "desc": "外门硬功图谱。"
+  },
+  "x_zuiba": {
+    "id": "x_zuiba",
+    "name": "醉八仙谱",
+    "cat": "秘籍",
+    "learn": "quan_zui",
+    "price": 0,
+    "desc": "酒渍斑斑的拳谱，醉侠亲书。"
+  },
+  "x_hongsha": {
+    "id": "x_hongsha",
+    "name": "红煞刀谱",
+    "cat": "秘籍",
+    "learn": "dao_hongsha",
+    "price": 2200,
+    "desc": "来历不明的刀谱，煞气扑面。"
+  },
+  "x_fuhugun": {
+    "id": "x_fuhugun",
+    "name": "伏虎棍谱",
+    "cat": "秘籍",
+    "learn": "gun_fuhu",
+    "price": 0,
+    "desc": "禅寺武学堂的棍谱。"
+  },
+  "x_liuyunjian": {
+    "id": "x_liuyunjian",
+    "name": "流云剑谱",
+    "cat": "秘籍",
+    "learn": "jian_liuyun",
+    "price": 0,
+    "desc": "铁剑门中传剑谱。"
+  },
+  "x_xuehe": {
+    "id": "x_xuehe",
+    "name": "血河心法谱",
+    "cat": "秘籍",
+    "learn": "nei_xuehe",
+    "price": 0,
+    "desc": "悍匪贴身收藏的内功谱。"
+  },
+  "x_tianchen": {
+    "id": "x_tianchen",
+    "name": "天沉刀谱",
+    "cat": "秘籍",
+    "learn": "dao_tianchen",
+    "price": 0,
+    "desc": "护法·玄的刀谱，扉页画着一弯新月。字很少，杀气很多。"
+  },
+  "x_tianhe": {
+    "id": "x_tianhe",
+    "name": "天河剑谱",
+    "cat": "秘籍",
+    "learn": "jian_tianhe",
+    "price": 0,
+    "desc": "铁剑门镇派剑谱，唯有立大功者可阅。"
+  },
+  "x_dacheng": {
+    "id": "x_dacheng",
+    "name": "大力金刚掌谱",
+    "cat": "秘籍",
+    "learn": "quan_dacheng",
+    "price": 0,
+    "desc": "伏虎禅寺上乘掌法图谱。"
+  },
+  "x_luohan": {
+    "id": "x_luohan",
+    "name": "罗汉伏虎拳谱",
+    "cat": "秘籍",
+    "learn": "quan_luohan",
+    "price": 0,
+    "desc": "禅寺镇派拳谱，百八罗汉之势。"
+  },
+  "x_yanbo_jian": {
+    "id": "x_yanbo_jian",
+    "name": "烟波剑谱",
+    "cat": "秘籍",
+    "learn": "jian_yanbo",
+    "price": 0,
+    "desc": "烟波楼主亲书，剑意空蒙。"
+  },
+  "x_yanbo_nei": {
+    "id": "x_yanbo_nei",
+    "name": "烟波心法谱",
+    "cat": "秘籍",
+    "learn": "nei_yanbo",
+    "price": 0,
+    "desc": "烟波楼镇派内功。"
+  },
+  "x_qingshuang": {
+    "id": "x_qingshuang",
+    "name": "青霜剑谱",
+    "cat": "秘籍",
+    "learn": "jian_qingshuang",
+    "price": 0,
+    "desc": "与青霜剑同沉河底的剑谱，字迹被水洇过。"
+  },
+  "q_suiyu": {
+    "id": "q_suiyu",
+    "name": "碎玉玦",
+    "cat": "任务",
+    "price": 0,
+    "desc": "半枚玉玦，断口处隐见云纹。娘亲留下的东西，一共只有三样。"
+  },
+  "q_yujue2": {
+    "id": "q_yujue2",
+    "name": "另半枚玉玦",
+    "cat": "任务",
+    "price": 0,
+    "desc": "另半枚玉玦。断口与碎玉玦隐隐相合，云纹连起来，是一轮满月。"
+  },
+  "q_xuanchen_xin": {
+    "id": "q_xuanchen_xin",
+    "name": "玄尘的旧信",
+    "cat": "任务",
+    "price": 0,
+    "desc": "火漆完好，信纸黄脆，玄尘贴身收了二十年。落款只有一个字：灯。"
+  },
+  "q_baiyueling": {
+    "id": "q_baiyueling",
+    "name": "拜月令",
+    "cat": "任务",
+    "price": 0,
+    "desc": "黑铁所铸，弯月为纹，握在手里比冰还凉——拜月教众的信物。"
+  },
+  "q_cunzhang": {
+    "id": "q_cunzhang",
+    "name": "村长遗物",
+    "cat": "任务",
+    "price": 0,
+    "desc": "一串旧钥匙，柳绵绵娘亲的遗物。"
+  },
+  "q_biaoxiang": {
+    "id": "q_biaoxiang",
+    "name": "镖箱",
+    "cat": "任务",
+    "price": 0,
+    "desc": "赵铁山托押的镖箱，封条完好。"
+  },
+  "m_ma": {
+    "id": "m_ma",
+    "name": "健马·踏雪",
+    "cat": "坐骑",
+    "price": 2500,
+    "desc": "江州马市的良驹，四蹄踏雪。有它，官道再远也只是一句「驾」。"
+  }
 }

@@ -49,7 +49,7 @@ func _initialize() -> void:
 # ---------- 1. 数据层 ----------
 func test_gamedb() -> void:
 	section("GameDB 数据加载与校验")
-	check(GDB.wuxue.size() == 38, "武学 38 门（实际 %d）" % GDB.wuxue.size())
+	check(GDB.wuxue.size() == 47, "武学 47 门（实际 %d）" % GDB.wuxue.size())
 	check(GDB.items.size() >= 60, "物品 ≥60（实际 %d）" % GDB.items.size())
 	check(GDB.npcs.size() >= 30, "NPC ≥30（实际 %d）" % GDB.npcs.size())
 	check(GDB.quests.size() >= 20, "任务 ≥20（实际 %d）" % GDB.quests.size())
@@ -433,6 +433,9 @@ func test_social() -> void:
 	check(GDB.get_map("wild_south") != {} and GDB.get_map("wild_east") != {}, "两张新野外图载入")
 	check(GDB.get_wuxue("jian_zhenyue") != {} and GDB.get_wuxue("nei_guixi") != {}, "新武学载入")
 	check(GDB.world["nodes"].has("wild_south") and GDB.world["nodes"].has("wild_east"), "世界节点接入")
+	# 8.7 坐骑快速旅行
+	GS.add_item("m_ma", 1)
+	check(int(GS.get_all_mods().get("travel", 0)) >= 1, "健马入囊：travel+1")
 	# 8.6 烟波支线链（m6 完成后自动接取，visit 推进）
 	GS.quest_states["m6"] = {"state": "done", "step": 0}
 	GS.quest_hook({"type": "visit", "map": "wild_west"})

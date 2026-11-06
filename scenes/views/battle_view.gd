@@ -417,6 +417,12 @@ func _draw_unit(u: Dictionary, fnt: Font) -> void:
 		col = Color("7a2a6a")
 	# 站格框 + 受击闪白
 	canvas.draw_rect(Rect2(px + 3, py + 3, CELL - 6, CELL - 6), col, false, 2.0)
+	# 护法·玄：月弧气场（圣经意象·弯月铜鉴）
+	if str(u.get("eid", "")) == "baiyue_guard" or u.get("is_boss", false):
+		var pulse := 0.5 + 0.5 * sin(anim_time * 3.0)
+		var ac := Color(0.66, 0.77, 0.80, 0.30 + 0.28 * pulse)
+		canvas.draw_arc(Vector2(px + CELL / 2, py + CELL / 2), CELL * 0.62, -PI * 0.75, PI * 0.35, 20, ac, 2.5)
+		canvas.draw_arc(Vector2(px + CELL / 2, py + CELL / 2), CELL * 0.5, -PI * 0.6, PI * 0.2, 20, Color(ac, ac.a * 0.8), 2.0)
 	if flash.has(key):
 		var fk: float = maxf(0.0, 0.6 - float(flash[key]) * 3.3)
 		if fk > 0.01:
